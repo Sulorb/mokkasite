@@ -1,0 +1,7 @@
+{
+  "name": "ShitScan",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

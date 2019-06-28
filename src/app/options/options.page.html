@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Options</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-list-header>Général</ion-list-header>
+
+    <ion-item>
+      <ion-label>Langue</ion-label>
+      <ion-select placeholder="Français" (ionChange)="onChange($event)" [(ngModel)]="global.language">
+        <ion-select-option value="fr">Français</ion-select-option>
+        <ion-select-option value="en">English</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>

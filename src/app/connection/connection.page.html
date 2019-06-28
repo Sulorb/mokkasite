@@ -1,0 +1,21 @@
+<ion-header>
+      <ion-toolbar>
+            <ion-title class="ion-text-center">💩</ion-title>
+          </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+      <ion-item>  
+            <ion-label style="color: #582900">Pseudo</ion-label>
+            <ion-input [(ngModel)]="name"></ion-input>
+          </ion-item>
+      <ion-item>
+            <ion-label style="color: #582900">Mot de passe</ion-label>
+            <ion-input [(ngModel)]="password"></ion-input>
+          </ion-item>
+
+      <ion-button class="btncolor" (click)="connexion()">Se connecter</ion-button>
+      <ion-button class="btncolor" (click)="inscription()">Inscription</ion-button>
+
+</ion-content>
