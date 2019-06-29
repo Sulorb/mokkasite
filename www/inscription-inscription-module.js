@@ -58,7 +58,7 @@ var InscriptionPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"connection\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>inscription</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"connection\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>inscription</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <h1>Inscription</h1>\n\n    <ion-item>  \n        <ion-label style=\"color: #582900\">Pseudo</ion-label>\n        <ion-input [(ngModel)]=\"name\"></ion-input>\n      </ion-item>\n    \n    <ion-item>\n        <ion-label style=\"color: #582900\">Mot de passe</ion-label>\n        <ion-input [(ngModel)]=\"password1\" type=\"password\"></ion-input>\n      </ion-item>\n\n    <ion-item>\n        <ion-label style=\"color: #582900\">Mot de passe</ion-label>\n        <ion-input [(ngModel)]=\"password2\" type=\"password\"></ion-input>\n      </ion-item>\n\n    <ion-button class=\"btncolor\" (click)=\"inscription()\">S'inscrire</ion-button>\n\n\n</ion-content>"
 
 /***/ }),
 
@@ -85,12 +85,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InscriptionPage", function() { return InscriptionPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _global_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../global.service */ "./src/app/global.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
+
 
 
 var InscriptionPage = /** @class */ (function () {
-    function InscriptionPage() {
+    function InscriptionPage(navCtrl, http, global) {
+        this.navCtrl = navCtrl;
+        this.http = http;
+        this.global = global;
+        this.name = "";
+        this.password1 = "";
+        this.password2 = "";
     }
-    InscriptionPage.prototype.ngOnInit = function () {
+    InscriptionPage.prototype.inscription = function () {
+        var _this = this;
+        if (this.name.length < 4) {
+            this.global.toast("Saisis un pseudo d'au moins 4 caractères !");
+        }
+        else if (this.password1.length < 5 || this.password2.length < 5) {
+            this.global.toast("Saisis un mot de passe d'au moins 5 caractères !");
+        }
+        else if (this.password1 != this.password2) {
+            this.global.toast("Les mots de passe ne sont pas identiques !");
+        }
+        else {
+            this.http.get('http://localhost:8888/mokkaserver/?login=registration&name=' + this.name + '&pass=' + this.password1)
+                .subscribe(function (data) {
+                console.log(data);
+                if (data.connexion == 1) {
+                    _this.global.storeNative(data.token);
+                    _this.global.toast('Inscription réussie !');
+                    _this.navCtrl.navigateRoot('home');
+                }
+                else if (data.connexion == 0) {
+                    _this.global.toast('Ce pseudo est déjà pris !');
+                }
+                else {
+                    _this.global.toast('Erreur très frustrante et méconnue');
+                }
+            });
+        }
     };
     InscriptionPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -98,7 +137,7 @@ var InscriptionPage = /** @class */ (function () {
             template: __webpack_require__(/*! ./inscription.page.html */ "./src/app/inscription/inscription.page.html"),
             styles: [__webpack_require__(/*! ./inscription.page.scss */ "./src/app/inscription/inscription.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _global_service__WEBPACK_IMPORTED_MODULE_3__["GlobalService"]])
     ], InscriptionPage);
     return InscriptionPage;
 }());

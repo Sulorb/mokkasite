@@ -21,6 +21,10 @@
               "count": 1
             },
             {
+              "xml": "<feature name=\"NativeStorage\"><param name=\"browser-package\" value=\"NativeStorage\" /></feature>",
+              "count": 1
+            },
+            {
               "xml": "<feature name=\"BarcodeScanner\"><param name=\"browser-package\" value=\"BarcodeScanner\" /></feature>",
               "count": 1
             }
@@ -29,19 +33,6 @@
       },
       "*-Info.plist": {
         "parents": {
-          "NSCameraUsageDescription": [
-            {
-              "xml": "<string>We would like to access your camera for recording</string>",
-              "count": 1,
-              "mode": "merge",
-              "id": "config.xml"
-            },
-            {
-              "xml": "<string>Permet de prendre en photo les merdes.</string>",
-              "count": 1,
-              "id": "config.xml"
-            }
-          ],
           "NSMicrophoneUsageDescription": [
             {
               "xml": "<string>We would like to access your microphone for recording</string>",
@@ -103,6 +94,9 @@
       "PACKAGE_NAME": "io.ionic.shitscan"
     },
     "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "io.ionic.shitscan"
+    },
+    "cordova-plugin-nativestorage": {
       "PACKAGE_NAME": "io.ionic.shitscan"
     },
     "cordova-plugin-screen-orientation": {
@@ -643,6 +637,24 @@
       "runs": true
     },
     {
+      "file": "plugins/cordova-plugin-nativestorage/www/mainHandle.js",
+      "id": "cordova-plugin-nativestorage.mainHandle",
+      "pluginId": "cordova-plugin-nativestorage",
+      "clobbers": [
+        "NativeStorage"
+      ]
+    },
+    {
+      "file": "plugins/cordova-plugin-nativestorage/www/LocalStorageHandle.js",
+      "id": "cordova-plugin-nativestorage.LocalStorageHandle",
+      "pluginId": "cordova-plugin-nativestorage"
+    },
+    {
+      "file": "plugins/cordova-plugin-nativestorage/www/NativeStorageError.js",
+      "id": "cordova-plugin-nativestorage.NativeStorageError",
+      "pluginId": "cordova-plugin-nativestorage"
+    },
+    {
       "file": "plugins/cordova-plugin-screen-orientation/www/screenorientation.js",
       "id": "cordova-plugin-screen-orientation.screenorientation",
       "pluginId": "cordova-plugin-screen-orientation",
@@ -730,6 +742,7 @@
     "cordova-plugin-local-notification": "0.9.0-beta.2",
     "cordova-plugin-media": "5.0.2",
     "cordova-plugin-media-capture": "3.0.2",
+    "cordova-plugin-nativestorage": "2.3.2",
     "cordova-plugin-screen-orientation": "3.0.1",
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-statusbar": "2.4.2",

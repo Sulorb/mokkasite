@@ -1,16 +1,11 @@
 import { Injectable } from '@angular/core';
-import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
-import { Platform } from '@ionic/angular';
-import { Diagnostic } from '@ionic-native/diagnostic/ngx';
+import { ToastController } from '@ionic/angular';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalService {
-
-  constructor(
-    private androidPermissions: AndroidPermissions, private _diagnostic: Diagnostic, private _platform: Platform
-  ) { }
 
   language = "fr";
 
@@ -22,46 +17,38 @@ export class GlobalService {
     ["https://medias.lagranderecre.fr/imgs/1/1200x1200/836953V01_02.jpg", 48.4465, 2.33],
   ];
 
+  constructor(private toastController: ToastController, private nativeStorage: NativeStorage) { }
 
-  checkCameraPermissions(): Promise<boolean> {
-    return new Promise(resolve => {
-      if (this.isiOS()) {
-        this._diagnostic.getCameraAuthorizationStatus().then(status => {
-          if (status == this._diagnostic.permissionStatus.GRANTED) {
-            resolve(true);
-          }
-          else if (status == this._diagnostic.permissionStatus.DENIED) {
-            this._diagnostic.requestCameraAuthorization().then(authorisation => {
-              resolve(authorisation == this._diagnostic.permissionStatus.GRANTED);
-            }).catch(() => {
-              resolve(false);
-              // si bug, virer tout le else sauf resolve false
-            })
-          }
-          else if (status == this._diagnostic.permissionStatus.NOT_REQUESTED || status.toLowerCase() == 'not_determined') {
-            this._diagnostic.requestCameraAuthorization().then(authorisation => {
-              resolve(authorisation == this._diagnostic.permissionStatus.GRANTED);
-            });
-          }
-        });
-      }
-      else if (this.isAndroid()) {
-        this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA).then(result => {
-          resolve(result);
-        }, err => {
-          resolve(false);
-          console.log(err);
-        });
-      }
+  async toast(message) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000
     });
+    toast.present();
   }
 
-  isAndroid() {
-    return this._platform.is('android')
+  storeNative(value) {
+    this.nativeStorage.setItem('token', value)
+      .then(
+        () => console.log('Stored item!'),
+        error => console.error('Error storing item', error)
+      );
   }
 
-  isiOS() {
-    return this._platform.is('ios');
+  getNative() {
+    this.nativeStorage.getItem('token')
+      .then(
+        data => console.log(data),
+        error => console.error(error)
+      );
   }
+
+
+
+
+
+
+
+
 
 }

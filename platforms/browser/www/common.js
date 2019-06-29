@@ -97,19 +97,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GlobalService", function() { return GlobalService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/android-permissions/ngx */ "./node_modules/@ionic-native/android-permissions/ngx/index.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _ionic_native_diagnostic_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/diagnostic/ngx */ "./node_modules/@ionic-native/diagnostic/ngx/index.js");
-
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
 
 
 
 
 var GlobalService = /** @class */ (function () {
-    function GlobalService(androidPermissions, _diagnostic, _platform) {
-        this.androidPermissions = androidPermissions;
-        this._diagnostic = _diagnostic;
-        this._platform = _platform;
+    function GlobalService(toastController, nativeStorage) {
+        this.toastController = toastController;
+        this.nativeStorage = nativeStorage;
         this.language = "fr";
         this.shits = [
             ["https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/198/pile-of-poo_1f4a9.png", 48.865, 2.33],
@@ -119,50 +116,36 @@ var GlobalService = /** @class */ (function () {
             ["https://medias.lagranderecre.fr/imgs/1/1200x1200/836953V01_02.jpg", 48.4465, 2.33],
         ];
     }
-    GlobalService.prototype.checkCameraPermissions = function () {
-        var _this = this;
-        return new Promise(function (resolve) {
-            if (_this.isiOS()) {
-                _this._diagnostic.getCameraAuthorizationStatus().then(function (status) {
-                    if (status == _this._diagnostic.permissionStatus.GRANTED) {
-                        resolve(true);
-                    }
-                    else if (status == _this._diagnostic.permissionStatus.DENIED) {
-                        _this._diagnostic.requestCameraAuthorization().then(function (authorisation) {
-                            resolve(authorisation == _this._diagnostic.permissionStatus.GRANTED);
-                        }).catch(function () {
-                            resolve(false);
-                            // si bug, virer tout le else sauf resolve false
-                        });
-                    }
-                    else if (status == _this._diagnostic.permissionStatus.NOT_REQUESTED || status.toLowerCase() == 'not_determined') {
-                        _this._diagnostic.requestCameraAuthorization().then(function (authorisation) {
-                            resolve(authorisation == _this._diagnostic.permissionStatus.GRANTED);
-                        });
-                    }
-                });
-            }
-            else if (_this.isAndroid()) {
-                _this.androidPermissions.requestPermission(_this.androidPermissions.PERMISSION.CAMERA).then(function (result) {
-                    resolve(result);
-                }, function (err) {
-                    resolve(false);
-                    console.log(err);
-                });
-            }
+    GlobalService.prototype.toast = function (message) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var toast;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.toastController.create({
+                            message: message,
+                            duration: 2000
+                        })];
+                    case 1:
+                        toast = _a.sent();
+                        toast.present();
+                        return [2 /*return*/];
+                }
+            });
         });
     };
-    GlobalService.prototype.isAndroid = function () {
-        return this._platform.is('android');
+    GlobalService.prototype.storeNative = function (value) {
+        this.nativeStorage.setItem('token', value)
+            .then(function () { return console.log('Stored item!'); }, function (error) { return console.error('Error storing item', error); });
     };
-    GlobalService.prototype.isiOS = function () {
-        return this._platform.is('ios');
+    GlobalService.prototype.getNative = function () {
+        this.nativeStorage.getItem('token')
+            .then(function (data) { return console.log(data); }, function (error) { return console.error(error); });
     };
     GlobalService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_2__["AndroidPermissions"], _ionic_native_diagnostic_ngx__WEBPACK_IMPORTED_MODULE_4__["Diagnostic"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"], _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__["NativeStorage"]])
     ], GlobalService);
     return GlobalService;
 }());

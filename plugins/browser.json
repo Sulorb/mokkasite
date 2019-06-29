@@ -49,6 +49,9 @@
     "cordova-plugin-media-capture": {
       "PACKAGE_NAME": "io.ionic.shitscan"
     },
+    "cordova-plugin-nativestorage": {
+      "PACKAGE_NAME": "io.ionic.shitscan"
+    },
     "cordova-plugin-screen-orientation": {
       "PACKAGE_NAME": "io.ionic.shitscan"
     },

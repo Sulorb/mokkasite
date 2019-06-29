@@ -58,7 +58,7 @@ var ConnectionPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n      <ion-toolbar>\n            <ion-title class=\"ion-text-center\">💩</ion-title>\n          </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n      <ion-item>  \n            <ion-label style=\"color: #582900\">Pseudo</ion-label>\n            <ion-input [(ngModel)]=\"name\"></ion-input>\n          </ion-item>\n      <ion-item>\n            <ion-label style=\"color: #582900\">Mot de passe</ion-label>\n            <ion-input [(ngModel)]=\"password\"></ion-input>\n          </ion-item>\n\n      <ion-button class=\"btncolor\" (click)=\"connexion()\">Se connecter</ion-button>\n      <ion-button class=\"btncolor\" (click)=\"inscription()\">Inscription</ion-button>\n\n</ion-content>"
+module.exports = "<ion-header>\n      <ion-toolbar>\n            <ion-title class=\"ion-text-center\">💩</ion-title>\n          </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n    <h1>Connexion</h1>\n\n      <ion-item>  \n            <ion-label style=\"color: #582900\">Pseudo</ion-label>\n            <ion-input [(ngModel)]=\"name\"></ion-input>\n          </ion-item>\n      <ion-item>\n            <ion-label style=\"color: #582900\">Mot de passe</ion-label>\n            <ion-input [(ngModel)]=\"password\" type=\"password\"></ion-input>\n          </ion-item>\n\n      <ion-button class=\"btncolor\" (click)=\"connexion()\">Se connecter</ion-button>\n      <ion-button class=\"btncolor\" routerLink=\"/inscription\">Inscription</ion-button>\n\n</ion-content>"
 
 /***/ }),
 
@@ -84,8 +84,8 @@ module.exports = "@charset \"UTF-8\";\n.takePhoto {\n      width: 100px;\n  
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConnectionPage", function() { return ConnectionPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _global_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../global.service */ "./src/app/global.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 
@@ -94,31 +94,36 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ConnectionPage = /** @class */ (function () {
-    function ConnectionPage(router, navCtrl, http) {
-        this.router = router;
+    function ConnectionPage(navCtrl, http, global) {
         this.navCtrl = navCtrl;
         this.http = http;
+        this.global = global;
         this.name = "";
         this.password = "";
     }
     ConnectionPage.prototype.ngOnInit = function () {
     };
     ConnectionPage.prototype.connexion = function () {
+        var _this = this;
         this.http.get('http://localhost:8888/mokkaserver/?login=connection&name=' + this.name + '&pass=' + this.password)
             .subscribe(function (data) {
             console.log(data);
+            if (data.connexion == 1) {
+                _this.global.toast('Connexion réussie !');
+                _this.navCtrl.navigateRoot('home');
+            }
+            else {
+                _this.global.toast('Mauvais identifiant ou mot de passe');
+            }
         });
     };
-    ConnectionPage.prototype.inscription = function () {
-        this.navCtrl.navigateForward('inscription');
-    };
     ConnectionPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-connection',
             template: __webpack_require__(/*! ./connection.page.html */ "./src/app/connection/connection.page.html"),
             styles: [__webpack_require__(/*! ./connection.page.scss */ "./src/app/connection/connection.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"], _global_service__WEBPACK_IMPORTED_MODULE_1__["GlobalService"]])
     ], ConnectionPage);
     return ConnectionPage;
 }());

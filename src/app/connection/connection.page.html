@@ -6,16 +6,18 @@
 
 <ion-content>
 
+    <h1>Connexion</h1>
+
       <ion-item>  
             <ion-label style="color: #582900">Pseudo</ion-label>
             <ion-input [(ngModel)]="name"></ion-input>
           </ion-item>
       <ion-item>
             <ion-label style="color: #582900">Mot de passe</ion-label>
-            <ion-input [(ngModel)]="password"></ion-input>
+            <ion-input [(ngModel)]="password" type="password"></ion-input>
           </ion-item>
 
       <ion-button class="btncolor" (click)="connexion()">Se connecter</ion-button>
-      <ion-button class="btncolor" (click)="inscription()">Inscription</ion-button>
+      <ion-button class="btncolor" routerLink="/inscription">Inscription</ion-button>
 
 </ion-content>

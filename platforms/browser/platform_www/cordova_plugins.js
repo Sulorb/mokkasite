@@ -508,6 +508,24 @@ module.exports = [
         "runs": true
     },
     {
+        "file": "plugins/cordova-plugin-nativestorage/www/mainHandle.js",
+        "id": "cordova-plugin-nativestorage.mainHandle",
+        "pluginId": "cordova-plugin-nativestorage",
+        "clobbers": [
+            "NativeStorage"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-nativestorage/www/LocalStorageHandle.js",
+        "id": "cordova-plugin-nativestorage.LocalStorageHandle",
+        "pluginId": "cordova-plugin-nativestorage"
+    },
+    {
+        "file": "plugins/cordova-plugin-nativestorage/www/NativeStorageError.js",
+        "id": "cordova-plugin-nativestorage.NativeStorageError",
+        "pluginId": "cordova-plugin-nativestorage"
+    },
+    {
         "file": "plugins/cordova-plugin-screen-orientation/www/screenorientation.js",
         "id": "cordova-plugin-screen-orientation.screenorientation",
         "pluginId": "cordova-plugin-screen-orientation",
@@ -597,6 +615,7 @@ module.exports.metadata =
     "cordova-plugin-local-notification": "0.9.0-beta.2",
     "cordova-plugin-media": "5.0.2",
     "cordova-plugin-media-capture": "3.0.2",
+    "cordova-plugin-nativestorage": "2.3.2",
     "cordova-plugin-screen-orientation": "3.0.1",
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-statusbar": "2.4.2",

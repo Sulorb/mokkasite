@@ -2,7 +2,6 @@ import { GlobalService } from './../global.service';
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import leaflet from 'leaflet';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
@@ -19,7 +18,7 @@ export class HomePage implements OnInit {
 
   itemToUpload = "assets/icon/favicon.png";
 
-  constructor(public router: Router, private geolocation: Geolocation, private camera: Camera, private global: GlobalService, private elementRef: ElementRef) {
+  constructor(public router: Router, private geolocation: Geolocation, private global: GlobalService, private elementRef: ElementRef) {
 
   }
 
@@ -30,6 +29,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.loadmap();
     console.log('didLoadHome')
+    this.global.getNative()
 
   }
 
@@ -76,51 +76,22 @@ export class HomePage implements OnInit {
     console.log("going to merchant " + merchantId)
   }
 
-  goToOptions(){
+  goToOptions() {
     this.router.navigate(['/options'])
   }
 
-  goToMore(){
+  goToMore() {
     this.router.navigate(['/plus'])
   }
 
-  goToPodium(){
+  goToPodium() {
     this.router.navigate(['/podium'])
   }
 
   report() {
     console.log('reprt')
-
-
-    // CAMERA__________
-    // this.global.checkCameraPermissions().then(permissionOk => {
-      console.log('check')
-      // if (permissionOk) {
-
-        const options: CameraOptions = {
-          quality: 35,
-          destinationType: this.camera.DestinationType.DATA_URL,
-          encodingType: this.camera.EncodingType.JPEG,
-          mediaType: this.camera.MediaType.PICTURE,
-          sourceType: this.camera.PictureSourceType.CAMERA,
-          allowEdit: true
-        };
-
-        this.camera.getPicture(options).then((imageData) => {
-          console.log('PHOTO OK : ', imageData)
-
-
-          this.itemToUpload = 'data:image/jpeg;base64,' + imageData;
-
-          // passage page avec photo
-          this.router.navigate(['/upload', { image: this.itemToUpload }])
-
-        }, (err) => {
-          // Handle error
-          console.log(err)
-        });
-      // }
-    // });
+    // passage page avec photo
+    this.router.navigate(['/upload', { image: this.itemToUpload }])
 
 
   }

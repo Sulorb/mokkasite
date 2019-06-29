@@ -8,5 +8,24 @@
 </ion-header>
 
 <ion-content>
+  <h1>Inscription</h1>
+
+    <ion-item>  
+        <ion-label style="color: #582900">Pseudo</ion-label>
+        <ion-input [(ngModel)]="name"></ion-input>
+      </ion-item>
+    
+    <ion-item>
+        <ion-label style="color: #582900">Mot de passe</ion-label>
+        <ion-input [(ngModel)]="password1" type="password"></ion-input>
+      </ion-item>
+
+    <ion-item>
+        <ion-label style="color: #582900">Mot de passe</ion-label>
+        <ion-input [(ngModel)]="password2" type="password"></ion-input>
+      </ion-item>
+
+    <ion-button class="btncolor" (click)="inscription()">S'inscrire</ion-button>
+
 
 </ion-content>

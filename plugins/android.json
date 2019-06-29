@@ -51,6 +51,9 @@
     "cordova-plugin-media-capture": {
       "PACKAGE_NAME": "io.ionic.shitscan"
     },
+    "cordova-plugin-screen-orientation": {
+      "PACKAGE_NAME": "io.ionic.shitscan"
+    },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "io.ionic.shitscan"
     },
@@ -58,6 +61,10 @@
       "PACKAGE_NAME": "io.ionic.shitscan"
     },
     "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "io.ionic.shitscan"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "ANDROID_SUPPORT_V4_VERSION": "24.1.1+",
       "PACKAGE_NAME": "io.ionic.shitscan"
     },
     "cordova-sqlite-storage": {
@@ -71,11 +78,7 @@
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "io.ionic.shitscan"
     },
-    "cordova-plugin-x-socialsharing": {
-      "ANDROID_SUPPORT_V4_VERSION": "24.1.1+",
-      "PACKAGE_NAME": "io.ionic.shitscan"
-    },
-    "cordova-plugin-screen-orientation": {
+    "cordova-plugin-nativestorage": {
       "PACKAGE_NAME": "io.ionic.shitscan"
     }
   },

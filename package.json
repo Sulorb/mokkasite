@@ -21,7 +21,6 @@
     "@angular/platform-browser-dynamic": "^7.2.2",
     "@angular/router": "^7.2.2",
     "@ionic-native/android-permissions": "^5.4.0",
-    "@ionic-native/camera": "^5.4.0",
     "@ionic-native/contacts": "^5.4.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/diagnostic": "^5.4.0",
@@ -29,6 +28,7 @@
     "@ionic-native/geolocation": "^5.4.0",
     "@ionic-native/media": "^5.4.0",
     "@ionic-native/media-capture": "^5.4.0",
+    "@ionic-native/native-storage": "^5.8.0",
     "@ionic-native/screen-orientation": "^5.6.0",
     "@ionic-native/social-sharing": "^5.0.0",
     "@ionic-native/splash-screen": "^5.0.0",
@@ -40,13 +40,13 @@
     "cordova-ios": "^5.0.0",
     "cordova-plugin-android-permissions": "1.0.0",
     "cordova-plugin-badge": "0.8.8",
-    "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-contacts": "3.0.1",
     "cordova-plugin-file": "6.0.1",
     "cordova-plugin-geolocation": "4.0.1",
     "cordova-plugin-local-notification": "0.9.0-beta.2",
     "cordova-plugin-media": "5.0.2",
     "cordova-plugin-media-capture": "3.0.2",
+    "cordova-plugin-nativestorage": "^2.3.2",
     "cordova-plugin-screen-orientation": "3.0.1",
     "cordova-plugin-x-socialsharing": "5.4.4",
     "cordova-sqlite-storage": "3.2.0",
@@ -55,8 +55,11 @@
     "es6-promise-plugin": "4.2.2",
     "ionic2-calendar": "^0.5.2",
     "leaflet": "^1.4.0",
+    "ngx-webcam": "^0.2.5",
     "phonegap-plugin-barcodescanner": "8.0.1",
+    "rx-subject": "^3.1.0",
     "rxjs": "~6.3.3",
+    "rxjs-observable": "0.0.7",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {
@@ -107,7 +110,6 @@
       "cordova.plugins.diagnostic": {
         "ANDROID_SUPPORT_VERSION": "28.+"
       },
-      "cordova-plugin-camera": {},
       "cordova-plugin-contacts": {},
       "cordova-plugin-media-capture": {},
       "cordova-plugin-media": {
@@ -123,7 +125,8 @@
       "cordova-plugin-x-socialsharing": {
         "ANDROID_SUPPORT_V4_VERSION": "24.1.1+"
       },
-      "cordova-plugin-screen-orientation": {}
+      "cordova-plugin-screen-orientation": {},
+      "cordova-plugin-nativestorage": {}
     },
     "platforms": [
       "android",

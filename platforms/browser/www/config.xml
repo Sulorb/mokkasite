@@ -3,7 +3,7 @@
     <name>Shit Scan</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://localhost:8101" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -11,18 +11,13 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
-        <string>We would like to access your camera for recording</string>
-    </edit-config>
     <edit-config file="*-Info.plist" mode="merge" target="NSMicrophoneUsageDescription">
         <string>We would like to access your microphone for recording</string>
     </edit-config>
     <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
         <string>Votre géolocalisation est utilisée pour pouvoir signaler les merdes aux bons endroits.</string>
     </edit-config>
-    <config-file parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
-        <string>Permet de prendre en photo les merdes.</string>
-    </config-file>
+    <allow-navigation href="http://localhost:8101" sessionid="5e94f79e" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />

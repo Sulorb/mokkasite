@@ -11,7 +11,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Diagnostic } from '@ionic-native/diagnostic/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 
@@ -26,6 +25,9 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 import { HttpClientModule } from '@angular/common/http';
+import { WebcamModule } from 'ngx-webcam';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,13 +37,14 @@ import { HttpClientModule } from '@angular/common/http';
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
     HttpClientModule,
+    WebcamModule,
     AppRoutingModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Geolocation,
-    Camera,
+    NativeStorage,
     Diagnostic,
     ScreenOrientation,
     SocialSharing,

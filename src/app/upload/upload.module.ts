@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { UploadPage } from './upload.page';
+import {WebcamModule} from 'ngx-webcam';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    WebcamModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],

@@ -14028,9 +14028,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
-/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 
 
 
@@ -14038,10 +14036,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var HomePage = /** @class */ (function () {
-    function HomePage(router, geolocation, camera, global, elementRef) {
+    function HomePage(router, geolocation, global, elementRef) {
         this.router = router;
         this.geolocation = geolocation;
-        this.camera = camera;
         this.global = global;
         this.elementRef = elementRef;
         this.itemToUpload = "assets/icon/favicon.png";
@@ -14052,6 +14049,7 @@ var HomePage = /** @class */ (function () {
     HomePage.prototype.ngOnInit = function () {
         this.loadmap();
         console.log('didLoadHome');
+        this.global.getNative();
     };
     HomePage.prototype.loadmap = function () {
         this.map = leaflet__WEBPACK_IMPORTED_MODULE_3___default.a.map("map");
@@ -14105,31 +14103,9 @@ var HomePage = /** @class */ (function () {
         this.router.navigate(['/podium']);
     };
     HomePage.prototype.report = function () {
-        var _this = this;
         console.log('reprt');
-        // CAMERA__________
-        // this.global.checkCameraPermissions().then(permissionOk => {
-        console.log('check');
-        // if (permissionOk) {
-        var options = {
-            quality: 35,
-            destinationType: this.camera.DestinationType.DATA_URL,
-            encodingType: this.camera.EncodingType.JPEG,
-            mediaType: this.camera.MediaType.PICTURE,
-            sourceType: this.camera.PictureSourceType.CAMERA,
-            allowEdit: true
-        };
-        this.camera.getPicture(options).then(function (imageData) {
-            console.log('PHOTO OK : ', imageData);
-            _this.itemToUpload = 'data:image/jpeg;base64,' + imageData;
-            // passage page avec photo
-            _this.router.navigate(['/upload', { image: _this.itemToUpload }]);
-        }, function (err) {
-            // Handle error
-            console.log(err);
-        });
-        // }
-        // });
+        // passage page avec photo
+        this.router.navigate(['/upload', { image: this.itemToUpload }]);
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])('map'),
@@ -14141,7 +14117,7 @@ var HomePage = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.page.html */ "./src/app/home/home.page.html"),
             styles: [__webpack_require__(/*! ./home.page.scss */ "./src/app/home/home.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_4__["Geolocation"], _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_5__["Camera"], _global_service__WEBPACK_IMPORTED_MODULE_1__["GlobalService"], _angular_core__WEBPACK_IMPORTED_MODULE_2__["ElementRef"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"], _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_4__["Geolocation"], _global_service__WEBPACK_IMPORTED_MODULE_1__["GlobalService"], _angular_core__WEBPACK_IMPORTED_MODULE_2__["ElementRef"]])
     ], HomePage);
     return HomePage;
 }());
