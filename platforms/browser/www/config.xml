@@ -3,7 +3,7 @@
     <name>Shit Scan</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.15.22:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -23,7 +23,6 @@
     <config-file parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
         <string>Permet de prendre en photo les merdes.</string>
     </config-file>
-    <allow-navigation href="http://192.168.15.22:8100" sessionid="34610265" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />

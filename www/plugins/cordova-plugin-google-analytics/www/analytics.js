@@ -1,5 +1,4 @@
-cordova.define("cordova-plugin-google-analytics.UniversalAnalytics", function(require, exports, module) {
-function UniversalAnalyticsPlugin() {}
+cordova.define("cordova-plugin-google-analytics.UniversalAnalytics", function(require, exports, module) { function UniversalAnalyticsPlugin() {}
 
 UniversalAnalyticsPlugin.prototype.startTrackerWithId = function(id, dispatchPeriod, success, error) {
   if (typeof dispatchPeriod === 'undefined' || dispatchPeriod === null) {

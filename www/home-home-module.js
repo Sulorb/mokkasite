@@ -13997,7 +13997,7 @@ var HomePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-title class=\"ion-text-center\">💩</ion-title>\n      </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-fab vertical=\"top\" horizontal=\"end\">\n        <ion-fab-button>\n          <ion-icon name=\"more\"></ion-icon>\n        </ion-fab-button>\n    \n        <ion-fab-list side=\"bottom\">\n    \n          <ion-fab-button (click)=\"goToOptions()\">\n            <ion-icon name=\"settings\"></ion-icon>\n          </ion-fab-button>\n    \n          <ion-fab-button (click)=\"goToMore()\">\n            <ion-icon name=\"add\"></ion-icon>\n          </ion-fab-button>\n    \n          <ion-fab-button (click)=\"goToPodium()\">\n            <ion-icon name=\"podium\"></ion-icon>\n          </ion-fab-button>\n    \n        </ion-fab-list>\n    \n      </ion-fab>\n    \n  <!-- div contenant la map -->\n    <div id=\"map\" style=\"width:100%; height:100%;\"></div>\n\n    \n  <!-- Bouton pour signaler la merde -->\n    <ion-fab vertical=\"bottom\" horizontal=\"center\" slot=\"fixed\">\n        <ion-fab-button class=\"takePhoto \" color=\"transparent\" (click)=\"report()\">\n            <span style=\"font-size: 2.5em\">💩</span>\n          </ion-fab-button>\n      </ion-fab>\n\n\n</ion-content>"
+module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-title class=\"ion-text-center\">💩</ion-title>\n      </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-fab vertical=\"top\" horizontal=\"end\">\n        <ion-fab-button>\n          <ion-icon name=\"more\"></ion-icon>\n        </ion-fab-button>\n     \n        <ion-fab-list side=\"bottom\">\n    \n          <ion-fab-button (click)=\"goToOptions()\">\n            <ion-icon name=\"settings\"></ion-icon>\n          </ion-fab-button>\n    \n          <ion-fab-button (click)=\"goToMore()\">\n            <ion-icon name=\"add\"></ion-icon>\n          </ion-fab-button>\n    \n          <ion-fab-button (click)=\"goToPodium()\">\n            <ion-icon name=\"podium\"></ion-icon>\n          </ion-fab-button>\n    \n        </ion-fab-list>\n    \n      </ion-fab>\n    \n  <!-- div contenant la map -->\n    <div id=\"map\" style=\"width:100%; height:100%;\"></div>\n\n    \n  <!-- Bouton pour signaler la merde -->\n    <ion-fab vertical=\"bottom\" horizontal=\"center\" slot=\"fixed\">\n        <ion-fab-button class=\"takePhoto \" color=\"transparent\" (click)=\"report()\">\n            <span style=\"font-size: 2.5em\">💩</span>\n          </ion-fab-button>\n      </ion-fab>\n\n\n</ion-content>"
 
 /***/ }),
 
@@ -14008,7 +14008,7 @@ module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-title clas
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".takePhoto {\n  width: 100px;\n  height: 100px;\n  border: 5px solid #582900;\n  border-radius: 50%;\n  background: transparent; }\n\n.btncolor {\n  --background: var(--ion-color-btn); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hbGV4aXMvRGVza3RvcC9Jb25pYy9pZXNhLTIwMTktYjMtbW9iaWxlLXByb2plY3Qvc291cmNlcy9TaGl0U2Nhbi9zcmMvYXBwL2hvbWUvaG9tZS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxZQUFZO0VBQ1osYUFBYTtFQUNiLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsdUJBQXVCLEVBQUE7O0FBSTNCO0VBQ0ksa0NBQWEsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudGFrZVBob3RvIHtcbiAgICB3aWR0aDogMTAwcHg7XG4gICAgaGVpZ2h0OiAxMDBweDtcbiAgICBib3JkZXI6IDVweCBzb2xpZCAjNTgyOTAwO1xuICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcbn1cblxuXG4uYnRuY29sb3Ige1xuICAgIC0tYmFja2dyb3VuZDogdmFyKC0taW9uLWNvbG9yLWJ0bik7XG59Il19 */"
+module.exports = ".takePhoto {\n  width: 100px;\n  height: 100px;\n  border: 5px solid #582900;\n  border-radius: 50%;\n  background: transparent; }\n\n.btncolor {\n  --background: var(--ion-color-btn); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hbGV4aXMvRGVza3RvcC9Jb25pYy9Nb2trYVNpdGUvc3JjL2FwcC9ob21lL2hvbWUucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksWUFBWTtFQUNaLGFBQWE7RUFDYix5QkFBeUI7RUFDekIsa0JBQWtCO0VBQ2xCLHVCQUF1QixFQUFBOztBQUkzQjtFQUNJLGtDQUFhLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9ob21lL2hvbWUucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnRha2VQaG90byB7XG4gICAgd2lkdGg6IDEwMHB4O1xuICAgIGhlaWdodDogMTAwcHg7XG4gICAgYm9yZGVyOiA1cHggc29saWQgIzU4MjkwMDtcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XG4gICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7XG59XG5cblxuLmJ0bmNvbG9yIHtcbiAgICAtLWJhY2tncm91bmQ6IHZhcigtLWlvbi1jb2xvci1idG4pO1xufSJdfQ== */"
 
 /***/ }),
 
@@ -14030,10 +14030,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
 /* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _ionic_native_google_analytics_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/google-analytics/ngx */ "./node_modules/@ionic-native/google-analytics/ngx/index.js");
-/* harmony import */ var _ionic_native_badge_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/badge/ngx */ "./node_modules/@ionic-native/badge/ngx/index.js");
-
-
 
 
 
@@ -14042,14 +14038,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var HomePage = /** @class */ (function () {
-    function HomePage(router, geolocation, camera, global, elementRef, ga, badge) {
+    function HomePage(router, geolocation, camera, global, elementRef) {
         this.router = router;
         this.geolocation = geolocation;
         this.camera = camera;
         this.global = global;
         this.elementRef = elementRef;
-        this.ga = ga;
-        this.badge = badge;
         this.itemToUpload = "assets/icon/favicon.png";
     }
     HomePage.prototype.ionViewWillEnter = function () {
@@ -14058,11 +14052,6 @@ var HomePage = /** @class */ (function () {
     HomePage.prototype.ngOnInit = function () {
         this.loadmap();
         console.log('didLoadHome');
-        this.ga.trackView('HomePage')
-            .then(function () {
-            console.log('analytics homepage');
-        })
-            .catch(function (e) { return console.log(e); });
     };
     HomePage.prototype.loadmap = function () {
         this.map = leaflet__WEBPACK_IMPORTED_MODULE_3___default.a.map("map");
@@ -14119,27 +14108,28 @@ var HomePage = /** @class */ (function () {
         var _this = this;
         console.log('reprt');
         // CAMERA__________
-        this.global.checkCameraPermissions().then(function (permissionOk) {
-            if (permissionOk) {
-                var options = {
-                    quality: 35,
-                    destinationType: _this.camera.DestinationType.DATA_URL,
-                    encodingType: _this.camera.EncodingType.JPEG,
-                    mediaType: _this.camera.MediaType.PICTURE,
-                    sourceType: _this.camera.PictureSourceType.CAMERA,
-                    allowEdit: true
-                };
-                _this.camera.getPicture(options).then(function (imageData) {
-                    console.log('PHOTO OK : ', imageData);
-                    _this.itemToUpload = 'data:image/jpeg;base64,' + imageData;
-                    // passage page avec photo
-                    _this.router.navigate(['/upload', { image: _this.itemToUpload }]);
-                }, function (err) {
-                    // Handle error
-                    console.log(err);
-                });
-            }
+        // this.global.checkCameraPermissions().then(permissionOk => {
+        console.log('check');
+        // if (permissionOk) {
+        var options = {
+            quality: 35,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE,
+            sourceType: this.camera.PictureSourceType.CAMERA,
+            allowEdit: true
+        };
+        this.camera.getPicture(options).then(function (imageData) {
+            console.log('PHOTO OK : ', imageData);
+            _this.itemToUpload = 'data:image/jpeg;base64,' + imageData;
+            // passage page avec photo
+            _this.router.navigate(['/upload', { image: _this.itemToUpload }]);
+        }, function (err) {
+            // Handle error
+            console.log(err);
         });
+        // }
+        // });
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])('map'),
@@ -14151,7 +14141,7 @@ var HomePage = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.page.html */ "./src/app/home/home.page.html"),
             styles: [__webpack_require__(/*! ./home.page.scss */ "./src/app/home/home.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_4__["Geolocation"], _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_5__["Camera"], _global_service__WEBPACK_IMPORTED_MODULE_1__["GlobalService"], _angular_core__WEBPACK_IMPORTED_MODULE_2__["ElementRef"], _ionic_native_google_analytics_ngx__WEBPACK_IMPORTED_MODULE_7__["GoogleAnalytics"], _ionic_native_badge_ngx__WEBPACK_IMPORTED_MODULE_8__["Badge"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_4__["Geolocation"], _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_5__["Camera"], _global_service__WEBPACK_IMPORTED_MODULE_1__["GlobalService"], _angular_core__WEBPACK_IMPORTED_MODULE_2__["ElementRef"]])
     ], HomePage);
     return HomePage;
 }());

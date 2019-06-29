@@ -58,7 +58,7 @@ var ConnectionPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n      <ion-toolbar>\n        <ion-title class=\"ion-text-center\">💩</ion-title>\n      </ion-toolbar>\n    </ion-header>\n    \n    <ion-content>\n    \n      <ion-item>  \n        <ion-label style=\"color: #582900\">Pseudo</ion-label>\n        <ion-input></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label style=\"color: #582900\">Mot de passe</ion-label>\n        <ion-input></ion-input>\n      </ion-item>\n    \n      <ion-button class=\"btncolor\"(click)=\"connexion()\" >Se connecter</ion-button>\n      <ion-button class=\"btncolor\" (click)=\"inscription()\">Inscription</ion-button>\n    \n    </ion-content>"
+module.exports = "<ion-header>\n      <ion-toolbar>\n            <ion-title class=\"ion-text-center\">💩</ion-title>\n          </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n      <ion-item>  \n            <ion-label style=\"color: #582900\">Pseudo</ion-label>\n            <ion-input [(ngModel)]=\"name\"></ion-input>\n          </ion-item>\n      <ion-item>\n            <ion-label style=\"color: #582900\">Mot de passe</ion-label>\n            <ion-input [(ngModel)]=\"password\"></ion-input>\n          </ion-item>\n\n      <ion-button class=\"btncolor\" (click)=\"connexion()\">Se connecter</ion-button>\n      <ion-button class=\"btncolor\" (click)=\"inscription()\">Inscription</ion-button>\n\n</ion-content>"
 
 /***/ }),
 
@@ -69,7 +69,7 @@ module.exports = "<ion-header>\n      <ion-toolbar>\n        <ion-title cl
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "@charset \"UTF-8\";\n.takePhoto {\n      width: 100px;\n      height: 100px;\n      border: 5px solid #582900;\n      border-radius: 50%;\n      background: transparent; }\n.btncolor {\n      --background: var(--ion-color-btn); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29ubmVjdGlvbi9jb25uZWN0aW9uLnBhZ2Uuc2NzcyIsIi9Vc2Vycy9hbGV4aXMvRGVza3RvcC9Jb25pYy9pZXNhLTIwMTktYjMtbW9iaWxlLXByb2plY3Qvc291cmNlcy9TaGl0U2Nhbi9zcmMvYXBwL2Nvbm5lY3Rpb24vY29ubmVjdGlvbi5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsZ0JBQWdCO0FDQWhCO0VBQ0ksZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQiw2QkFBNkI7RUFDN0Isc0JBQXNCO0VBQ3RCLDJCQUEyQixFQUFBO0FBSTNCO0VBQ0Esc0NBQXNDLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9jb25uZWN0aW9uL2Nvbm5lY3Rpb24ucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGNoYXJzZXQgXCJVVEYtOFwiO1xuLnRha2VQaG90byB7XG4gIMKgwqDCoMKgd2lkdGg6IDEwMHB4O1xuICDCoMKgwqDCoGhlaWdodDogMTAwcHg7XG4gIMKgwqDCoMKgYm9yZGVyOiA1cHggc29saWQgIzU4MjkwMDtcbiAgwqDCoMKgwqBib3JkZXItcmFkaXVzOiA1MCU7XG4gIMKgwqDCoMKgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7IH1cblxuLmJ0bmNvbG9yIHtcbiAgwqDCoMKgwqAtLWJhY2tncm91bmQ6IHZhcigtLWlvbi1jb2xvci1idG4pOyB9XG4iLCIudGFrZVBob3RvIHtcbiAgICDCoMKgwqDCoHdpZHRoOiAxMDBweDtcbiAgICDCoMKgwqDCoGhlaWdodDogMTAwcHg7XG4gICAgwqDCoMKgwqBib3JkZXI6IDVweCBzb2xpZCAjNTgyOTAwO1xuICAgIMKgwqDCoMKgYm9yZGVyLXJhZGl1czogNTAlO1xuICAgIMKgwqDCoMKgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7XG4gICAgfVxuICAgIFxuICAgIFxuICAgIC5idG5jb2xvciB7XG4gICAgwqDCoMKgwqAtLWJhY2tncm91bmQ6IHZhcigtLWlvbi1jb2xvci1idG4pO1xuICAgIH0iXX0= */"
+module.exports = "@charset \"UTF-8\";\n.takePhoto {\n      width: 100px;\n      height: 100px;\n      border: 5px solid #582900;\n      border-radius: 50%;\n      background: transparent; }\n.btncolor {\n      --background: var(--ion-color-btn); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29ubmVjdGlvbi9jb25uZWN0aW9uLnBhZ2Uuc2NzcyIsIi9Vc2Vycy9hbGV4aXMvRGVza3RvcC9Jb25pYy9Nb2trYVNpdGUvc3JjL2FwcC9jb25uZWN0aW9uL2Nvbm5lY3Rpb24ucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGdCQUFnQjtBQ0FoQjtFQUNJLGdCQUFnQjtFQUNoQixpQkFBaUI7RUFDakIsNkJBQTZCO0VBQzdCLHNCQUFzQjtFQUN0QiwyQkFBMkIsRUFBQTtBQUkzQjtFQUNBLHNDQUFzQyxFQUFBIiwiZmlsZSI6InNyYy9hcHAvY29ubmVjdGlvbi9jb25uZWN0aW9uLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBjaGFyc2V0IFwiVVRGLThcIjtcbi50YWtlUGhvdG8ge1xuICDCoMKgwqDCoHdpZHRoOiAxMDBweDtcbiAgwqDCoMKgwqBoZWlnaHQ6IDEwMHB4O1xuICDCoMKgwqDCoGJvcmRlcjogNXB4IHNvbGlkICM1ODI5MDA7XG4gIMKgwqDCoMKgYm9yZGVyLXJhZGl1czogNTAlO1xuICDCoMKgwqDCoGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OyB9XG5cbi5idG5jb2xvciB7XG4gIMKgwqDCoMKgLS1iYWNrZ3JvdW5kOiB2YXIoLS1pb24tY29sb3ItYnRuKTsgfVxuIiwiLnRha2VQaG90byB7XG4gICAgwqDCoMKgwqB3aWR0aDogMTAwcHg7XG4gICAgwqDCoMKgwqBoZWlnaHQ6IDEwMHB4O1xuICAgIMKgwqDCoMKgYm9yZGVyOiA1cHggc29saWQgIzU4MjkwMDtcbiAgICDCoMKgwqDCoGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgICDCoMKgwqDCoGJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xuICAgIH1cbiAgICBcbiAgICBcbiAgICAuYnRuY29sb3Ige1xuICAgIMKgwqDCoMKgLS1iYWNrZ3JvdW5kOiB2YXIoLS1pb24tY29sb3ItYnRuKTtcbiAgICB9Il19 */"
 
 /***/ }),
 
@@ -87,19 +87,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
 
 
 
 
 var ConnectionPage = /** @class */ (function () {
-    function ConnectionPage(router, navCtrl) {
+    function ConnectionPage(router, navCtrl, http) {
         this.router = router;
         this.navCtrl = navCtrl;
+        this.http = http;
+        this.name = "";
+        this.password = "";
     }
     ConnectionPage.prototype.ngOnInit = function () {
     };
     ConnectionPage.prototype.connexion = function () {
-        this.router.navigate(['/home']);
+        this.http.get('http://localhost:8888/mokkaserver/?login=connection&name=' + this.name + '&pass=' + this.password)
+            .subscribe(function (data) {
+            console.log(data);
+        });
     };
     ConnectionPage.prototype.inscription = function () {
         this.navCtrl.navigateForward('inscription');
@@ -110,7 +118,7 @@ var ConnectionPage = /** @class */ (function () {
             template: __webpack_require__(/*! ./connection.page.html */ "./src/app/connection/connection.page.html"),
             styles: [__webpack_require__(/*! ./connection.page.scss */ "./src/app/connection/connection.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"]])
     ], ConnectionPage);
     return ConnectionPage;
 }());

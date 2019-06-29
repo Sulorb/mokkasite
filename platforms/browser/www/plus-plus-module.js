@@ -2513,7 +2513,7 @@ var PlusPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n    <ion-toolbar>\n\n        <ion-buttons slot=\"start\">\n            <ion-back-button defaultHref=\"home\"></ion-back-button>\n          </ion-buttons>\n\n        <ion-title>Bonus</ion-title>\n      </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n\n\n  <p>Partagez l'application pour sauver des vies !</p>\n  <ion-button expand=\"full\" (click)=\"shareTwitter()\">Partager sur Twitter</ion-button>\n  <ion-button expand=\"full\" (click)=\"shareWhatsApp()\">Partager sur WhatsApp</ion-button>\n\n\n    <p>BONUS : scannez un ramasse-crottes afin de bénéficier d'une réduction</p>\n\n    <ion-button class=\"btncolor\" (click)=\"scan()\">Scanner un ramasse-crottes</ion-button>\n\n    <p *ngIf=\"showPromotion\">Vous avez gagné une promotion !</p>\n    <img *ngIf=\"showPromotion\" src=\"assets/ramasse.png\" alt=\"\" height=\"200px\">\n    <p *ngIf=\"showPromotion\">Utilisez le code : BK78JTVA !</p>\n\n\n    \n  <!-- ////////// -->\n\n\n\n    <p>Jours durant lesquels vous avez signalé une crotte :</p>\n    <ion-row>\n        \n    <!-- Move back one screen of the slides -->\n        <ion-col size=\"6\" text-left>\n            <ion-button fill=\"clear\" (click)=\"back()\">\n                <ion-icon name=\"arrow-back\" slot=\"icon-only\"></ion-icon>\n              </ion-button>\n          </ion-col>\n\n        \n    <!-- Move forward one screen of the slides -->\n        <ion-col size=\"6\" text-right>\n            <ion-button fill=\"clear\" (click)=\"next()\">\n                <ion-icon name=\"arrow-forward\" slot=\"icon-only\"></ion-icon>\n              </ion-button>\n          </ion-col>\n      </ion-row>\n\n    <calendar [eventSource]=\"eventSource\" [calendarMode]=\"calendar.mode\" [currentDate]=\"calendar.currentDate\" startHour=\"6\" endHour=\"20\"\n        step=\"30\" startingDayWeek=\"1\">\n      </calendar>\n\n\n\n\n</ion-content>"
+module.exports = "<ion-header>\n    <ion-toolbar>\n\n        <ion-buttons slot=\"start\">\n            <ion-back-button defaultHref=\"home\"></ion-back-button>\n          </ion-buttons>\n\n        <ion-title>Bonus</ion-title>\n      </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n<p>Vous êtes actuellement en mode : {{orientation == 'portrait-primary' ? 'portrait' : 'paysage'}} </p>\n\n  <p>Partagez l'application pour sauver des vies !</p>\n  <ion-button expand=\"full\" (click)=\"shareTwitter()\">Partager sur Twitter</ion-button>\n  <ion-button expand=\"full\" (click)=\"shareWhatsApp()\">Partager sur WhatsApp</ion-button>\n\n\n    <p>BONUS : scannez un ramasse-crottes afin de bénéficier d'une réduction</p>\n\n    <ion-button class=\"btncolor\" (click)=\"scan()\">Scanner un ramasse-crottes</ion-button>\n\n    <p *ngIf=\"showPromotion\">Vous avez gagné une promotion !</p>\n    <img *ngIf=\"showPromotion\" src=\"assets/ramasse.png\" alt=\"\" height=\"200px\">\n    <p *ngIf=\"showPromotion\">Utilisez le code : BK78JTVA !</p>\n\n\n    \n  <!-- ////////// -->\n\n\n\n    <p>Jours durant lesquels vous avez signalé une crotte :</p>\n    <ion-row>\n        \n    <!-- Move back one screen of the slides -->\n        <ion-col size=\"6\" text-left>\n            <ion-button fill=\"clear\" (click)=\"back()\">\n                <ion-icon name=\"arrow-back\" slot=\"icon-only\"></ion-icon>\n              </ion-button>\n          </ion-col>\n\n        \n    <!-- Move forward one screen of the slides -->\n        <ion-col size=\"6\" text-right>\n            <ion-button fill=\"clear\" (click)=\"next()\">\n                <ion-icon name=\"arrow-forward\" slot=\"icon-only\"></ion-icon>\n              </ion-button>\n          </ion-col>\n      </ion-row>\n\n    <calendar [eventSource]=\"eventSource\" [calendarMode]=\"calendar.mode\" [currentDate]=\"calendar.currentDate\" startHour=\"6\" endHour=\"20\"\n        step=\"30\" startingDayWeek=\"1\">\n      </calendar>\n\n\n\n\n</ion-content>"
 
 /***/ }),
 
@@ -2524,7 +2524,7 @@ module.exports = "<ion-header>\n    <ion-toolbar>\n\n        <ion-buttons 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "@charset \"UTF-8\";\n.takePhoto {\n      width: 100px;\n      height: 100px;\n      border: 5px solid #582900;\n      border-radius: 50%;\n      background: transparent; }\n.btncolor {\n      --background: var(--ion-color-btn); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGx1cy9wbHVzLnBhZ2Uuc2NzcyIsIi9Vc2Vycy9hbGV4aXMvRGVza3RvcC9Jb25pYy9pZXNhLTIwMTktYjMtbW9iaWxlLXByb2plY3Qvc291cmNlcy9TaGl0U2Nhbi9zcmMvYXBwL3BsdXMvcGx1cy5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsZ0JBQWdCO0FDQWhCO0VBQ0ksZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQiw2QkFBNkI7RUFDN0Isc0JBQXNCO0VBQ3RCLDJCQUEyQixFQUFBO0FBSTNCO0VBQ0Esc0NBQXNDLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9wbHVzL3BsdXMucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGNoYXJzZXQgXCJVVEYtOFwiO1xuLnRha2VQaG90byB7XG4gIMKgwqDCoMKgd2lkdGg6IDEwMHB4O1xuICDCoMKgwqDCoGhlaWdodDogMTAwcHg7XG4gIMKgwqDCoMKgYm9yZGVyOiA1cHggc29saWQgIzU4MjkwMDtcbiAgwqDCoMKgwqBib3JkZXItcmFkaXVzOiA1MCU7XG4gIMKgwqDCoMKgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7IH1cblxuLmJ0bmNvbG9yIHtcbiAgwqDCoMKgwqAtLWJhY2tncm91bmQ6IHZhcigtLWlvbi1jb2xvci1idG4pOyB9XG4iLCIudGFrZVBob3RvIHtcbiAgICDCoMKgwqDCoHdpZHRoOiAxMDBweDtcbiAgICDCoMKgwqDCoGhlaWdodDogMTAwcHg7XG4gICAgwqDCoMKgwqBib3JkZXI6IDVweCBzb2xpZCAjNTgyOTAwO1xuICAgIMKgwqDCoMKgYm9yZGVyLXJhZGl1czogNTAlO1xuICAgIMKgwqDCoMKgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7XG4gICAgfVxuICAgIFxuICAgIFxuICAgIC5idG5jb2xvciB7XG4gICAgwqDCoMKgwqAtLWJhY2tncm91bmQ6IHZhcigtLWlvbi1jb2xvci1idG4pO1xuICAgIH0iXX0= */"
+module.exports = "@charset \"UTF-8\";\n.takePhoto {\n      width: 100px;\n      height: 100px;\n      border: 5px solid #582900;\n      border-radius: 50%;\n      background: transparent; }\n.btncolor {\n      --background: var(--ion-color-btn); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGx1cy9wbHVzLnBhZ2Uuc2NzcyIsIi9Vc2Vycy9hbGV4aXMvRGVza3RvcC9Jb25pYy9Nb2trYVNpdGUvc3JjL2FwcC9wbHVzL3BsdXMucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGdCQUFnQjtBQ0FoQjtFQUNJLGdCQUFnQjtFQUNoQixpQkFBaUI7RUFDakIsNkJBQTZCO0VBQzdCLHNCQUFzQjtFQUN0QiwyQkFBMkIsRUFBQTtBQUkzQjtFQUNBLHNDQUFzQyxFQUFBIiwiZmlsZSI6InNyYy9hcHAvcGx1cy9wbHVzLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBjaGFyc2V0IFwiVVRGLThcIjtcbi50YWtlUGhvdG8ge1xuICDCoMKgwqDCoHdpZHRoOiAxMDBweDtcbiAgwqDCoMKgwqBoZWlnaHQ6IDEwMHB4O1xuICDCoMKgwqDCoGJvcmRlcjogNXB4IHNvbGlkICM1ODI5MDA7XG4gIMKgwqDCoMKgYm9yZGVyLXJhZGl1czogNTAlO1xuICDCoMKgwqDCoGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OyB9XG5cbi5idG5jb2xvciB7XG4gIMKgwqDCoMKgLS1iYWNrZ3JvdW5kOiB2YXIoLS1pb24tY29sb3ItYnRuKTsgfVxuIiwiLnRha2VQaG90byB7XG4gICAgwqDCoMKgwqB3aWR0aDogMTAwcHg7XG4gICAgwqDCoMKgwqBoZWlnaHQ6IDEwMHB4O1xuICAgIMKgwqDCoMKgYm9yZGVyOiA1cHggc29saWQgIzU4MjkwMDtcbiAgICDCoMKgwqDCoGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgICDCoMKgwqDCoGJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xuICAgIH1cbiAgICBcbiAgICBcbiAgICAuYnRuY29sb3Ige1xuICAgIMKgwqDCoMKgLS1iYWNrZ3JvdW5kOiB2YXIoLS1pb24tY29sb3ItYnRuKTtcbiAgICB9Il19 */"
 
 /***/ }),
 
@@ -2539,13 +2539,11 @@ module.exports = "@charset \"UTF-8\";\n.takePhoto {\n      width: 100px;\n  
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PlusPage", function() { return PlusPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _ionic_native_barcode_scanner_ngx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic-native/barcode-scanner/ngx */ "./node_modules/@ionic-native/barcode-scanner/ngx/index.js");
-/* harmony import */ var ionic2_calendar_calendar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ionic2-calendar/calendar */ "./node_modules/ionic2-calendar/calendar.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/social-sharing/ngx */ "./node_modules/@ionic-native/social-sharing/ngx/index.js");
-/* harmony import */ var _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/screen-orientation/ngx */ "./node_modules/@ionic-native/screen-orientation/ngx/index.js");
-
+/* harmony import */ var ionic2_calendar_calendar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ionic2-calendar/calendar */ "./node_modules/ionic2-calendar/calendar.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/social-sharing/ngx */ "./node_modules/@ionic-native/social-sharing/ngx/index.js");
+/* harmony import */ var _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/screen-orientation/ngx */ "./node_modules/@ionic-native/screen-orientation/ngx/index.js");
 
 
 
@@ -2553,9 +2551,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var PlusPage = /** @class */ (function () {
-    function PlusPage(screenOrientation, barcodeScanner, alertCtrl, locale, socialSharing) {
+    function PlusPage(screenOrientation, alertCtrl, locale, socialSharing) {
         this.screenOrientation = screenOrientation;
-        this.barcodeScanner = barcodeScanner;
         this.alertCtrl = alertCtrl;
         this.locale = locale;
         this.socialSharing = socialSharing;
@@ -2576,12 +2573,6 @@ var PlusPage = /** @class */ (function () {
             currentDate: new Date(),
         };
     }
-    PlusPage.prototype.ionViewDidLoad = function () {
-        // detect orientation changes
-        this.screenOrientation.onChange().subscribe(function () {
-            alert("Orientation Changed");
-        });
-    };
     PlusPage.prototype.shareTwitter = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
@@ -2609,8 +2600,13 @@ var PlusPage = /** @class */ (function () {
         });
     };
     PlusPage.prototype.ngOnInit = function () {
+        var _this = this;
         this.addEvent1();
         this.addEvent2();
+        setInterval(function () {
+            console.log('a', _this.orientation);
+            _this.orientation = _this.screenOrientation.type;
+        }, 1000);
     };
     PlusPage.prototype.next = function () {
         var swiper = document.querySelector('.swiper-container')['swiper'];
@@ -2666,27 +2662,18 @@ var PlusPage = /** @class */ (function () {
         this.myCal.loadEvents();
         this.resetEvent();
     };
-    PlusPage.prototype.scan = function () {
-        var _this = this;
-        this.barcodeScanner.scan().then(function (barcodeData) {
-            console.log('Barcode data', barcodeData);
-            _this.showPromotion = true;
-        }).catch(function (err) {
-            console.log('Error', err);
-        });
-    };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"])(ionic2_calendar_calendar__WEBPACK_IMPORTED_MODULE_2__["CalendarComponent"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", ionic2_calendar_calendar__WEBPACK_IMPORTED_MODULE_2__["CalendarComponent"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])(ionic2_calendar_calendar__WEBPACK_IMPORTED_MODULE_1__["CalendarComponent"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", ionic2_calendar_calendar__WEBPACK_IMPORTED_MODULE_1__["CalendarComponent"])
     ], PlusPage.prototype, "myCal", void 0);
     PlusPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-plus',
             template: __webpack_require__(/*! ./plus.page.html */ "./src/app/plus/plus.page.html"),
             styles: [__webpack_require__(/*! ./plus.page.scss */ "./src/app/plus/plus.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](3, Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"])(_angular_core__WEBPACK_IMPORTED_MODULE_3__["LOCALE_ID"])),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_6__["ScreenOrientation"], _ionic_native_barcode_scanner_ngx__WEBPACK_IMPORTED_MODULE_1__["BarcodeScanner"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"], String, _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_5__["SocialSharing"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Inject"])(_angular_core__WEBPACK_IMPORTED_MODULE_2__["LOCALE_ID"])),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_5__["ScreenOrientation"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"], String, _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_4__["SocialSharing"]])
     ], PlusPage);
     return PlusPage;
 }());

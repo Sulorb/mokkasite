@@ -4,9 +4,6 @@ import leaflet from 'leaflet';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Router, NavigationExtras } from '@angular/router';
-import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
-
-import { Badge } from '@ionic-native/badge/ngx';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +19,7 @@ export class HomePage implements OnInit {
 
   itemToUpload = "assets/icon/favicon.png";
 
-  constructor(public router: Router, private geolocation: Geolocation, private camera: Camera, private global: GlobalService, private elementRef: ElementRef, private ga: GoogleAnalytics, private badge: Badge) {
+  constructor(public router: Router, private geolocation: Geolocation, private camera: Camera, private global: GlobalService, private elementRef: ElementRef) {
 
   }
 
@@ -33,12 +30,6 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.loadmap();
     console.log('didLoadHome')
-
-    this.ga.trackView('HomePage')
-      .then(() => {
-        console.log('analytics homepage')
-      })
-      .catch(e => console.log(e));
 
   }
 
@@ -102,8 +93,9 @@ export class HomePage implements OnInit {
 
 
     // CAMERA__________
-    this.global.checkCameraPermissions().then(permissionOk => {
-      if (permissionOk) {
+    // this.global.checkCameraPermissions().then(permissionOk => {
+      console.log('check')
+      // if (permissionOk) {
 
         const options: CameraOptions = {
           quality: 35,
@@ -127,8 +119,8 @@ export class HomePage implements OnInit {
           // Handle error
           console.log(err)
         });
-      }
-    });
+      // }
+    // });
 
 
   }

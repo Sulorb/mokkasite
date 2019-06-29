@@ -1,5 +1,4 @@
-cordova.define("cordova-sqlite-storage.SQLitePlugin", function(require, exports, module) {
-(function() {
+cordova.define("cordova-sqlite-storage.SQLitePlugin", function(require, exports, module) { (function() {
   var DB_STATE_INIT, DB_STATE_OPEN, READ_ONLY_REGEX, SQLiteFactory, SQLitePlugin, SQLitePluginTransaction, SelfTest, argsArray, dblocations, iosLocationMap, newSQLError, nextTick, root, txLocks;
 
   root = this;

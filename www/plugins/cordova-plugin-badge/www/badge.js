@@ -1,5 +1,4 @@
-cordova.define("cordova-plugin-badge.Badge", function(require, exports, module) {
-/*
+cordova.define("cordova-plugin-badge.Badge", function(require, exports, module) { /*
  * This file contains Original Code and/or Modifications of Original Code
  * as defined in and that are subject to the Apache License
  * Version 2.0 (the 'License'). You may not use this file except in

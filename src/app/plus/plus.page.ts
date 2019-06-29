@@ -1,4 +1,3 @@
-import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { CalendarComponent } from 'ionic2-calendar/calendar';
 import { Component, OnInit, ViewChild, Inject, LOCALE_ID } from '@angular/core';
 import { AlertController } from '@ionic/angular';
@@ -18,7 +17,7 @@ export class PlusPage implements OnInit {
   text = 'Cette application ShitScan est géniale !';
   url = 'https://ShitScan.com';
 
-  constructor(private screenOrientation: ScreenOrientation, private barcodeScanner: BarcodeScanner, private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string, private socialSharing: SocialSharing) { }
+  constructor(private screenOrientation: ScreenOrientation, private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string, private socialSharing: SocialSharing) { }
 
 
   showPromotion = false;
@@ -134,14 +133,5 @@ export class PlusPage implements OnInit {
     this.resetEvent();
   }
 
-
-  scan() {
-    this.barcodeScanner.scan().then(barcodeData => {
-      console.log('Barcode data', barcodeData);
-      this.showPromotion = true;
-    }).catch(err => {
-      console.log('Error', err);
-    });
-  }
 
 }

@@ -58,7 +58,7 @@ var UploadPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n      <ion-toolbar>\n        <ion-title class=\"ion-text-center\">{{title}}</ion-title>\n      </ion-toolbar>\n    </ion-header>\n    \n    <ion-content>\n    <h2 class=\"ion-text-center\">Photo</h2>\n      <img src=\"{{image}}\" alt=\"\">\n    \n    \n      <ion-item>\n        <ion-label>Description</ion-label>\n        <ion-input></ion-input>\n      </ion-item>\n    \n      <ion-item>\n        <ion-label>{{description}}</ion-label>\n        <ion-button full class=\"btncolor\" (click)=\"captureAudio()\">Capture Audio</ion-button>\n      </ion-item>\n    \n    \n      <ion-list>\n        <ion-item *ngFor=\"let file of mediaFiles\" text-wrap>\n          {{ file.name }}\n          <p>{{ file.size / 1000 / 1000 | number }} MB</p>\n          <ion-button class=\"btncolor\" (click)=\"play(file)\">Lire</ion-button>\n        </ion-item>\n      </ion-list>\n    \n      <ion-button  class=\"btncolor\" (click)=\"validate()\">Valider</ion-button>\n    \n      <ion-button class=\"btncolor\" (click)=\"getContacts()\">contacts</ion-button>\n    \n      <ion-list>\n        <ion-item *ngFor=\"let contact of userContacts\">\n          {{contact._objectInstance.displayName}}\n        </ion-item>\n      </ion-list>\n    \n    </ion-content>"
+module.exports = "<ion-header>\n      <ion-toolbar>\n        <ion-title class=\"ion-text-center\">{{title}}</ion-title>\n      </ion-toolbar>\n    </ion-header>\n    \n    <ion-content>\n    <h2 class=\"ion-text-center\">Photo</h2>\n      <img src=\"{{image}}\" alt=\"\">\n    \n    \n      <ion-item>\n        <ion-label>Description</ion-label>\n        <ion-input></ion-input>\n      </ion-item>\n    \n      <ion-item>\n        <ion-label>{{description}}</ion-label>\n        <ion-button full class=\"btncolor\" (click)=\"captureAudio()\">Capture Audio</ion-button>\n      </ion-item>\n    \n    \n      <ion-list>\n        <ion-item *ngFor=\"let file of mediaFiles\" text-wrap>\n          {{ file.name }}\n          <p>{{ file.size / 1000 / 1000 | number }} MB</p>\n          <ion-button class=\"btncolor\" (click)=\"play(file)\">Lire</ion-button>\n        </ion-item>\n      </ion-list>\n    \n      <ion-button  class=\"btncolor\" (click)=\"validate()\">Valider</ion-button>\n    \n      <ion-button class=\"btncolor\" (click)=\"getContacts()\">contacts</ion-button>\n    \n    \n    </ion-content>"
 
 /***/ }),
 
@@ -69,7 +69,7 @@ module.exports = "<ion-header>\n      <ion-toolbar>\n        <ion-title cl
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "@charset \"UTF-8\";\n.takePhoto {\n      width: 100px;\n      height: 100px;\n      border: 5px solid #582900;\n      border-radius: 50%;\n      background: transparent; }\n.btncolor {\n      --background: var(--ion-color-btn); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXBsb2FkL3VwbG9hZC5wYWdlLnNjc3MiLCIvVXNlcnMvYWxleGlzL0Rlc2t0b3AvSW9uaWMvaWVzYS0yMDE5LWIzLW1vYmlsZS1wcm9qZWN0L3NvdXJjZXMvU2hpdFNjYW4vc3JjL2FwcC91cGxvYWQvdXBsb2FkLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxnQkFBZ0I7QUNBaEI7RUFDSSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0VBQ2pCLDZCQUE2QjtFQUM3QixzQkFBc0I7RUFDdEIsMkJBQTJCLEVBQUE7QUFJM0I7RUFDQSxzQ0FBc0MsRUFBQSIsImZpbGUiOiJzcmMvYXBwL3VwbG9hZC91cGxvYWQucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGNoYXJzZXQgXCJVVEYtOFwiO1xuLnRha2VQaG90byB7XG4gIMKgwqDCoMKgd2lkdGg6IDEwMHB4O1xuICDCoMKgwqDCoGhlaWdodDogMTAwcHg7XG4gIMKgwqDCoMKgYm9yZGVyOiA1cHggc29saWQgIzU4MjkwMDtcbiAgwqDCoMKgwqBib3JkZXItcmFkaXVzOiA1MCU7XG4gIMKgwqDCoMKgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7IH1cblxuLmJ0bmNvbG9yIHtcbiAgwqDCoMKgwqAtLWJhY2tncm91bmQ6IHZhcigtLWlvbi1jb2xvci1idG4pOyB9XG4iLCIudGFrZVBob3RvIHtcbiAgICDCoMKgwqDCoHdpZHRoOiAxMDBweDtcbiAgICDCoMKgwqDCoGhlaWdodDogMTAwcHg7XG4gICAgwqDCoMKgwqBib3JkZXI6IDVweCBzb2xpZCAjNTgyOTAwO1xuICAgIMKgwqDCoMKgYm9yZGVyLXJhZGl1czogNTAlO1xuICAgIMKgwqDCoMKgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7XG4gICAgfVxuICAgIFxuICAgIFxuICAgIC5idG5jb2xvciB7XG4gICAgwqDCoMKgwqAtLWJhY2tncm91bmQ6IHZhcigtLWlvbi1jb2xvci1idG4pO1xuICAgIH0iXX0= */"
+module.exports = "@charset \"UTF-8\";\n.takePhoto {\n      width: 100px;\n      height: 100px;\n      border: 5px solid #582900;\n      border-radius: 50%;\n      background: transparent; }\n.btncolor {\n      --background: var(--ion-color-btn); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXBsb2FkL3VwbG9hZC5wYWdlLnNjc3MiLCIvVXNlcnMvYWxleGlzL0Rlc2t0b3AvSW9uaWMvTW9ra2FTaXRlL3NyYy9hcHAvdXBsb2FkL3VwbG9hZC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsZ0JBQWdCO0FDQWhCO0VBQ0ksZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQiw2QkFBNkI7RUFDN0Isc0JBQXNCO0VBQ3RCLDJCQUEyQixFQUFBO0FBSTNCO0VBQ0Esc0NBQXNDLEVBQUEiLCJmaWxlIjoic3JjL2FwcC91cGxvYWQvdXBsb2FkLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBjaGFyc2V0IFwiVVRGLThcIjtcbi50YWtlUGhvdG8ge1xuICDCoMKgwqDCoHdpZHRoOiAxMDBweDtcbiAgwqDCoMKgwqBoZWlnaHQ6IDEwMHB4O1xuICDCoMKgwqDCoGJvcmRlcjogNXB4IHNvbGlkICM1ODI5MDA7XG4gIMKgwqDCoMKgYm9yZGVyLXJhZGl1czogNTAlO1xuICDCoMKgwqDCoGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OyB9XG5cbi5idG5jb2xvciB7XG4gIMKgwqDCoMKgLS1iYWNrZ3JvdW5kOiB2YXIoLS1pb24tY29sb3ItYnRuKTsgfVxuIiwiLnRha2VQaG90byB7XG4gICAgwqDCoMKgwqB3aWR0aDogMTAwcHg7XG4gICAgwqDCoMKgwqBoZWlnaHQ6IDEwMHB4O1xuICAgIMKgwqDCoMKgYm9yZGVyOiA1cHggc29saWQgIzU4MjkwMDtcbiAgICDCoMKgwqDCoGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgICDCoMKgwqDCoGJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xuICAgIH1cbiAgICBcbiAgICBcbiAgICAuYnRuY29sb3Ige1xuICAgIMKgwqDCoMKgLS1iYWNrZ3JvdW5kOiB2YXIoLS1pb24tY29sb3ItYnRuKTtcbiAgICB9Il19 */"
 
 /***/ }),
 
@@ -88,15 +88,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _ionic_native_contacts_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/contacts/ngx */ "./node_modules/@ionic-native/contacts/ngx/index.js");
-/* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
-/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
-/* harmony import */ var _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/media-capture/ngx */ "./node_modules/@ionic-native/media-capture/ngx/index.js");
-/* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic-native/file/ngx */ "./node_modules/@ionic-native/file/ngx/index.js");
-/* harmony import */ var _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic-native/media/ngx */ "./node_modules/@ionic-native/media/ngx/index.js");
-/* harmony import */ var _ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ionic-native/local-notifications/ngx */ "./node_modules/@ionic-native/local-notifications/ngx/index.js");
-
-
+/* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
+/* harmony import */ var _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/media-capture/ngx */ "./node_modules/@ionic-native/media-capture/ngx/index.js");
+/* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/file/ngx */ "./node_modules/@ionic-native/file/ngx/index.js");
+/* harmony import */ var _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic-native/media/ngx */ "./node_modules/@ionic-native/media/ngx/index.js");
 
 
 
@@ -109,17 +105,15 @@ __webpack_require__.r(__webpack_exports__);
 
 var MEDIA_FILES_KEY = 'mediaFiles';
 var UploadPage = /** @class */ (function () {
-    function UploadPage(activatedRoute, navCtrl, contacts, global, geolocation, mediaCapture, storage, file, media, localNotifications) {
+    function UploadPage(activatedRoute, navCtrl, global, geolocation, mediaCapture, storage, file, media) {
         this.activatedRoute = activatedRoute;
         this.navCtrl = navCtrl;
-        this.contacts = contacts;
         this.global = global;
         this.geolocation = geolocation;
         this.mediaCapture = mediaCapture;
         this.storage = storage;
         this.file = file;
         this.media = media;
-        this.localNotifications = localNotifications;
         this.mediaFiles = [];
         this.title = "Ajout de la photo";
         this.description = "Description vocale";
@@ -172,19 +166,7 @@ var UploadPage = /** @class */ (function () {
         this.geolocation.getCurrentPosition().then(function (resp) {
             console.log("newcrotte", resp);
             _this.global.shits.push([_this.image, resp.coords.latitude, resp.coords.longitude]);
-            // Schedule a single notification
-            _this.localNotifications.schedule({
-                id: 1,
-                text: 'Vous avez bien ajouté cet excrément',
-            });
             _this.navCtrl.pop();
-        });
-    };
-    UploadPage.prototype.getContacts = function () {
-        var _this = this;
-        this.contacts.find(['displayName']).then(function (data) {
-            console.log(data);
-            _this.userContacts = data;
         });
     };
     UploadPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -193,7 +175,7 @@ var UploadPage = /** @class */ (function () {
             template: __webpack_require__(/*! ./upload.page.html */ "./src/app/upload/upload.page.html"),
             styles: [__webpack_require__(/*! ./upload.page.scss */ "./src/app/upload/upload.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ionic_native_contacts_ngx__WEBPACK_IMPORTED_MODULE_5__["Contacts"], _global_service__WEBPACK_IMPORTED_MODULE_1__["GlobalService"], _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_6__["Geolocation"], _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_8__["MediaCapture"], _ionic_storage__WEBPACK_IMPORTED_MODULE_7__["Storage"], _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_9__["File"], _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_10__["Media"], _ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_11__["LocalNotifications"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _global_service__WEBPACK_IMPORTED_MODULE_1__["GlobalService"], _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_5__["Geolocation"], _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_7__["MediaCapture"], _ionic_storage__WEBPACK_IMPORTED_MODULE_6__["Storage"], _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_8__["File"], _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_9__["Media"]])
     ], UploadPage);
     return UploadPage;
 }());
