@@ -1,3 +1,4 @@
+import { GlobalService } from './../global.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilPage implements OnInit {
 
-  constructor() { }
+  constructor(private global: GlobalService) { }
 
   ngOnInit() {
+    this.global.getUserInfos().then((data) => {
+      console.log('heeeey', data)
+    })
   }
 
 }

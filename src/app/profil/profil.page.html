@@ -1,12 +1,51 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref="home"></ion-back-button>
-      </ion-buttons>
-    <ion-title>profil</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mon profil</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-row>
+    <ion-col size="4">
+      <img src="assets/poop.png" alt="" style="border-radius: 50%; border: 1px solid lightgrey; max-width: 100px;">
+    </ion-col>
+
+    <ion-col>
+      <h3>Julie</h3>
+      <p>16 ans</p>
+      <p>Nettoyeuse hors-pair</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row text-center>
+    <ion-col>
+      <h4>1255</h4>
+      <p>points cumulés</p>
+    </ion-col>
+    <ion-col>
+      <h4>23<sup>ème</sup></h4>
+      <p>classement</p>
+    </ion-col>
+    <ion-col>
+      <h4>19</h4>
+      <p>lieux nettoyés</p>
+    </ion-col>
+  </ion-row>
+
+  <h2>Historique</h2>
+  <ion-row *ngFor="let go of ['1','2','3']">
+    <ion-col size="3">
+      <div style="border-radius: 50%; border: 1px solid lightgrey; height: 50px; width: 50px; background: orangered"></div>
+    </ion-col>
+    <ion-col>
+      <p>16/12/2019</p>
+      <p>Nettoyage collectif</p>
+      <p>+50pts</p>
+    </ion-col>
+  </ion-row>
 
 </ion-content>

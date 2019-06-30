@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class GlobalService {
     ["https://medias.lagranderecre.fr/imgs/1/1200x1200/836953V01_02.jpg", 48.4465, 2.33],
   ];
 
-  constructor(private toastController: ToastController, private nativeStorage: NativeStorage) { }
+  constructor(private toastController: ToastController, private nativeStorage: NativeStorage, private http: HttpClient) { }
 
   async toast(message) {
     const toast = await this.toastController.create({
@@ -28,6 +29,7 @@ export class GlobalService {
   }
 
   storeNative(value) {
+    console.log('storing token : ' + value)
     this.nativeStorage.setItem('token', value)
       .then(
         () => console.log('Stored item!'),
@@ -43,12 +45,18 @@ export class GlobalService {
       );
   }
 
-
-
-
-
-
-
-
-
+  getUserInfos(): Promise<any> {
+    return new Promise(resolve => {
+      this.nativeStorage.getItem('token')
+        .then(data => {
+          console.log('token : ' + data)
+          this.http.get('http://localhost:8888/mokkaserver/?login=getUserInfos&token=' + data)
+            .subscribe((data: any) => {
+              console.log('getuserinfosPromise')
+              resolve(data)
+            })
+        },
+          error => console.error(error));
+    })
+  }
 }
