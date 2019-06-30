@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'options', loadChildren: './options/options.module#OptionsPageModule' },
   { path: 'plus', loadChildren: './plus/plus.module#PlusPageModule' },
   { path: 'podium', loadChildren: './podium/podium.module#PodiumPageModule' },
+  { path: 'profil', loadChildren: './profil/profil.module#ProfilPageModule' },
 ];
 
 @NgModule({

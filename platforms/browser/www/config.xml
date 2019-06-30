@@ -17,7 +17,7 @@
     <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
         <string>Votre géolocalisation est utilisée pour pouvoir signaler les merdes aux bons endroits.</string>
     </edit-config>
-    <allow-navigation href="http://localhost:8101" sessionid="5e94f79e" />
+    <allow-navigation href="http://localhost:8101" sessionid="efed1e38" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />

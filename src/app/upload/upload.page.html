@@ -1,7 +1,11 @@
 <ion-header>
       <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home"></ion-back-button>
+        </ion-buttons>
             <ion-title class="ion-text-center">{{title}}</ion-title>
-          </ion-toolbar>
+          
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -17,7 +21,7 @@
             <button class="actionBtn" (click)="toggleWebcam();">Toggle Webcam</button>
             <br />
             <button class="actionBtn" (click)="showNextWebcam(true);" [disabled]="!multipleWebcamsAvailable">Next Webcam</button>
-            
+
             <input id="cameraSwitchCheckbox" type="checkbox" [(ngModel)]="allowCameraSwitch"><label for="cameraSwitchCheckbox">Allow Camera
                 Switch</label>
             <br />

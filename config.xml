@@ -91,5 +91,5 @@
     <engine name="android" spec="8.0.0" />
     <engine name="browser" spec="6.0.0" />
     <engine name="ios" spec="^5.0.0" />
-    <allow-navigation href="http://localhost:8101" sessionid="5e94f79e" />
+    <allow-navigation href="http://localhost:8101" sessionid="efed1e38" />
 </widget>

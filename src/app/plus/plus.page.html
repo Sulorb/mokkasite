@@ -1,61 +1,15 @@
 <ion-header>
     <ion-toolbar>
-
         <ion-buttons slot="start">
             <ion-back-button defaultHref="home"></ion-back-button>
           </ion-buttons>
-
-        <ion-title>Bonus</ion-title>
+        <ion-title>PLUS</ion-title>
       </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-<p>Vous êtes actuellement en mode : {{orientation == 'portrait-primary' ? 'portrait' : 'paysage'}} </p>
-
-  <p>Partagez l'application pour sauver des vies !</p>
-  <ion-button expand="full" (click)="shareTwitter()">Partager sur Twitter</ion-button>
-  <ion-button expand="full" (click)="shareWhatsApp()">Partager sur WhatsApp</ion-button>
-
-
-    <p>BONUS : scannez un ramasse-crottes afin de bénéficier d'une réduction</p>
-
-    <ion-button class="btncolor" (click)="scan()">Scanner un ramasse-crottes</ion-button>
-
-    <p *ngIf="showPromotion">Vous avez gagné une promotion !</p>
-    <img *ngIf="showPromotion" src="assets/ramasse.png" alt="" height="200px">
-    <p *ngIf="showPromotion">Utilisez le code : BK78JTVA !</p>
-
-
-    
-  <!-- ////////// -->
-
-
-
-    <p>Jours durant lesquels vous avez signalé une crotte :</p>
-    <ion-row>
-        
-    <!-- Move back one screen of the slides -->
-        <ion-col size="6" text-left>
-            <ion-button fill="clear" (click)="back()">
-                <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
-              </ion-button>
-          </ion-col>
-
-        
-    <!-- Move forward one screen of the slides -->
-        <ion-col size="6" text-right>
-            <ion-button fill="clear" (click)="next()">
-                <ion-icon name="arrow-forward" slot="icon-only"></ion-icon>
-              </ion-button>
-          </ion-col>
-      </ion-row>
-
-    <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" startHour="6" endHour="20"
+  <!--   <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" startHour="6" endHour="20"
         step="30" startingDayWeek="1">
-      </calendar>
-
-
-
-
+      </calendar> -->
 </ion-content>
