@@ -34,7 +34,9 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({
+      backButtonText: 'Retour',
+    }),
     IonicStorageModule.forRoot(),
     HttpClientModule,
     WebcamModule,

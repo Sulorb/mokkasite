@@ -1,6 +1,9 @@
 import { GlobalService } from './../global.service';
 import { Component, OnInit } from '@angular/core';
 
+import * as moment from 'moment';
+import 'moment/locale/fr';
+
 @Component({
   selector: 'app-profil',
   templateUrl: './profil.page.html',
@@ -8,11 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilPage implements OnInit {
 
+  userInfos = {
+    name: '',
+    date: ''
+  }
+
   constructor(private global: GlobalService) { }
 
   ngOnInit() {
-    this.global.getUserInfos().then((data) => {
+  }
+
+  ionViewWillEnter() {
+    this.global.getUserInfos().then((data: any) => {
       console.log('heeeey', data)
+        data.date = moment(data.date).utc(true).calendar();
+      this.userInfos = data;
     })
   }
 

@@ -15,15 +15,15 @@
     </ion-col>
 
     <ion-col>
-      <h3>Julie</h3>
+      <h3>{{userInfos.name}}</h3>
       <p>16 ans</p>
-      <p>Nettoyeuse hors-pair</p>
+      <p>Inscrit(e) le : {{userInfos.date}}</p>
     </ion-col>
   </ion-row>
 
   <ion-row text-center>
     <ion-col>
-      <h4>1255</h4>
+      <h4>{{userInfos.amountPoints}}</h4>
       <p>points cumulés</p>
     </ion-col>
     <ion-col>
@@ -31,7 +31,7 @@
       <p>classement</p>
     </ion-col>
     <ion-col>
-      <h4>19</h4>
+      <h4>{{userInfos.placesCleaned}}</h4>
       <p>lieux nettoyés</p>
     </ion-col>
   </ion-row>

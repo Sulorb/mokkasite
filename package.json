@@ -55,6 +55,7 @@
     "es6-promise-plugin": "4.2.2",
     "ionic2-calendar": "^0.5.2",
     "leaflet": "^1.4.0",
+    "moment": "^2.24.0",
     "ngx-webcam": "^0.2.5",
     "phonegap-plugin-barcodescanner": "8.0.1",
     "rx-subject": "^3.1.0",
