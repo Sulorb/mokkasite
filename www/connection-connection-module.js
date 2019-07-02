@@ -108,7 +108,8 @@ var ConnectionPage = /** @class */ (function () {
         this.http.get('http://localhost:8888/mokkaserver/?login=connection&name=' + this.name + '&pass=' + this.password)
             .subscribe(function (data) {
             console.log(data);
-            if (data.connexion == 1) {
+            if (data.connexion === 1) {
+                _this.global.storeNative(data.token);
                 _this.global.toast('Connexion réussie !');
                 _this.navCtrl.navigateRoot('home');
             }

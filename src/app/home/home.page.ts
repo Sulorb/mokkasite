@@ -1,8 +1,6 @@
 import { GlobalService } from './../global.service';
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import leaflet from 'leaflet';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -18,9 +16,7 @@ export class HomePage implements OnInit {
 
   itemToUpload = "assets/icon/favicon.png";
 
-  constructor(public router: Router, private geolocation: Geolocation, private global: GlobalService, private elementRef: ElementRef) {
-
-  }
+  constructor(private global: GlobalService, private elementRef: ElementRef) { }
 
   ionViewWillEnter() {
     this.loadShits()
@@ -30,7 +26,6 @@ export class HomePage implements OnInit {
     this.loadmap();
     console.log('didLoadHome')
     this.global.getNative()
-
   }
 
   loadmap() {
@@ -50,6 +45,7 @@ export class HomePage implements OnInit {
 
 
   loadShits() {
+    // load depuis backend would better
 
     for (var i = 0; i < this.global.shits.length; i++) {
       let customOptions = { 'maxWidth': '500' }
@@ -76,24 +72,5 @@ export class HomePage implements OnInit {
     console.log("going to merchant " + merchantId)
   }
 
-  goToOptions() {
-    this.router.navigate(['/options'])
-  }
-
-  goToMore() {
-    this.router.navigate(['/plus'])
-  }
-
-  goToPodium() {
-    this.router.navigate(['/podium'])
-  }
-
-  report() {
-    console.log('reprt')
-    // passage page avec photo
-    this.router.navigate(['/upload', { image: this.itemToUpload }])
-
-
-  }
 
 }

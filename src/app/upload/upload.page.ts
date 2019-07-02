@@ -7,10 +7,8 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 import { Storage } from '@ionic/storage';
 
-import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
-import { WebcamModule } from 'ngx-webcam';
 
 const MEDIA_FILES_KEY = 'mediaFiles';
 
@@ -96,7 +94,7 @@ export class UploadPage implements OnInit {
   }
 
 
-  constructor(private activatedRoute: ActivatedRoute, private navCtrl: NavController, private global: GlobalService, private geolocation: Geolocation, private mediaCapture: MediaCapture, private storage: Storage, private file: File, private media: Media) {
+  constructor(private activatedRoute: ActivatedRoute, private navCtrl: NavController, private global: GlobalService, private geolocation: Geolocation, private storage: Storage, private file: File, private media: Media) {
     console.log('title' + this.global.language)
     if (this.global.language == "en") {
       this.title = "Picture upload"
@@ -116,40 +114,13 @@ export class UploadPage implements OnInit {
   //   });
   // }
 
-  captureAudio() {
-    this.mediaCapture.captureAudio().then(res => {
-      this.storeMediaFiles(res);
-      console.log('res', res)
-    }, (err: CaptureError) => console.error(err));
-  }
-
-  play(myFile) {
-    console.log('myFile', myFile)
-    const audioFile: MediaObject = this.media.create(myFile.localURL);
-    audioFile.play();
-  }
-
-  storeMediaFiles(files) {
-    this.storage.get(MEDIA_FILES_KEY).then(res => {
-      if (res) {
-        let arr = JSON.parse(res);
-        arr = arr.concat(files);
-        this.storage.set(MEDIA_FILES_KEY, JSON.stringify(arr));
-      } else {
-        this.storage.set(MEDIA_FILES_KEY, JSON.stringify(files))
-      }
-      this.mediaFiles = this.mediaFiles.concat(files);
-    })
-  }
-
   validate() {
-
     console.log('oo')
     this.geolocation.getCurrentPosition().then((resp) => {
       console.log("newcrotte", resp)
-      this.global.shits.push([this.image, resp.coords.latitude, resp.coords.longitude])
+      // this.global.shits.push([this.image, resp.coords.latitude, resp.coords.longitude])
 
-      this.navCtrl.pop()
+      // this.navCtrl.pop()
 
     })
 

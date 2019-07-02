@@ -3,7 +3,7 @@
     <name>Shit Scan</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://localhost:8101" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -91,5 +91,4 @@
     <engine name="android" spec="8.0.0" />
     <engine name="browser" spec="6.0.0" />
     <engine name="ios" spec="^5.0.0" />
-    <allow-navigation href="http://localhost:8101" sessionid="bf148893" />
 </widget>

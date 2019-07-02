@@ -865,6 +865,11 @@ var map = {
 		"./src/app/podium/podium.module.ts",
 		"podium-podium-module"
 	],
+	"./profil/profil.module": [
+		"./src/app/profil/profil.module.ts",
+		"common",
+		"profil-profil-module"
+	],
 	"./upload/upload.module": [
 		"./src/app/upload/upload.module.ts",
 		"common",
@@ -918,6 +923,7 @@ var routes = [
     { path: 'options', loadChildren: './options/options.module#OptionsPageModule' },
     { path: 'plus', loadChildren: './plus/plus.module#PlusPageModule' },
     { path: 'podium', loadChildren: './podium/podium.module#PodiumPageModule' },
+    { path: 'profil', loadChildren: './profil/profil.module#ProfilPageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -1059,7 +1065,9 @@ var AppModule = /** @class */ (function () {
             entryComponents: [],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
-                _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(),
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot({
+                    backButtonText: '',
+                }),
                 _ionic_storage__WEBPACK_IMPORTED_MODULE_15__["IonicStorageModule"].forRoot(),
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_18__["HttpClientModule"],
                 ngx_webcam__WEBPACK_IMPORTED_MODULE_19__["WebcamModule"],

@@ -13997,7 +13997,7 @@ var HomePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-title class=\"ion-text-center\">💩</ion-title>\n      </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-fab vertical=\"top\" horizontal=\"end\">\n        <ion-fab-button>\n          <ion-icon name=\"more\"></ion-icon>\n        </ion-fab-button>\n     \n        <ion-fab-list side=\"bottom\">\n    \n          <ion-fab-button (click)=\"goToOptions()\">\n            <ion-icon name=\"settings\"></ion-icon>\n          </ion-fab-button>\n    \n          <ion-fab-button (click)=\"goToMore()\">\n            <ion-icon name=\"add\"></ion-icon>\n          </ion-fab-button>\n    \n          <ion-fab-button (click)=\"goToPodium()\">\n            <ion-icon name=\"podium\"></ion-icon>\n          </ion-fab-button>\n    \n        </ion-fab-list>\n    \n      </ion-fab>\n    \n  <!-- div contenant la map -->\n    <div id=\"map\" style=\"width:100%; height:100%;\"></div>\n\n    \n  <!-- Bouton pour signaler la merde -->\n    <ion-fab vertical=\"bottom\" horizontal=\"center\" slot=\"fixed\">\n        <ion-fab-button class=\"takePhoto \" color=\"transparent\" (click)=\"report()\">\n            <span style=\"font-size: 2.5em\">💩</span>\n          </ion-fab-button>\n      </ion-fab>\n\n\n</ion-content>"
+module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-title class=\"ion-text-center\">JoinGaïa</ion-title>\n      </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-fab vertical=\"bottom\" horizontal=\"center\">\n\n    <ion-fab-button>\n      <ion-icon name=\"more\"></ion-icon>\n    </ion-fab-button>\n\n    <ion-fab-list side=\"start\">\n      <ion-fab-button routerLink=\"/profil\">\n        <ion-icon name=\"contact\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab-list>\n\n    <ion-fab-list side=\"top\">\n      <ion-fab-button routerLink=\"/upload\">\n        <ion-icon name=\"add\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab-list>\n\n    <ion-fab-list side=\"end\">\n      <ion-fab-button routerLink=\"/plus\">\n        <ion-icon name=\"more\"></ion-icon>\n      </ion-fab-button>\n\n      <ion-fab-button routerLink=\"/podium\">\n        <ion-icon name=\"podium\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab-list>\n\n  </ion-fab>\n    \n  <!-- div contenant la map -->\n    <div id=\"map\" style=\"width:100%; height:100%;\"></div>\n\n</ion-content>"
 
 /***/ }),
 
@@ -14008,7 +14008,7 @@ module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-title clas
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".takePhoto {\n  width: 100px;\n  height: 100px;\n  border: 5px solid #582900;\n  border-radius: 50%;\n  background: transparent; }\n\n.btncolor {\n  --background: var(--ion-color-btn); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hbGV4aXMvRGVza3RvcC9Jb25pYy9Nb2trYVNpdGUvc3JjL2FwcC9ob21lL2hvbWUucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksWUFBWTtFQUNaLGFBQWE7RUFDYix5QkFBeUI7RUFDekIsa0JBQWtCO0VBQ2xCLHVCQUF1QixFQUFBOztBQUkzQjtFQUNJLGtDQUFhLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9ob21lL2hvbWUucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnRha2VQaG90byB7XG4gICAgd2lkdGg6IDEwMHB4O1xuICAgIGhlaWdodDogMTAwcHg7XG4gICAgYm9yZGVyOiA1cHggc29saWQgIzU4MjkwMDtcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XG4gICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7XG59XG5cblxuLmJ0bmNvbG9yIHtcbiAgICAtLWJhY2tncm91bmQ6IHZhcigtLWlvbi1jb2xvci1idG4pO1xufSJdfQ== */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5wYWdlLnNjc3MifQ== */"
 
 /***/ }),
 
@@ -14027,18 +14027,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-
-
 
 
 
 
 var HomePage = /** @class */ (function () {
-    function HomePage(router, geolocation, global, elementRef) {
-        this.router = router;
-        this.geolocation = geolocation;
+    function HomePage(global, elementRef) {
         this.global = global;
         this.elementRef = elementRef;
         this.itemToUpload = "assets/icon/favicon.png";
@@ -14066,6 +14060,7 @@ var HomePage = /** @class */ (function () {
         });
     };
     HomePage.prototype.loadShits = function () {
+        // load depuis backend would better
         var _loop_1 = function () {
             var customOptions = { 'maxWidth': '500' };
             popupLink = '<a class="merch-link" data-merchId="' + i + '">Belle merde épaisse</a><img src="' + this_1.global.shits[i][0] + '">';
@@ -14093,20 +14088,6 @@ var HomePage = /** @class */ (function () {
         //this.navCtrl.push(MerchantPage, { merchantId: merchantId });
         console.log("going to merchant " + merchantId);
     };
-    HomePage.prototype.goToOptions = function () {
-        this.router.navigate(['/options']);
-    };
-    HomePage.prototype.goToMore = function () {
-        this.router.navigate(['/plus']);
-    };
-    HomePage.prototype.goToPodium = function () {
-        this.router.navigate(['/podium']);
-    };
-    HomePage.prototype.report = function () {
-        console.log('reprt');
-        // passage page avec photo
-        this.router.navigate(['/upload', { image: this.itemToUpload }]);
-    };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])('map'),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ElementRef"])
@@ -14117,7 +14098,7 @@ var HomePage = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.page.html */ "./src/app/home/home.page.html"),
             styles: [__webpack_require__(/*! ./home.page.scss */ "./src/app/home/home.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"], _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_4__["Geolocation"], _global_service__WEBPACK_IMPORTED_MODULE_1__["GlobalService"], _angular_core__WEBPACK_IMPORTED_MODULE_2__["ElementRef"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_global_service__WEBPACK_IMPORTED_MODULE_1__["GlobalService"], _angular_core__WEBPACK_IMPORTED_MODULE_2__["ElementRef"]])
     ], HomePage);
     return HomePage;
 }());

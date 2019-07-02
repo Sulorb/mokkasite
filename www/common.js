@@ -99,14 +99,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
 
 
 
 
 var GlobalService = /** @class */ (function () {
-    function GlobalService(toastController, nativeStorage) {
+    function GlobalService(toastController, nativeStorage, http) {
         this.toastController = toastController;
         this.nativeStorage = nativeStorage;
+        this.http = http;
         this.language = "fr";
         this.shits = [
             ["https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/198/pile-of-poo_1f4a9.png", 48.865, 2.33],
@@ -134,6 +137,7 @@ var GlobalService = /** @class */ (function () {
         });
     };
     GlobalService.prototype.storeNative = function (value) {
+        console.log('storing token : ' + value);
         this.nativeStorage.setItem('token', value)
             .then(function () { return console.log('Stored item!'); }, function (error) { return console.error('Error storing item', error); });
     };
@@ -141,11 +145,25 @@ var GlobalService = /** @class */ (function () {
         this.nativeStorage.getItem('token')
             .then(function (data) { return console.log(data); }, function (error) { return console.error(error); });
     };
+    GlobalService.prototype.getUserInfos = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.nativeStorage.getItem('token')
+                .then(function (data) {
+                console.log('token : ' + data);
+                _this.http.get('http://localhost:8888/mokkaserver/?login=getUserInfos&token=' + data)
+                    .subscribe(function (data) {
+                    console.log('getuserinfosPromise');
+                    resolve(data);
+                });
+            }, function (error) { return console.error(error); });
+        });
+    };
     GlobalService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"], _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__["NativeStorage"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"], _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__["NativeStorage"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"]])
     ], GlobalService);
     return GlobalService;
 }());

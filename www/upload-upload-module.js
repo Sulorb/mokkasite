@@ -61,7 +61,7 @@ var UploadPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n      <ion-toolbar>\n            <ion-title class=\"ion-text-center\">{{title}}</ion-title>\n          </ion-toolbar>\n</ion-header>\n\n<ion-content>\n    <h2 class=\"ion-text-center\">Photo</h2>\n\n    <div style=\"text-align:center\">\n        <div>\n            <webcam [height]=\"500\" [width]=\"500\" [trigger]=\"triggerObservable\" (imageCapture)=\"handleImage($event)\" *ngIf=\"showWebcam\"\n                [allowCameraSwitch]=\"allowCameraSwitch\" [switchCamera]=\"nextWebcamObservable\" [videoOptions]=\"videoOptions\"\n                [imageQuality]=\"1\" (cameraSwitched)=\"cameraWasSwitched($event)\" (initError)=\"handleInitError($event)\"></webcam>\n            <br />\n            <button class=\"actionBtn\" (click)=\"triggerSnapshot();\">Take A Snapshot</button>\n            <button class=\"actionBtn\" (click)=\"toggleWebcam();\">Toggle Webcam</button>\n            <br />\n            <button class=\"actionBtn\" (click)=\"showNextWebcam(true);\" [disabled]=\"!multipleWebcamsAvailable\">Next Webcam</button>\n            \n            <input id=\"cameraSwitchCheckbox\" type=\"checkbox\" [(ngModel)]=\"allowCameraSwitch\"><label for=\"cameraSwitchCheckbox\">Allow Camera\n                Switch</label>\n            <br />\n            DeviceId: <input id=\"deviceId\" type=\"text\" [(ngModel)]=\"deviceId\" style=\"width: 500px\">\n            <button (click)=\"showNextWebcam(deviceId);\">Activate</button>\n        </div>\n    </div>\n\n    <div class=\"snapshot\" *ngIf=\"webcamImage\">\n        <h2>Nice one!</h2>\n        <img [src]=\"webcamImage.imageAsDataUrl\" />\n    </div>\n\n    <h4 *ngIf=\"errors.length > 0\">Messages:</h4>\n    <ul *ngFor=\"let error of errors\">\n        <li>{{error | json}}</li>\n    </ul>\n\n\n\n      <ion-item>\n            <ion-label>Description</ion-label>\n            <ion-input></ion-input>\n          </ion-item>\n\n      <ion-item>\n            <ion-label>{{description}}</ion-label>\n            <ion-button full class=\"btncolor\" (click)=\"captureAudio()\">Capture Audio</ion-button>\n          </ion-item>\n\n\n      <ion-list>\n            <ion-item *ngFor=\"let file of mediaFiles\" text-wrap>\n                  {{ file.name }}\n                  <p>{{ file.size / 1000 / 1000 | number }} MB</p>\n                  <ion-button class=\"btncolor\" (click)=\"play(file)\">Lire</ion-button>\n                </ion-item>\n          </ion-list>\n\n      <ion-button  class=\"btncolor\" (click)=\"validate()\">Valider</ion-button>\n\n      <ion-button class=\"btncolor\" (click)=\"getContacts()\">contacts</ion-button>\n\n\n</ion-content>"
+module.exports = "<ion-header>\n      <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-back-button defaultHref=\"home\"></ion-back-button>\n        </ion-buttons>\n            <ion-title class=\"ion-text-center\">Signalement d'un lieu</ion-title>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n    <h2 class=\"ion-text-center\">Photographiez le lieu sale</h2>\n\n    <div style=\"text-align:center\">\n        <div>\n                <webcam [height]=\"500\" [width]=\"500\" [trigger]=\"triggerObservable\" (imageCapture)=\"handleImage($event)\" *ngIf=\"showWebcam\"\n                [allowCameraSwitch]=\"allowCameraSwitch\" [switchCamera]=\"nextWebcamObservable\" [videoOptions]=\"videoOptions\"\n                [imageQuality]=\"1\" (cameraSwitched)=\"cameraWasSwitched($event)\" (initError)=\"handleInitError($event)\"></webcam>\n\n            <br />\n            <ion-button icon-only class=\"actionBtn\" (click)=\"triggerSnapshot();\">\n                <ion-icon name=\"camera\"></ion-icon>\n            </ion-button>\n\n            <!-- <ion-button icon-only class=\"actionBtn\" (click)=\"toggleWebcam();\">\n                <ion-icon name=\"refresh\"></ion-icon> Changer de caméra\n            </!-->\n\n            <br />\n\n        </div>\n    </div>\n\n    <div class=\"snapshot\" *ngIf=\"webcamImage\">\n        <h2>Nice one!</h2>\n        <img [src]=\"webcamImage.imageAsDataUrl\" />\n    </div>\n\n    <!-- <h4 *ngIf=\"errors.length > 0\">Messages:</h4>\n    <ul *ngFor=\"let error of errors\">\n        <li>{{error | json}}</li>\n    </ul> -->\n\n      <ion-item>\n            <ion-label>Description</ion-label>\n            <ion-input></ion-input>\n         </ion-item>\n\n      <ion-list>\n            <ion-item *ngFor=\"let file of mediaFiles\" text-wrap>\n                  {{ file.name }}\n                  <p>{{ file.size / 1000 / 1000 | number }} MB</p>\n                  <ion-button class=\"btncolor\" (click)=\"play(file)\">Lire</ion-button>\n                </ion-item>\n          </ion-list>\n\n      <ion-button  class=\"btncolor\" (click)=\"validate()\">Valider</ion-button>\n\n\n</ion-content>"
 
 /***/ }),
 
@@ -93,12 +93,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
-/* harmony import */ var _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/media-capture/ngx */ "./node_modules/@ionic-native/media-capture/ngx/index.js");
-/* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/file/ngx */ "./node_modules/@ionic-native/file/ngx/index.js");
-/* harmony import */ var _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic-native/media/ngx */ "./node_modules/@ionic-native/media/ngx/index.js");
-/* harmony import */ var ngx_webcam__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-webcam */ "./node_modules/ngx-webcam/fesm5/ngx-webcam.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-
+/* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/file/ngx */ "./node_modules/@ionic-native/file/ngx/index.js");
+/* harmony import */ var _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/media/ngx */ "./node_modules/@ionic-native/media/ngx/index.js");
+/* harmony import */ var ngx_webcam__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-webcam */ "./node_modules/ngx-webcam/fesm5/ngx-webcam.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 
 
 
@@ -112,12 +110,11 @@ var MEDIA_FILES_KEY = 'mediaFiles';
 
 
 var UploadPage = /** @class */ (function () {
-    function UploadPage(activatedRoute, navCtrl, global, geolocation, mediaCapture, storage, file, media) {
+    function UploadPage(activatedRoute, navCtrl, global, geolocation, storage, file, media) {
         this.activatedRoute = activatedRoute;
         this.navCtrl = navCtrl;
         this.global = global;
         this.geolocation = geolocation;
-        this.mediaCapture = mediaCapture;
         this.storage = storage;
         this.file = file;
         this.media = media;
@@ -137,9 +134,9 @@ var UploadPage = /** @class */ (function () {
         // latest snapshot
         this.webcamImage = null;
         // webcam snapshot trigger
-        this.trigger = new rxjs__WEBPACK_IMPORTED_MODULE_11__["Subject"]();
+        this.trigger = new rxjs__WEBPACK_IMPORTED_MODULE_10__["Subject"]();
         // switch to next / previous / specific webcam; true/false: forward/backwards, string: deviceId
-        this.nextWebcam = new rxjs__WEBPACK_IMPORTED_MODULE_11__["Subject"]();
+        this.nextWebcam = new rxjs__WEBPACK_IMPORTED_MODULE_10__["Subject"]();
         console.log('title' + this.global.language);
         if (this.global.language == "en") {
             this.title = "Picture upload";
@@ -152,7 +149,7 @@ var UploadPage = /** @class */ (function () {
     }
     UploadPage.prototype.ngOnInit = function () {
         var _this = this;
-        ngx_webcam__WEBPACK_IMPORTED_MODULE_10__["WebcamUtil"].getAvailableVideoInputs()
+        ngx_webcam__WEBPACK_IMPORTED_MODULE_9__["WebcamUtil"].getAvailableVideoInputs()
             .then(function (mediaDevices) {
             _this.multipleWebcamsAvailable = mediaDevices && mediaDevices.length > 1;
         });
@@ -200,39 +197,12 @@ var UploadPage = /** @class */ (function () {
     //     this.image = data.image;
     //   });
     // }
-    UploadPage.prototype.captureAudio = function () {
-        var _this = this;
-        this.mediaCapture.captureAudio().then(function (res) {
-            _this.storeMediaFiles(res);
-            console.log('res', res);
-        }, function (err) { return console.error(err); });
-    };
-    UploadPage.prototype.play = function (myFile) {
-        console.log('myFile', myFile);
-        var audioFile = this.media.create(myFile.localURL);
-        audioFile.play();
-    };
-    UploadPage.prototype.storeMediaFiles = function (files) {
-        var _this = this;
-        this.storage.get(MEDIA_FILES_KEY).then(function (res) {
-            if (res) {
-                var arr = JSON.parse(res);
-                arr = arr.concat(files);
-                _this.storage.set(MEDIA_FILES_KEY, JSON.stringify(arr));
-            }
-            else {
-                _this.storage.set(MEDIA_FILES_KEY, JSON.stringify(files));
-            }
-            _this.mediaFiles = _this.mediaFiles.concat(files);
-        });
-    };
     UploadPage.prototype.validate = function () {
-        var _this = this;
         console.log('oo');
         this.geolocation.getCurrentPosition().then(function (resp) {
             console.log("newcrotte", resp);
-            _this.global.shits.push([_this.image, resp.coords.latitude, resp.coords.longitude]);
-            _this.navCtrl.pop();
+            // this.global.shits.push([this.image, resp.coords.latitude, resp.coords.longitude])
+            // this.navCtrl.pop()
         });
     };
     UploadPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -241,7 +211,7 @@ var UploadPage = /** @class */ (function () {
             template: __webpack_require__(/*! ./upload.page.html */ "./src/app/upload/upload.page.html"),
             styles: [__webpack_require__(/*! ./upload.page.scss */ "./src/app/upload/upload.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _global_service__WEBPACK_IMPORTED_MODULE_1__["GlobalService"], _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_5__["Geolocation"], _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_7__["MediaCapture"], _ionic_storage__WEBPACK_IMPORTED_MODULE_6__["Storage"], _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_8__["File"], _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_9__["Media"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _global_service__WEBPACK_IMPORTED_MODULE_1__["GlobalService"], _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_5__["Geolocation"], _ionic_storage__WEBPACK_IMPORTED_MODULE_6__["Storage"], _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_7__["File"], _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_8__["Media"]])
     ], UploadPage);
     return UploadPage;
 }());
