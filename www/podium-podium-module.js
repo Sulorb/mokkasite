@@ -58,7 +58,7 @@ var PodiumPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"home\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Classement</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n\n\n\n  <ion-grid>\n    <ion-row *ngFor=\"let rank of ranks; let i = index\">\n      <ion-col size=\"2\">{{i+1}}</ion-col>\n      <ion-col size=\"2\">\n        <img src=\"{{rank.img}}\" height=\"20px\">\n      </ion-col>\n      <ion-col size=\"8\">{{rank.name}}</ion-col>\n    </ion-row>\n  </ion-grid>\n\n</ion-content>"
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"home\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>Classement</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n\r\n\r\n\r\n  <ion-grid>\r\n    <ion-row *ngFor=\"let rank of ranks; let i = index\">\r\n      <ion-col size=\"2\">{{i+1}}</ion-col>\r\n      <ion-col size=\"2\">\r\n        <img src=\"{{rank.img}}\" height=\"20px\">\r\n      </ion-col>\r\n      <ion-col size=\"8\">{{rank.name}}</ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n</ion-content>"
 
 /***/ }),
 

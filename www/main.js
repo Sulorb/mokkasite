@@ -950,7 +950,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\n\n  <ion-router-outlet></ion-router-outlet>\n\n</ion-app>\n"
+module.exports = "<ion-app>\r\n\r\n  <ion-router-outlet></ion-router-outlet>\r\n\r\n</ion-app>\r\n"
 
 /***/ }),
 
@@ -1158,7 +1158,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/alexis/Desktop/Ionic/MokkaSite/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\I346207\Desktop\mokkasite\src\main.ts */"./src/main.ts");
 
 
 /***/ })
