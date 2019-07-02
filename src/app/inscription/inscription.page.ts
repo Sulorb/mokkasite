@@ -28,7 +28,7 @@ export class InscriptionPage {
         .subscribe((data: any) => {
           console.log(data)
           if (data.connexion == 1) {
-            this.global.storeNative(data.token)
+            this.global.storeNative(data.token);
             this.global.toast('Inscription réussie !');
             this.navCtrl.navigateRoot('home');
           } else if (data.connexion == 0) {

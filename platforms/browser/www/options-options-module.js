@@ -58,7 +58,7 @@ var OptionsPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"home\"></ion-back-button>\r\n    </ion-buttons>\r\n\r\n    <ion-title>Options</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n  <ion-list>\r\n    <ion-list-header>Général</ion-list-header>\r\n\r\n    <ion-item>\r\n      <ion-label>Langue</ion-label>\r\n      <ion-select placeholder=\"Français\" (ionChange)=\"onChange($event)\" [(ngModel)]=\"global.language\">\r\n        <ion-select-option value=\"fr\">Français</ion-select-option>\r\n        <ion-select-option value=\"en\">English</ion-select-option>\r\n      </ion-select>\r\n    </ion-item>\r\n  </ion-list>\r\n\r\n\r\n</ion-content>"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"home\"></ion-back-button>\n    </ion-buttons>\n\n    <ion-title>Options</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-list>\n    <ion-list-header>Général</ion-list-header>\n\n    <ion-item>\n      <ion-label>Langue</ion-label>\n      <ion-select placeholder=\"Français\" (ionChange)=\"onChange($event)\" [(ngModel)]=\"global.language\">\n        <ion-select-option value=\"fr\">Français</ion-select-option>\n        <ion-select-option value=\"en\">English</ion-select-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n\n\n</ion-content>"
 
 /***/ }),
 

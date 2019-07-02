@@ -839,21 +839,25 @@ module.exports = webpackAsyncContext;
 var map = {
 	"./connection/connection.module": [
 		"./src/app/connection/connection.module.ts",
+		"default~connection-connection-module~home-home-module~inscription-inscription-module~options-options~6be9c93e",
 		"common",
 		"connection-connection-module"
 	],
 	"./home/home.module": [
 		"./src/app/home/home.module.ts",
+		"default~connection-connection-module~home-home-module~inscription-inscription-module~options-options~6be9c93e",
 		"common",
 		"home-home-module"
 	],
 	"./inscription/inscription.module": [
 		"./src/app/inscription/inscription.module.ts",
+		"default~connection-connection-module~home-home-module~inscription-inscription-module~options-options~6be9c93e",
 		"common",
 		"inscription-inscription-module"
 	],
 	"./options/options.module": [
 		"./src/app/options/options.module.ts",
+		"default~connection-connection-module~home-home-module~inscription-inscription-module~options-options~6be9c93e",
 		"common",
 		"options-options-module"
 	],
@@ -867,11 +871,13 @@ var map = {
 	],
 	"./profil/profil.module": [
 		"./src/app/profil/profil.module.ts",
+		"default~connection-connection-module~home-home-module~inscription-inscription-module~options-options~6be9c93e",
 		"common",
 		"profil-profil-module"
 	],
 	"./upload/upload.module": [
 		"./src/app/upload/upload.module.ts",
+		"default~connection-connection-module~home-home-module~inscription-inscription-module~options-options~6be9c93e",
 		"common",
 		"upload-upload-module"
 	]
@@ -950,7 +956,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\r\n\r\n  <ion-router-outlet></ion-router-outlet>\r\n\r\n</ion-app>\r\n"
+module.exports = "<ion-app>\n\n  <ion-router-outlet></ion-router-outlet>\n\n</ion-app>\n"
 
 /***/ }),
 
@@ -1158,7 +1164,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\I346207\Desktop\mokkasite\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/alexis/Desktop/Ionic/MokkaSite/src/main.ts */"./src/main.ts");
 
 
 /***/ })

@@ -367,21 +367,6 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/cordova-plugin-google-analytics/www/analytics.js",
-        "id": "cordova-plugin-google-analytics.UniversalAnalytics",
-        "pluginId": "cordova-plugin-google-analytics",
-        "clobbers": [
-            "analytics",
-            "ga"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-google-analytics/browser/UniversalAnalyticsProxy.js",
-        "id": "cordova-plugin-google-analytics.UniversalAnalyticsProxy",
-        "pluginId": "cordova-plugin-google-analytics",
-        "runs": true
-    },
-    {
         "file": "plugins/cordova-plugin-ionic-webview/src/www/util.js",
         "id": "cordova-plugin-ionic-webview.IonicWebView",
         "pluginId": "cordova-plugin-ionic-webview",
@@ -609,7 +594,6 @@ module.exports.metadata =
     "cordova-plugin-file": "6.0.1",
     "cordova-plugin-geolocation": "4.0.1",
     "cordova-plugin-globalization": "1.11.0",
-    "cordova-plugin-google-analytics": "1.8.6",
     "cordova-plugin-ionic-keyboard": "2.1.3",
     "cordova-plugin-ionic-webview": "3.1.2",
     "cordova-plugin-local-notification": "0.9.0-beta.2",

@@ -12,7 +12,8 @@ export class ConnectionPage implements OnInit {
   name = "";
   password = "";
 
-  constructor(private navCtrl: NavController, private http: HttpClient, private global: GlobalService) { }
+  constructor(private navCtrl: NavController, private http: HttpClient, private global: GlobalService
+  ) { }
 
   ngOnInit() {
   }
@@ -22,8 +23,9 @@ export class ConnectionPage implements OnInit {
       .subscribe((data: any) => {
         console.log(data)
         if (data.connexion === 1) {
-          this.global.storeNative(data.token)
           this.global.toast('Connexion réussie !');
+          console.log("SET TOKEN CONNECTION");
+          this.global.storeNative(data.token);
           this.navCtrl.navigateRoot('home');
         } else {
           this.global.toast('Mauvais identifiant ou mot de passe');

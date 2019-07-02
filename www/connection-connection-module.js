@@ -58,7 +58,7 @@ var ConnectionPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n      <ion-toolbar>\r\n            <ion-title class=\"ion-text-center\">💩</ion-title>\r\n          </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n    <h1>Connexion</h1>\r\n\r\n      <ion-item>  \r\n            <ion-label style=\"color: #582900\">Pseudo</ion-label>\r\n            <ion-input [(ngModel)]=\"name\"></ion-input>\r\n          </ion-item>\r\n      <ion-item>\r\n            <ion-label style=\"color: #582900\">Mot de passe</ion-label>\r\n            <ion-input [(ngModel)]=\"password\" type=\"password\"></ion-input>\r\n          </ion-item>\r\n\r\n      <ion-button class=\"btncolor\" (click)=\"connexion()\">Se connecter</ion-button>\r\n      <ion-button class=\"btncolor\" routerLink=\"/inscription\">Inscription</ion-button>\r\n\r\n</ion-content>"
+module.exports = "<ion-header>\n      <ion-toolbar>\n            <ion-title class=\"ion-text-center\">💩</ion-title>\n          </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n    <h1>Connexion</h1>\n\n      <ion-item>  \n            <ion-label style=\"color: #582900\">Pseudo</ion-label>\n            <ion-input [(ngModel)]=\"name\"></ion-input>\n          </ion-item>\n      <ion-item>\n            <ion-label style=\"color: #582900\">Mot de passe</ion-label>\n            <ion-input [(ngModel)]=\"password\" type=\"password\"></ion-input>\n          </ion-item>\n\n      <ion-button class=\"btncolor\" (click)=\"connexion()\">Se connecter</ion-button>\n      <ion-button class=\"btncolor\" routerLink=\"/inscription\">Inscription</ion-button>\n\n</ion-content>"
 
 /***/ }),
 
@@ -69,7 +69,7 @@ module.exports = "<ion-header>\r\n      <ion-toolbar>\r\n            <ion-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "@charset \"UTF-8\";\n.takePhoto {\n      width: 100px;\n      height: 100px;\n      border: 5px solid #582900;\n      border-radius: 50%;\n      background: transparent; }\n.btncolor {\n      --background: var(--ion-color-btn); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29ubmVjdGlvbi9jb25uZWN0aW9uLnBhZ2Uuc2NzcyIsInNyYy9hcHAvY29ubmVjdGlvbi9DOlxcVXNlcnNcXEkzNDYyMDdcXERlc2t0b3BcXG1va2thc2l0ZS9zcmNcXGFwcFxcY29ubmVjdGlvblxcY29ubmVjdGlvbi5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsZ0JBQWdCO0FDQWhCO0VBQ0ksZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQiw2QkFBNkI7RUFDN0Isc0JBQXNCO0VBQ3RCLDJCQUEyQixFQUFBO0FBSTNCO0VBQ0Esc0NBQXNDLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9jb25uZWN0aW9uL2Nvbm5lY3Rpb24ucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGNoYXJzZXQgXCJVVEYtOFwiO1xuLnRha2VQaG90byB7XG4gIMKgwqDCoMKgd2lkdGg6IDEwMHB4O1xuICDCoMKgwqDCoGhlaWdodDogMTAwcHg7XG4gIMKgwqDCoMKgYm9yZGVyOiA1cHggc29saWQgIzU4MjkwMDtcbiAgwqDCoMKgwqBib3JkZXItcmFkaXVzOiA1MCU7XG4gIMKgwqDCoMKgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7IH1cblxuLmJ0bmNvbG9yIHtcbiAgwqDCoMKgwqAtLWJhY2tncm91bmQ6IHZhcigtLWlvbi1jb2xvci1idG4pOyB9XG4iLCIudGFrZVBob3RvIHtcclxuICAgIMKgwqDCoMKgd2lkdGg6IDEwMHB4O1xyXG4gICAgwqDCoMKgwqBoZWlnaHQ6IDEwMHB4O1xyXG4gICAgwqDCoMKgwqBib3JkZXI6IDVweCBzb2xpZCAjNTgyOTAwO1xyXG4gICAgwqDCoMKgwqBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgICDCoMKgwqDCoGJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xyXG4gICAgfVxyXG4gICAgXHJcbiAgICBcclxuICAgIC5idG5jb2xvciB7XHJcbiAgICDCoMKgwqDCoC0tYmFja2dyb3VuZDogdmFyKC0taW9uLWNvbG9yLWJ0bik7XHJcbiAgICB9Il19 */"
+module.exports = "@charset \"UTF-8\";\n.takePhoto {\n      width: 100px;\n      height: 100px;\n      border: 5px solid #582900;\n      border-radius: 50%;\n      background: transparent; }\n.btncolor {\n      --background: var(--ion-color-btn); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29ubmVjdGlvbi9jb25uZWN0aW9uLnBhZ2Uuc2NzcyIsIi9Vc2Vycy9hbGV4aXMvRGVza3RvcC9Jb25pYy9Nb2trYVNpdGUvc3JjL2FwcC9jb25uZWN0aW9uL2Nvbm5lY3Rpb24ucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGdCQUFnQjtBQ0FoQjtFQUNJLGdCQUFnQjtFQUNoQixpQkFBaUI7RUFDakIsNkJBQTZCO0VBQzdCLHNCQUFzQjtFQUN0QiwyQkFBMkIsRUFBQTtBQUkzQjtFQUNBLHNDQUFzQyxFQUFBIiwiZmlsZSI6InNyYy9hcHAvY29ubmVjdGlvbi9jb25uZWN0aW9uLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBjaGFyc2V0IFwiVVRGLThcIjtcbi50YWtlUGhvdG8ge1xuICDCoMKgwqDCoHdpZHRoOiAxMDBweDtcbiAgwqDCoMKgwqBoZWlnaHQ6IDEwMHB4O1xuICDCoMKgwqDCoGJvcmRlcjogNXB4IHNvbGlkICM1ODI5MDA7XG4gIMKgwqDCoMKgYm9yZGVyLXJhZGl1czogNTAlO1xuICDCoMKgwqDCoGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OyB9XG5cbi5idG5jb2xvciB7XG4gIMKgwqDCoMKgLS1iYWNrZ3JvdW5kOiB2YXIoLS1pb24tY29sb3ItYnRuKTsgfVxuIiwiLnRha2VQaG90byB7XG4gICAgwqDCoMKgwqB3aWR0aDogMTAwcHg7XG4gICAgwqDCoMKgwqBoZWlnaHQ6IDEwMHB4O1xuICAgIMKgwqDCoMKgYm9yZGVyOiA1cHggc29saWQgIzU4MjkwMDtcbiAgICDCoMKgwqDCoGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgICDCoMKgwqDCoGJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xuICAgIH1cbiAgICBcbiAgICBcbiAgICAuYnRuY29sb3Ige1xuICAgIMKgwqDCoMKgLS1iYWNrZ3JvdW5kOiB2YXIoLS1pb24tY29sb3ItYnRuKTtcbiAgICB9Il19 */"
 
 /***/ }),
 
@@ -109,8 +109,9 @@ var ConnectionPage = /** @class */ (function () {
             .subscribe(function (data) {
             console.log(data);
             if (data.connexion === 1) {
-                _this.global.storeNative(data.token);
                 _this.global.toast('Connexion réussie !');
+                console.log("SET TOKEN CONNECTION");
+                _this.global.storeNative(data.token);
                 _this.navCtrl.navigateRoot('home');
             }
             else {
