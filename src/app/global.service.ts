@@ -1,25 +1,29 @@
 import { Injectable, Inject } from '@angular/core';
 import { ToastController, Platform } from '@ionic/angular';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { HttpClient } from '@angular/common/http';
-import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalService {
 
+  // cookieService.delete('test');
   language = "fr";
 
-  shits = [
-    ["https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/198/pile-of-poo_1f4a9.png", 48.865, 2.33],
-    ["https://static.actu.fr/uploads/2017/03/25261-170302101142908-0011.jpg", 48.845, 2.37],
-    ["https://www.fiesta-republic.com/fr/images_bdd_2018/9732-fausse-crotte.jpg", 48.815, 2.31],
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Sheep_dropping_J1.jpg/1200px-Sheep_dropping_J1.jpg", 48.75, 2.33],
-    ["https://medias.lagranderecre.fr/imgs/1/1200x1200/836953V01_02.jpg", 48.4465, 2.33],
+  places = [
+    ["http://www.pnr-scarpe-escaut.fr/sites/default/files/imagecache/evenement_pleine_page_image_large/sources/depot_sauvage_3.jpg", 48.865, 2.33],
+    ["http://www.ecouflant.fr/medias/2017/03/depot-sauvage.jpg", 48.845, 2.37],
+    ["https://images.larepubliquedespyrenees.fr/2012/05/31/56815f97a43f5e4d4094696d/golden/les-dechets-ont-ete-retrouves-sur-un-petit-chemin-de-randonnee-dr.jpg", 48.815, 2.31],
+    ["https://static.actu.fr/uploads/2015/04/L176607_HD01005385.JPG", 48.75, 2.33],
+    ["https://cdn-s-www.estrepublicain.fr/images/EF5FCA7C-65D6-4400-8C1A-A2A5D003EBC5/LER_22/tout-depot-sauvage-constitue-une-infraction-reprimee-par-le-code-penal-et-est-passible-d-une-amende-1523801299.jpg", 48.4465, 2.33],
   ];
 
-  constructor(private toastController: ToastController, private nativeStorage: NativeStorage, private http: HttpClient, private _platform: Platform, @Inject(LOCAL_STORAGE) private storage: StorageService) { }
+  // serverSite = "https://joingaia.fr/joingaia-back/?";
+  serverSite = "http://localhost:8888/mokkaserver/?";
+
+
+  constructor(private toastController: ToastController, private http: HttpClient, private cookieService: CookieService) { }
 
   async toast(message) {
     const toast = await this.toastController.create({
@@ -30,33 +34,49 @@ export class GlobalService {
   }
 
   storeNative(value) {
-    this.storage.set('token', value);
+    this.cookieService.set('token', value);
 
     console.log('storing token : ' + value)
 
   }
 
-  getNative() {
-    this.storage.get('token');
-    console.log('LE GET : ', this.storage.get('token'))
+  getCookieToken() {
+
+
+    console.log('LE GET  cookie: ', this.cookieService.get('token'))
   }
 
   getUserInfos(): Promise<any> {
     return new Promise(resolve => {
-      this._platform.ready().then(() => {
-
-        this.nativeStorage.getItem('token')
-          .then(data => {
-            console.log('token : ' + data)
-            this.http.get('http://joingaia.fr/joingaia-back/?login=getUserInfos&token=' + data)
-              .subscribe((data: any) => {
-                console.log('getuserinfosPromise')
-                resolve(data)
-              })
-          },
-            error => console.error(error));
-
-      })
+      if (this.cookieService.check('token') === true) {
+        console.log('token : ' + this.cookieService.get('tokfen'))
+        this.http.get(this.serverSite + 'login=getUserInfos&token=' + this.cookieService.get('token'))
+          .subscribe((data: any) => {
+            console.log('getuserinfosPromise')
+            resolve(data)
+          })
+      } else {
+        resolve(false)
+      }
     })
   }
+
+  loadPlaces(): Promise<any> {
+    return new Promise(resolve => {
+      this.http.get(this.serverSite + 'places=getPlaces')
+        .subscribe((data: any) => {
+          console.log('getplaces : ')
+          resolve(data)
+        })
+    })
+  }
+
+  addPlace(item) {
+    this.http.post(this.serverSite + 'places=addPlace', item)
+      .subscribe((data: any) => {
+        console.log('addPlace : ' + item)
+      })
+  }
+
+
 }

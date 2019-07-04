@@ -11,15 +11,15 @@ import { HttpClient } from '@angular/common/http';
 export class ConnectionPage implements OnInit {
   name = "";
   password = "";
+  cookieValue = 'UNKNOWN';
 
-  constructor(private navCtrl: NavController, private http: HttpClient, private global: GlobalService
-  ) { }
+  constructor(private navCtrl: NavController, private http: HttpClient, private global: GlobalService) { }
 
   ngOnInit() {
   }
 
   connexion() {
-    this.http.get('https://joingaia.fr/joingaia-back/?login=connection&name=' + this.name + '&pass=' + this.password)
+    this.http.get(this.global.serverSite + 'login=connection&name=' + this.name + '&pass=' + this.password)
       .subscribe((data: any) => {
         console.log(data)
         if (data.connexion === 1) {

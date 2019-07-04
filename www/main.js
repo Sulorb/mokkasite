@@ -839,25 +839,21 @@ module.exports = webpackAsyncContext;
 var map = {
 	"./connection/connection.module": [
 		"./src/app/connection/connection.module.ts",
-		"default~connection-connection-module~home-home-module~inscription-inscription-module~options-options~6be9c93e",
 		"common",
 		"connection-connection-module"
 	],
 	"./home/home.module": [
 		"./src/app/home/home.module.ts",
-		"default~connection-connection-module~home-home-module~inscription-inscription-module~options-options~6be9c93e",
 		"common",
 		"home-home-module"
 	],
 	"./inscription/inscription.module": [
 		"./src/app/inscription/inscription.module.ts",
-		"default~connection-connection-module~home-home-module~inscription-inscription-module~options-options~6be9c93e",
 		"common",
 		"inscription-inscription-module"
 	],
 	"./options/options.module": [
 		"./src/app/options/options.module.ts",
-		"default~connection-connection-module~home-home-module~inscription-inscription-module~options-options~6be9c93e",
 		"common",
 		"options-options-module"
 	],
@@ -871,13 +867,11 @@ var map = {
 	],
 	"./profil/profil.module": [
 		"./src/app/profil/profil.module.ts",
-		"default~connection-connection-module~home-home-module~inscription-inscription-module~options-options~6be9c93e",
 		"common",
 		"profil-profil-module"
 	],
 	"./upload/upload.module": [
 		"./src/app/upload/upload.module.ts",
-		"default~connection-connection-module~home-home-module~inscription-inscription-module~options-options~6be9c93e",
 		"common",
 		"upload-upload-module"
 	]
@@ -1041,6 +1035,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var ngx_webcam__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ngx-webcam */ "./node_modules/ngx-webcam/fesm5/ngx-webcam.js");
 /* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
+
 
 
 
@@ -1082,6 +1078,7 @@ var AppModule = /** @class */ (function () {
             providers: [
                 _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
                 _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
+                ngx_cookie_service__WEBPACK_IMPORTED_MODULE_21__["CookieService"],
                 _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_9__["Geolocation"],
                 _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_20__["NativeStorage"],
                 _ionic_native_diagnostic_ngx__WEBPACK_IMPORTED_MODULE_10__["Diagnostic"],

@@ -14038,7 +14038,7 @@ var HomePage = /** @class */ (function () {
         this.itemToUpload = "assets/icon/favicon.png";
     }
     HomePage.prototype.ionViewWillEnter = function () {
-        this.loadShits();
+        this.loadPlaces();
     };
     HomePage.prototype.ngOnInit = function () {
         this.loadmap();
@@ -14059,12 +14059,12 @@ var HomePage = /** @class */ (function () {
             alert(err.message);
         });
     };
-    HomePage.prototype.loadShits = function () {
+    HomePage.prototype.loadPlaces = function () {
         // load depuis backend would better
         var _loop_1 = function () {
             var customOptions = { 'maxWidth': '500' };
-            popupLink = '<a class="merch-link" data-merchId="' + i + '">Belle merde épaisse</a><img src="' + this_1.global.shits[i][0] + '">';
-            var marker = leaflet__WEBPACK_IMPORTED_MODULE_3___default.a.marker([this_1.global.shits[i][1], this_1.global.shits[i][2]]).bindPopup(popupLink, customOptions).addTo(this_1.map);
+            popupLink = '<img src="' + this_1.global.places[i][0] + '"><a class="merch-link" data-merchId="' + i + '">Lieu très sale</a><br><button style="border:1px solid red">Je compte m\'y rendre à telle date</button><button style="border:1px solid red">J\'ai nettoyé cet endroit</button>';
+            var marker = leaflet__WEBPACK_IMPORTED_MODULE_3___default.a.marker([this_1.global.places[i][1], this_1.global.places[i][2]]).bindPopup(popupLink, customOptions).addTo(this_1.map);
             var self_1 = this_1;
             marker.on('popupopen', function () {
                 console.log('poopup open');
@@ -14079,7 +14079,7 @@ var HomePage = /** @class */ (function () {
             });
         };
         var this_1 = this, popupLink;
-        for (var i = 0; i < this.global.shits.length; i++) {
+        for (var i = 0; i < this.global.places.length; i++) {
             _loop_1();
         }
     };

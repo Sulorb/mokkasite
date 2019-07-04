@@ -117,10 +117,19 @@ export class UploadPage implements OnInit {
   validate() {
     console.log('oo')
     this.geolocation.getCurrentPosition().then((resp) => {
-      console.log("newcrotte", resp)
-      // this.global.shits.push([this.image, resp.coords.latitude, resp.coords.longitude])
+      console.log("validate", resp)
+      let placeToInsert = {
+        lng: resp.coords.longitude,
+        lat: resp.coords.latitude,
+        description: "description",
+        userDirtyName: "Selorb",
+        pictureDirty: "https://img-corp.net/assets/img/IMG_logo_big_blue.png",
+        rewardPoints: 12
+      }
+      this.global.addPlace(placeToInsert)
 
-      // this.navCtrl.pop()
+      this.navCtrl.pop()
+
 
     })
 

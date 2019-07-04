@@ -27,6 +27,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { WebcamModule } from 'ngx-webcam';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
   providers: [
     StatusBar,
     SplashScreen,
+    CookieService,
     Geolocation,
     NativeStorage,
     Diagnostic,

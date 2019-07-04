@@ -30,8 +30,8 @@
         </div>
     </div>
 
-    <div class="snapshot" *ngIf="webcamImage">
-        <h2>Nice one!</h2>
+    <div class="snapshot" *ngIf="webcamImage" style="text-align:center">
+        <h2>Résultat de la photo</h2>
         <img [src]="webcamImage.imageAsDataUrl" />
     </div>
 
@@ -53,7 +53,7 @@
                 </ion-item>
           </ion-list>
 
-      <ion-button  class="btncolor" (click)="validate()">Valider</ion-button>
+      <ion-button  class="btncolor" (click)="validate()">Ajouter cet endroit à la carte</ion-button>
 
 
 </ion-content>

@@ -23,9 +23,13 @@ export class ProfilPage implements OnInit {
 
   ionViewWillEnter() {
     this.global.getUserInfos().then((data: any) => {
-      console.log('heeeey', data)
+      if(data){
+        console.log('heeeey', data)
         data.date = moment(data.date).utc(true).calendar();
-      this.userInfos = data;
+        this.userInfos = data;
+      } else {
+        this.global.toast('reconnectez vous')
+      }
     })
   }
 

@@ -114,7 +114,7 @@ var InscriptionPage = /** @class */ (function () {
             this.global.toast("Les mots de passe ne sont pas identiques !");
         }
         else {
-            this.http.get('http://localhost:8888/mokkaserver/?login=registration&name=' + this.name + '&pass=' + this.password1)
+            this.http.get('https://joingaia.fr/joingaia-back/?login=connection&name=' + this.name + '&pass=' + this.password1)
                 .subscribe(function (data) {
                 console.log(data);
                 if (data.connexion == 1) {

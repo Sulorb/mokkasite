@@ -100,6 +100,7 @@ var ConnectionPage = /** @class */ (function () {
         this.global = global;
         this.name = "";
         this.password = "";
+        this.cookieValue = 'UNKNOWN';
     }
     ConnectionPage.prototype.ngOnInit = function () {
     };

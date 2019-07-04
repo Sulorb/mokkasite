@@ -2513,7 +2513,7 @@ var PlusPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-back-button defaultHref=\"home\"></ion-back-button>\n          </ion-buttons>\n        <ion-title>PLUS</ion-title>\n      </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n  <!--   <calendar [eventSource]=\"eventSource\" [calendarMode]=\"calendar.mode\" [currentDate]=\"calendar.currentDate\" startHour=\"6\" endHour=\"20\"\n        step=\"30\" startingDayWeek=\"1\">\n      </calendar> -->\n</ion-content>"
+module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-back-button defaultHref=\"home\"></ion-back-button>\n          </ion-buttons>\n        <ion-title>PLUS</ion-title>\n      </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <p> Ici gît la page pas encore commencée qui affichera des boutons pour lire nos CGU/À propos ainsi qu'une formulaire pour nous faire des\n    offres de partenariat. </p>\n\n  <!--   <calendar [eventSource]=\"eventSource\" [calendarMode]=\"calendar.mode\" [currentDate]=\"calendar.currentDate\" startHour=\"6\" endHour=\"20\"\n        step=\"30\" startingDayWeek=\"1\">\n      </calendar> -->\n</ion-content>"
 
 /***/ }),
 
