@@ -1,5 +1,5 @@
 import { GlobalService } from './../global.service';
-import { NavController } from '@ionic/angular';
+import { NavController, LoadingController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -26,7 +26,7 @@ export class UploadPage implements OnInit {
   userContacts: any;
   mediaFiles = [];
   title = "Ajout de la photo"
-  description = "Description vocale"
+  description = ""
   // BALEK
 
 
@@ -94,18 +94,7 @@ export class UploadPage implements OnInit {
   }
 
 
-  constructor(private activatedRoute: ActivatedRoute, private navCtrl: NavController, private global: GlobalService, private geolocation: Geolocation, private storage: Storage, private file: File, private media: Media) {
-    console.log('title' + this.global.language)
-    if (this.global.language == "en") {
-      this.title = "Picture upload"
-      this.description = "Vocal Description"
-    } else {
-      this.title = "Ajout de la photo"
-      this.description = "Description vocale"
-    }
-
-
-  }
+  constructor(private activatedRoute: ActivatedRoute, private navCtrl: NavController, private global: GlobalService, private geolocation: Geolocation, private storage: Storage, private file: File, private media: Media, private loadingController: LoadingController) { }
 
   // ngOnInit() {
   //   this.activatedRoute.params.subscribe((data: any) => {
@@ -115,22 +104,29 @@ export class UploadPage implements OnInit {
   // }
 
   validate() {
-    console.log('oo')
+
+    this.global.presentLoader()
+
+
+    console.log('webcamImage.imageAsDataUrl', this.webcamImage.imageAsDataUrl)
     this.geolocation.getCurrentPosition().then((resp) => {
       console.log("validate", resp)
       let placeToInsert = {
         lng: resp.coords.longitude,
         lat: resp.coords.latitude,
-        description: "description",
+        description: this.description,
         userDirtyName: "Selorb",
-        pictureDirty: "https://img-corp.net/assets/img/IMG_logo_big_blue.png",
+        pictureDirty: this.webcamImage.imageAsDataUrl,
         rewardPoints: 12
       }
       this.global.addPlace(placeToInsert)
 
+
+
+    }).then((dataInexistante) => {
+      this.global.dismissLoader()
+      console.log('inex:', dataInexistante)
       this.navCtrl.pop()
-
-
     })
 
   }

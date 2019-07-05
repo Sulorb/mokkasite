@@ -1,5 +1,5 @@
-import { Injectable, Inject } from '@angular/core';
-import { ToastController, Platform } from '@ionic/angular';
+import { Injectable } from '@angular/core';
+import { ToastController, LoadingController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -23,7 +23,29 @@ export class GlobalService {
   serverSite = "http://localhost:8888/mokkaserver/?";
 
 
-  constructor(private toastController: ToastController, private http: HttpClient, private cookieService: CookieService) { }
+  constructor(private toastController: ToastController, private http: HttpClient, private cookieService: CookieService, private loadingController: LoadingController) { }
+
+
+  isLoading = false;
+
+
+  async presentLoader() {
+    this.isLoading = true;
+    return await this.loadingController.create({
+      duration: 5000,
+    }).then(a => {
+      a.present().then(() => {
+        console.log('presented');
+        if (!this.isLoading) {
+          a.dismiss().then(() => console.log('abort presenting'));
+        }
+      });
+    });
+  }
+  async dismissLoader() {
+    this.isLoading = false;
+    return await this.loadingController.dismiss().then(() => console.log('dismissed'));
+  }
 
   async toast(message) {
     const toast = await this.toastController.create({
@@ -33,11 +55,11 @@ export class GlobalService {
     toast.present();
   }
 
+
   storeNative(value) {
     this.cookieService.set('token', value);
 
     console.log('storing token : ' + value)
-
   }
 
   getCookieToken() {
@@ -74,7 +96,7 @@ export class GlobalService {
   addPlace(item) {
     this.http.post(this.serverSite + 'places=addPlace', item)
       .subscribe((data: any) => {
-        console.log('addPlace : ' + item)
+        console.log('addPlace : ', item)
       })
   }
 

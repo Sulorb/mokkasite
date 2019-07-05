@@ -14,7 +14,7 @@
         <div>
                 <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
                 [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions"
-                [imageQuality]="1" (cameraSwitched)="cameraWasSwitched($event)" (initError)="handleInitError($event)"></webcam>
+                [imageQuality]="1" (cameraSwitched)="cameraWasSwitched($event)" (initError)="handleInitError($event)" mirrorImage="always"></webcam>
 
             <br />
             <ion-button icon-only class="actionBtn" (click)="triggerSnapshot();">
@@ -42,7 +42,7 @@
 
       <ion-item>
             <ion-label>Description</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="description" placeholder="Description de l'endroit"></ion-input>
          </ion-item>
 
       <ion-list>
