@@ -1,23 +1,16 @@
-<ion-header>
-      <ion-toolbar>
-            <ion-title class="ion-text-center">💩</ion-title>
-          </ion-toolbar>
-</ion-header>
+<div style="background-image: url('assets/fond-feuilles.jpg'); height: 100vh; background-size: cover;">
 
-<ion-content>
+    <h1 text-center>Connexion</h1>
 
-    <h1>Connexion</h1>
+        <ion-input [(ngModel)]="name" placeholder="identifiant_" style="width: 75vw; margin: auto; background: transparent; border-bottom: 2px solid white; color: whitesmoke;"></ion-input>
+        <ion-input [(ngModel)]="password" type="password" placeholder="mot de passe_" style="width: 75vw; margin: auto; background: transparent; border-bottom: 2px solid white; color: whitesmoke;"></ion-input>
 
-      <ion-item>  
-            <ion-label style="color: #582900">Pseudo</ion-label>
-            <ion-input [(ngModel)]="name"></ion-input>
-          </ion-item>
-      <ion-item>
-            <ion-label style="color: #582900">Mot de passe</ion-label>
-            <ion-input [(ngModel)]="password" type="password"></ion-input>
-          </ion-item>
+      <ion-button color="light" expand="block" size="large" (click)="connexion()" style="width: 75vw; display: block; margin: auto;">Valider</ion-button>
 
-      <ion-button class="btncolor" (click)="connexion()">Se connecter</ion-button>
-      <ion-button class="btncolor" routerLink="/inscription">Inscription</ion-button>
 
-</ion-content>
+    <ion-footer style="position: absolute; bottom: 5vh;" text-center>
+        <p style="color: white;">Pas encore membre ?<br>Rejoins la communauté Gaïa dès maintenant !</p>
+        <ion-button expand="block" size="large" routerLink="/inscription" style="width: 75vw; display: block; margin: auto;">Je m'inscris !</ion-button>
+    </ion-footer>
+
+</div>
