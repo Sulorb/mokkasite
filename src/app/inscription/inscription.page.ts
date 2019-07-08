@@ -12,7 +12,7 @@ export class InscriptionPage {
   name = "";
   password1 = "";
   password2 = "";
-
+  accountType = "ramasseur"
   constructor(private navCtrl: NavController, private http: HttpClient, private global: GlobalService) { }
 
   inscription() {
@@ -24,11 +24,11 @@ export class InscriptionPage {
     } else if (this.password1 != this.password2) {
       this.global.toast("Les mots de passe ne sont pas identiques !")
     } else {
-    this.http.get(this.global.serverSite + 'login=registration&name=' + this.name + '&pass=' + this.password1)
+      this.http.get(this.global.serverSite + 'login=registration&name=' + this.name + '&pass=' + this.password1 + "&accountType=" + this.accountType)
         .subscribe((data: any) => {
           console.log(data)
           if (data.connexion == 1) {
-            this.global.storeNative(data.token); 
+            this.global.storeNative(data.token);
             this.global.toast('Inscription réussie !');
             this.navCtrl.navigateRoot('home');
           } else if (data.connexion == 0) {

@@ -32,7 +32,8 @@ export class GlobalService {
   async presentLoader() {
     this.isLoading = true;
     return await this.loadingController.create({
-      duration: 5000,
+      duration: 10000,
+      backdropDismiss: false
     }).then(a => {
       a.present().then(() => {
         console.log('presented');
@@ -46,6 +47,7 @@ export class GlobalService {
     this.isLoading = false;
     return await this.loadingController.dismiss().then(() => console.log('dismissed'));
   }
+
 
   async toast(message) {
     const toast = await this.toastController.create({
