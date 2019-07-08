@@ -1,51 +1,38 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Mon profil</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div style="height: 100vh;">
+  <div style="background-image: url('assets/vague-profil.svg'); height: 230px; width: 100vw; position: absolute; top: 0; right: 0; background-repeat: no-repeat; z-index: -1;">
 
-<ion-content>
+  </div>
+
+
+  <ion-button fill="clear" icon-only (click)="back()">
+    <ion-icon name="arrow-back" color="light"></ion-icon>
+  </ion-button>
+
+  <div>
+    <img src="https://cache.cosmopolitan.fr/data/photo/w1000_ci/54/jeune-femme-blonde-lit-sereine-reflechit.jpg" alt="photo de profil" width="100px" height="100px" style="border: 2px solid yellow; border-radius: 50%; margin-top: 50px; margin-left: calc(50% - 50px); background-size: contain;">
+  </div>
+
+  <h2 text-center>{{userInfos.name}}</h2>
+  <p text-center>Inscrit(e) le : {{userInfos.date}}</p>
 
   <ion-row>
-    <ion-col size="4">
-      <img src="assets/poop.png" alt="" style="border-radius: 50%; border: 1px solid lightgrey; max-width: 100px;">
-    </ion-col>
-
-    <ion-col>
-      <h3>{{userInfos.name}}</h3>
-      <p>16 ans</p>
-      <p>Inscrit(e) le : {{userInfos.date}}</p>
-    </ion-col>
+    <img src="assets/pictos/feuille.svg" width="20px" style="margin: 0 10px;"> <b>{{userInfos.amountPoints}} point{{userInfos.amountPoints < 1 ? 's' : ''}}</b>
   </ion-row>
 
-  <ion-row text-center>
-    <ion-col>
-      <h4>{{userInfos.amountPoints}}</h4>
-      <p>points cumulés</p>
-    </ion-col>
-    <ion-col>
-      <h4>23<sup>ème</sup></h4>
-      <p>classement</p>
-    </ion-col>
-    <ion-col>
-      <h4>{{userInfos.placesCleaned}}</h4>
-      <p>lieux nettoyés</p>
-    </ion-col>
+  <ion-row>
+    <img src="assets/pictos/couronne.svg" width="20px" style="margin: 0 10px;"> <b>e au classement</b>
   </ion-row>
 
-  <h2>Historique</h2>
-  <ion-row *ngFor="let go of ['1','2','3']">
-    <ion-col size="3">
-      <div style="border-radius: 50%; border: 1px solid lightgrey; height: 50px; width: 50px; background: orangered"></div>
-    </ion-col>
-    <ion-col>
-      <p>16/12/2019</p>
-      <p>Nettoyage collectif</p>
-      <p>+50pts</p>
-    </ion-col>
+  <ion-row>
+    <img src="assets/pictos/biceps.svg" width="20px" style="margin: 0 10px;"> <b>19 actions réalisées</b>
   </ion-row>
 
-</ion-content>
+  <div style="margin-left: 20px;">
+    <h1 class="rectangle">Historique</h1>
+    <div *ngFor="let go of ['1','2','3']">
+      <p>16/12/2019<br>
+        Nettoyage collectif<br>
+        <span style="border: 2px solid orangered; color: orangered; border-radius: 20px; padding: 3px;">+50pts</span></p>
+    </div>
+  </div>
+</div>

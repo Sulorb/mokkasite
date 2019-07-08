@@ -1,0 +1,15 @@
+.rectangle::after {
+    content: "";
+    display: block;
+    width: 35%;
+    height: 24px;
+    background-color: #45e6c6;
+    position: relative;
+    top: -35px;
+    right: -5px;
+    z-index: -1;
+}
+
+.rectangle {
+    font-weight: bolder
+}

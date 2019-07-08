@@ -1,31 +1,15 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="connection"></ion-back-button>
-    </ion-buttons>
-    <ion-title>inscription</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div style="background-image: url('assets/fond-feuilles.jpg'); height: 100vh; background-size: cover;">
 
-<ion-content>
-  <h1>Inscription</h1>
+  <ion-button fill="clear" icon-only (click)="back()">
+    <ion-icon name="arrow-back" color="light"></ion-icon>
+  </ion-button>
 
-    <ion-item>  
-        <ion-label style="color: #582900">Pseudo</ion-label>
-        <ion-input [(ngModel)]="name"></ion-input>
-      </ion-item>
-    
-    <ion-item>
-        <ion-label style="color: #582900">Mot de passe</ion-label>
-        <ion-input [(ngModel)]="password1" type="password"></ion-input>
-      </ion-item>
+  <h1 text-center>Inscription</h1>
 
-    <ion-item>
-        <ion-label style="color: #582900">Mot de passe</ion-label>
-        <ion-input [(ngModel)]="password2" type="password"></ion-input>
-      </ion-item>
+      <ion-input [(ngModel)]="name" placeholder="identifiant_" style="width: 75vw; margin: auto; background: transparent; border-bottom: 2px solid white; color: whitesmoke;"></ion-input>
+      <ion-input [(ngModel)]="password1" type="password" placeholder="mot de passe_" style="width: 75vw; margin: auto; background: transparent; border-bottom: 2px solid white; color: whitesmoke;"></ion-input>
+      <ion-input [(ngModel)]="password2" type="password" placeholder="répéter mot de passe_" style="width: 75vw; margin: auto; background: transparent; border-bottom: 2px solid white; color: whitesmoke;"></ion-input>
 
-    <ion-button class="btncolor" (click)="inscription()">S'inscrire</ion-button>
+    <ion-button color="light" expand="block" size="large" (click)="inscription()" style="width: 75vw; display: block; margin: auto;">Valider</ion-button>
 
-
-</ion-content>
+</div>
