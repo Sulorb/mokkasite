@@ -1,59 +1,78 @@
-<ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-back-button defaultHref="home"></ion-back-button>
-        </ion-buttons>
-            <ion-title class="ion-text-center">Signalement d'un lieu</ion-title>
-    </ion-toolbar>
-</ion-header>
+<ion-button fill="clear" icon-only (click)="back()">
+    <ion-icon name="arrow-back" color="dark"></ion-icon>
+</ion-button>
 
-<ion-content>
-    <h2 class="ion-text-center">Photographiez le lieu sale</h2>
+<h1 class="rectangle">Signaler un lieu</h1>
 
-    <div style="text-align:center">
-        <div>
-                <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
-                [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions"
-                [imageQuality]="1" (cameraSwitched)="cameraWasSwitched($event)" (initError)="handleInitError($event)" mirrorImage="always"></webcam>
+<div style="text-align:center">
+    <div>
+        <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam" [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" [imageQuality]="1" (cameraSwitched)="cameraWasSwitched($event)" (initError)="handleInitError($event)"></webcam>
 
-            <br />
-            <ion-button icon-only class="actionBtn" (click)="triggerSnapshot();">
-                <ion-icon name="camera"></ion-icon>
-            </ion-button>
+        <br />
+        <ion-button icon-only class="actionBtn" (click)="triggerSnapshot();">
+            <ion-icon name="camera"></ion-icon>
+        </ion-button>
 
-            <!-- <ion-button icon-only class="actionBtn" (click)="toggleWebcam();">
+        <!-- <ion-button icon-only class="actionBtn" (click)="toggleWebcam();">
                 <ion-icon name="refresh"></ion-icon> Changer de caméra
             </!-->
 
-            <br />
+        <br />
 
-        </div>
     </div>
+</div>
 
-    <div class="snapshot" *ngIf="webcamImage" style="text-align:center">
-        <h2>Résultat de la photo</h2>
-        <img [src]="webcamImage.imageAsDataUrl" />
-    </div>
+<div class="snapshot" *ngIf="webcamImage" style="text-align:center">
+    <h2>Résultat de la photo</h2>
+    <img [src]="webcamImage.imageAsDataUrl" />
+</div>
 
-    <!-- <h4 *ngIf="errors.length > 0">Messages:</h4>
+<!-- <h4 *ngIf="errors.length > 0">Messages:</h4>
     <ul *ngFor="let error of errors">
         <li>{{error | json}}</li>
     </ul> -->
+<ion-radio-group [(ngModel)]="typeSale">
+    <ion-row text-center>
+        <ion-col>
+            <ion-row>
+                <img src="assets/icon/favicon.png" width="30px"><br>
+            </ion-row>
+            <ion-row>
+                <ion-label>Sale</ion-label>
+                <ion-radio value="sale"></ion-radio>
+            </ion-row>
+        </ion-col>
+        <ion-col>
+            <ion-row>
+                <img src="assets/icon/favicon.png" width="30px"><br>
+            </ion-row>
+            <ion-row>
+                <ion-label>Très sale</ion-label>
+                <ion-radio value="tressale"></ion-radio>
+            </ion-row>
+        </ion-col>
+        <ion-col>
+            <ion-row>
+                <img src="assets/icon/favicon.png" width="30px"><br>
+            </ion-row>
+            <ion-row>
+                <ion-label>Hyper sale</ion-label>
+                <ion-radio value="hypersale"></ion-radio>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+</ion-radio-group>
+  <ion-item>
+        <ion-label>Description</ion-label>
+        <ion-input [(ngModel)]="description" placeholder="Description de l'endroit"></ion-input>
+     </ion-item>
 
-      <ion-item>
-            <ion-label>Description</ion-label>
-            <ion-input [(ngModel)]="description" placeholder="Description de l'endroit"></ion-input>
-         </ion-item>
+  <ion-list>
+        <ion-item *ngFor="let file of mediaFiles" text-wrap>
+              {{ file.name }}
+              <p>{{ file.size / 1000 / 1000 | number }} MB</p>
+              <ion-button class="btncolor" (click)="play(file)">Lire</ion-button>
+            </ion-item>
+      </ion-list>
 
-      <ion-list>
-            <ion-item *ngFor="let file of mediaFiles" text-wrap>
-                  {{ file.name }}
-                  <p>{{ file.size / 1000 / 1000 | number }} MB</p>
-                  <ion-button class="btncolor" (click)="play(file)">Lire</ion-button>
-                </ion-item>
-          </ion-list>
-
-      <ion-button  class="btncolor" (click)="validate()">Ajouter cet endroit à la carte</ion-button>
-
-
-</ion-content>
+  <ion-button  class="btncolor" (click)="validate()">Ajouter cet endroit à la carte</ion-button>

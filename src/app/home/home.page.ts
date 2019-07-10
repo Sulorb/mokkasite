@@ -24,7 +24,7 @@ export class HomePage implements OnInit {
   }
 
   loadmap() {
-    this.map = leaflet.map("map")
+    this.map = leaflet.map("map", { zoomControl: false })
     leaflet.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
       maxZoom: 20
     }).addTo(this.map);
@@ -42,9 +42,9 @@ export class HomePage implements OnInit {
   loadPlaces() {
 
     this.global.loadPlaces().then((data: any) => {
-      console.log('dataplaces:',data)
+      console.log('dataplaces:', data)
       for (var i = 0; i < data.length; i++) {
-        console.log('dataplaces0:',data[0])
+        console.log('dataplaces0:', data[0])
         let customOptions = { 'maxWidth': '500' }
         var popupLink = '<img src="' + data[i]['pictureDirty'] + '"><a class="merch-link" data-merchId="' + i + '">Lieu très sale</a><br><button style="border:1px solid red">Je compte m\'y rendre à telle date</button><button style="border:1px solid red">J\'ai nettoyé cet endroit</button>'
 

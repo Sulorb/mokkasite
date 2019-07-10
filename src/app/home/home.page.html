@@ -1,36 +1,40 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-title class="ion-text-center">JoinGaïa</ion-title>
-      </ion-toolbar>
-</ion-header>
-
 <ion-content>
+
+  <ion-fab horizontal="end" vertical="top" slot="fixed">
+    <ion-fab-button color="light">
+      <img src="assets/pictos/focus.svg" alt="">
+    </ion-fab-button>
+    <ion-fab-button color="light">
+      <img src="assets/pictos/burgerMenu.svg" alt="">
+    </ion-fab-button>
+  </ion-fab>
 
   <ion-fab vertical="bottom" horizontal="center">
 
-    <ion-fab-button>
-      <ion-icon name="more"></ion-icon>
+    <ion-fab-button color="light">
+      <img src="assets/pictos/plus.svg" alt="">
     </ion-fab-button>
 
     <ion-fab-list side="start">
       <ion-fab-button routerLink="/profil">
-        <ion-icon name="contact"></ion-icon>
+        <img src="assets/pictos/profil.svg" alt="">
+
       </ion-fab-button>
     </ion-fab-list>
 
     <ion-fab-list side="top">
+      <ion-fab-button routerLink="/plus">
+        <img src="assets/pictos/doubleCercleCheck.svg" alt="">
+      </ion-fab-button>
       <ion-fab-button routerLink="/upload">
-        <ion-icon name="add"></ion-icon>
+        <img src="assets/pictos/marqueurPlus.svg" alt="">
       </ion-fab-button>
     </ion-fab-list>
 
     <ion-fab-list side="end">
-      <ion-fab-button routerLink="/plus">
-        <ion-icon name="more"></ion-icon>
-      </ion-fab-button>
 
       <ion-fab-button routerLink="/podium">
-        <ion-icon name="podium"></ion-icon>
+        <img src="assets/pictos/couronne.svg" alt="">
       </ion-fab-button>
     </ion-fab-list>
 

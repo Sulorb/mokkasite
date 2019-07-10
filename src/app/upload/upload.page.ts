@@ -28,6 +28,7 @@ export class UploadPage implements OnInit {
   title = "Ajout de la photo"
   description = ""
   // BALEK
+  typeSale = "sale";
 
 
   // toggle webcam on/off
@@ -105,30 +106,41 @@ export class UploadPage implements OnInit {
 
   validate() {
 
-    this.global.presentLoader()
+    if (this.webcamImage) {
+      if (this.description.length < 300) {
+
+        this.global.presentLoader()
 
 
-    console.log('webcamImage.imageAsDataUrl', this.webcamImage.imageAsDataUrl)
-    this.geolocation.getCurrentPosition().then((resp) => {
-      console.log("validate", resp)
-      let placeToInsert = {
-        lng: resp.coords.longitude,
-        lat: resp.coords.latitude,
-        description: this.description,
-        userDirtyName: "Selorb",
-        pictureDirty: this.webcamImage.imageAsDataUrl,
-        rewardPoints: 12
+        // console.log('webcamImage.imageAsDataUrl', this.webcamImage.imageAsDataUrl)
+        this.geolocation.getCurrentPosition().then((resp) => {
+          console.log("validate", resp)
+          let placeToInsert = {
+            lng: resp.coords.longitude,
+            lat: resp.coords.latitude,
+            description: this.description,
+            userDirtyName: "Selorb",
+            pictureDirty: this.webcamImage.imageAsDataUrl,
+            rewardPoints: 12,
+            dirtyKind: this.typeSale
+          }
+          this.global.addPlace(placeToInsert)
+        }).then((dataInexistante) => {
+          this.global.dismissLoader()
+          console.log('inex data:', dataInexistante)
+          this.navCtrl.pop()
+        })
+      } else {
+        this.global.toast('La description ne doit pas dépasser les 300 caractères')
       }
-      this.global.addPlace(placeToInsert)
+    } else {
+      this.global.toast("Prenez d'abord une photo pardi !")
+    }
 
+  }
 
-
-    }).then((dataInexistante) => {
-      this.global.dismissLoader()
-      console.log('inex:', dataInexistante)
-      this.navCtrl.pop()
-    })
-
+  back() {
+    this.navCtrl.pop();
   }
 
 

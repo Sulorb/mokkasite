@@ -12,6 +12,7 @@ export class InscriptionPage {
   name = "";
   password1 = "";
   password2 = "";
+  accountType = "ramasseur"
 
   constructor(private navCtrl: NavController, private http: HttpClient, private global: GlobalService) { }
 
@@ -24,7 +25,7 @@ export class InscriptionPage {
     } else if (this.password1 != this.password2) {
       this.global.toast("Les mots de passe ne sont pas identiques !")
     } else {
-      this.http.get(this.global.serverSite + 'login=registration&name=' + this.name + '&pass=' + this.password1)
+      this.http.get(this.global.serverSite + 'login=registration&name=' + this.name + '&pass=' + this.password1 + "&accountType=" + this.accountType)
         .subscribe((data: any) => {
           console.log(data)
           if (data.connexion == 1) {
