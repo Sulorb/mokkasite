@@ -1,78 +1,83 @@
-<ion-button fill="clear" icon-only (click)="back()">
-    <ion-icon name="arrow-back" color="dark"></ion-icon>
-</ion-button>
+<ion-content>
 
-<h1 class="rectangle">Signaler un lieu</h1>
+    <ion-button fill="clear" icon-only (click)="back()">
+        <ion-icon name="arrow-back" color="dark"></ion-icon>
+    </ion-button>
 
-<div style="text-align:center">
-    <div>
-        <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam" [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" [imageQuality]="1" (cameraSwitched)="cameraWasSwitched($event)" (initError)="handleInitError($event)"></webcam>
+    <h1 class="rectangle">Signaler un lieu</h1>
 
-        <br />
-        <ion-button icon-only class="actionBtn" (click)="triggerSnapshot();">
-            <ion-icon name="camera"></ion-icon>
-        </ion-button>
+    <div style="text-align:center">
+        <div>
+            <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam" [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" [imageQuality]="1" (cameraSwitched)="cameraWasSwitched($event)" (initError)="handleInitError($event)"></webcam>
 
-        <!-- <ion-button icon-only class="actionBtn" (click)="toggleWebcam();">
+            <br />
+            <ion-button color="light" large (click)="triggerSnapshot();">
+                <img width="50px" src="assets/pictos/photo.svg" alt="prendre une photo">
+            </ion-button>
+
+            <!-- <ion-button icon-only class="actionBtn" (click)="toggleWebcam();">
                 <ion-icon name="refresh"></ion-icon> Changer de caméra
             </!-->
 
-        <br />
+            <br />
 
+        </div>
     </div>
-</div>
 
-<div class="snapshot" *ngIf="webcamImage" style="text-align:center">
-    <h2>Résultat de la photo</h2>
-    <img [src]="webcamImage.imageAsDataUrl" />
-</div>
+    <div class="snapshot" *ngIf="webcamImage" style="text-align:center">
+        <h2>Résultat de la photo</h2>
+        <img [src]="webcamImage.imageAsDataUrl" />
+    </div>
 
-<!-- <h4 *ngIf="errors.length > 0">Messages:</h4>
+    <!-- <h4 *ngIf="errors.length > 0">Messages:</h4>
     <ul *ngFor="let error of errors">
         <li>{{error | json}}</li>
     </ul> -->
-<ion-radio-group [(ngModel)]="typeSale">
-    <ion-row text-center>
-        <ion-col>
-            <ion-row>
-                <img src="assets/icon/favicon.png" width="30px"><br>
-            </ion-row>
-            <ion-row>
-                <ion-label>Sale</ion-label>
-                <ion-radio value="sale"></ion-radio>
-            </ion-row>
-        </ion-col>
-        <ion-col>
-            <ion-row>
-                <img src="assets/icon/favicon.png" width="30px"><br>
-            </ion-row>
-            <ion-row>
-                <ion-label>Très sale</ion-label>
-                <ion-radio value="tressale"></ion-radio>
-            </ion-row>
-        </ion-col>
-        <ion-col>
-            <ion-row>
-                <img src="assets/icon/favicon.png" width="30px"><br>
-            </ion-row>
-            <ion-row>
-                <ion-label>Hyper sale</ion-label>
-                <ion-radio value="hypersale"></ion-radio>
-            </ion-row>
-        </ion-col>
-    </ion-row>
-</ion-radio-group>
-  <ion-item>
-        <ion-label>Description</ion-label>
-        <ion-input [(ngModel)]="description" placeholder="Description de l'endroit"></ion-input>
-     </ion-item>
 
-  <ion-list>
-        <ion-item *ngFor="let file of mediaFiles" text-wrap>
-              {{ file.name }}
-              <p>{{ file.size / 1000 / 1000 | number }} MB</p>
-              <ion-button class="btncolor" (click)="play(file)">Lire</ion-button>
-            </ion-item>
-      </ion-list>
+    <h3>Niveau de saleté</h3>
+    <ion-radio-group [(ngModel)]="typeSale">
+        <ion-row text-center>
+            <ion-col>
+                <ion-row>
+                    <img src="assets/icon/favicon.png" width="30px"><br>
+                </ion-row>
+                <ion-row>
+                    <ion-label>Sale</ion-label>
+                    <ion-radio value="sale"></ion-radio>
+                </ion-row>
+            </ion-col>
+            <ion-col>
+                <ion-row>
+                    <img src="assets/icon/favicon.png" width="30px"><br>
+                </ion-row>
+                <ion-row>
+                    <ion-label>Très sale</ion-label>
+                    <ion-radio value="tressale"></ion-radio>
+                </ion-row>
+            </ion-col>
+            <ion-col>
+                <ion-row>
+                    <img src="assets/icon/favicon.png" width="30px"><br>
+                </ion-row>
+                <ion-row>
+                    <ion-label>Hyper sale</ion-label>
+                    <ion-radio value="hypersale"></ion-radio>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </ion-radio-group>
+      <ion-item>
+            <ion-input [(ngModel)]="description" placeholder="Des commentaires particuliers ?"></ion-input>
+         </ion-item>
 
-  <ion-button  class="btncolor" (click)="validate()">Ajouter cet endroit à la carte</ion-button>
+      <ion-list>
+            <ion-item *ngFor="let file of mediaFiles" text-wrap>
+                  {{ file.name }}
+                  <p>{{ file.size / 1000 / 1000 | number }} MB</p>
+                  <ion-button class="btncolor" (click)="play(file)">Lire</ion-button>
+                </ion-item>
+          </ion-list>
+
+      <ion-button size="block" style="max-width: 75%; display: block; margin: auto; margin-bottom: 30px;" color="tertiary" (click)="validate()">Envoyer</ion-button>
+
+</ion-content>

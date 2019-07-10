@@ -1,6 +1,8 @@
 import { GlobalService } from './../global.service';
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import leaflet from 'leaflet';
+import { ModalController } from '@ionic/angular';
+import { PlusPage } from '../plus/plus.page';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +13,7 @@ export class HomePage implements OnInit {
   @ViewChild('map') mapContainer: ElementRef;
   map: any;
 
-  constructor(private global: GlobalService, private elementRef: ElementRef) { }
+  constructor(private global: GlobalService, private elementRef: ElementRef, public modalController: ModalController) { }
 
   ionViewWillEnter() {
     this.loadPlaces()
@@ -42,9 +44,7 @@ export class HomePage implements OnInit {
   loadPlaces() {
 
     this.global.loadPlaces().then((data: any) => {
-      console.log('dataplaces:', data)
       for (var i = 0; i < data.length; i++) {
-        console.log('dataplaces0:', data[0])
         let customOptions = { 'maxWidth': '500' }
         var popupLink = '<img src="' + data[i]['pictureDirty'] + '"><a class="merch-link" data-merchId="' + i + '">Lieu très sale</a><br><button style="border:1px solid red">Je compte m\'y rendre à telle date</button><button style="border:1px solid red">J\'ai nettoyé cet endroit</button>'
 
@@ -70,6 +70,13 @@ export class HomePage implements OnInit {
     //this.navCtrl.push(MerchantPage, { merchantId: merchantId });
     console.log("going to merchant " + merchantId)
   }
+
+    async openModalMenu() {
+      const modal = await this.modalController.create({
+        component: PlusPage
+      });
+      return await modal.present();
+    }
 
 
 }

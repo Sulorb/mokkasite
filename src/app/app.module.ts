@@ -28,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { WebcamModule } from 'ngx-webcam';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { CookieService } from 'ngx-cookie-service';
+import { PlusPageModule } from './plus/plus.module';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { CookieService } from 'ngx-cookie-service';
     IonicStorageModule.forRoot(),
     HttpClientModule,
     WebcamModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PlusPageModule
   ],
   providers: [
     StatusBar,
