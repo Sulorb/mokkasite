@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, ModalController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-partenaires',
-  templateUrl: './partenaires.page.html',
-  styleUrls: ['./partenaires.page.scss'],
+  selector: 'app-missions',
+  templateUrl: './missions.page.html',
+  styleUrls: ['./missions.page.scss'],
 })
-export class PartenairesPage implements OnInit {
+export class MissionsPage implements OnInit {
 
   constructor(private navCtrl: NavController, private modalCtrl: ModalController) { }
 

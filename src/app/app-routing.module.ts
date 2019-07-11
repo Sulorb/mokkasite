@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'partenaires', loadChildren: './partenaires/partenaires.module#PartenairesPageModule' },
   { path: 'cgu', loadChildren: './cgu/cgu.module#CguPageModule' },
   { path: 'mentions', loadChildren: './mentions/mentions.module#MentionsPageModule' },
+  { path: 'missions', loadChildren: './missions/missions.module#MissionsPageModule' },
 
 ];
 

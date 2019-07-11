@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-cgu',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CguPage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController, private modalCtrl: ModalController) { }
 
   ngOnInit() {
+  }
+
+  back() {
+    this.modalCtrl.dismiss();
   }
 
 }

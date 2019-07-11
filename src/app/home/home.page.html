@@ -1,10 +1,10 @@
 <ion-content>
 
   <ion-fab horizontal="end" vertical="top" slot="fixed">
-    <ion-fab-button color="light">
+    <ion-fab-button color="light" (click)="focusMap()">
       <img src="assets/pictos/focus.svg" alt="">
     </ion-fab-button>
-    <ion-fab-button color="light" (click)="openModalMenu()">
+    <ion-fab-button color="light" (click)="openModalMenu()" style="margin-top: 15px;">
       <img src="assets/pictos/burgerMenu.svg" alt="">
     </ion-fab-button>
   </ion-fab>
@@ -23,7 +23,7 @@
     </ion-fab-list>
 
     <ion-fab-list side="top">
-      <ion-fab-button routerLink="/plus">
+      <ion-fab-button routerLink="/missions">
         <img src="assets/pictos/doubleCercleCheck.svg" alt="">
       </ion-fab-button>
       <ion-fab-button routerLink="/upload">

@@ -29,6 +29,10 @@ import { WebcamModule } from 'ngx-webcam';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { CookieService } from 'ngx-cookie-service';
 import { PlusPageModule } from './plus/plus.module';
+import { CguPageModule } from './cgu/cgu.module';
+import { MentionsPageModule } from './mentions/mentions.module';
+import { AproposPageModule } from './apropos/apropos.module';
+import { PartenairesPageModule } from './partenaires/partenaires.module';
 
 
 @NgModule({
@@ -43,7 +47,11 @@ import { PlusPageModule } from './plus/plus.module';
     HttpClientModule,
     WebcamModule,
     AppRoutingModule,
-    PlusPageModule
+    PlusPageModule,
+    CguPageModule,
+    PartenairesPageModule,
+    MentionsPageModule,
+    AproposPageModule
   ],
   providers: [
     StatusBar,

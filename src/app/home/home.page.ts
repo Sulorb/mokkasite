@@ -25,15 +25,29 @@ export class HomePage implements OnInit {
     this.global.getCookieToken()
   }
 
+  focusMap() {
+    this.map.locate({
+      setView: true,
+      maxZoom: 20
+    }).on('locationfound', (e) => {
+      this.map.setView([e.latlng.lat, e.latlng.lng], 15);
+      console.log('loc', e)
+    }).on('locationerror', (err) => {
+      alert(err.message);
+    })
+  }
+
   loadmap() {
     this.map = leaflet.map("map", { zoomControl: false })
     leaflet.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
       maxZoom: 20
     }).addTo(this.map);
+
     this.map.locate({
       setView: true,
       maxZoom: 20
     }).on('locationfound', (e) => {
+      this.map.setView([e.latlng.lat, e.latlng.lng], 15);
       console.log('loc', e)
     }).on('locationerror', (err) => {
       alert(err.message);
@@ -46,6 +60,10 @@ export class HomePage implements OnInit {
     this.global.loadPlaces().then((data: any) => {
       for (var i = 0; i < data.length; i++) {
         let customOptions = { 'maxWidth': '500' }
+
+        // if data.type = (tres)sale on affiche ça
+        // if monId se trouve dans place.mission, on affiche bouton valider
+
         var popupLink = '<img src="' + data[i]['pictureDirty'] + '"><a class="merch-link" data-merchId="' + i + '">Lieu très sale</a><br><button style="border:1px solid red">Je compte m\'y rendre à telle date</button><button style="border:1px solid red">J\'ai nettoyé cet endroit</button>'
 
         let marker: any = leaflet.marker([data[i]['lat'], data[i]['lng']]).bindPopup(popupLink, customOptions).addTo(this.map)
@@ -71,12 +89,12 @@ export class HomePage implements OnInit {
     console.log("going to merchant " + merchantId)
   }
 
-    async openModalMenu() {
-      const modal = await this.modalController.create({
-        component: PlusPage
-      });
-      return await modal.present();
-    }
+  async openModalMenu() {
+    const modal = await this.modalController.create({
+      component: PlusPage
+    });
+    return await modal.present();
+  }
 
 
 }
