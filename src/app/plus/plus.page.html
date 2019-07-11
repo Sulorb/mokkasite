@@ -1,7 +1,15 @@
-<ion-fab horizontal="end" vertical="top" slot="fixed">
-  <ion-fab-button color="light" (click)="back()">
-    <img src="assets/pictos/croix.svg" width="50px">
-  </ion-fab-button>
-</ion-fab>
+<div style="background-image: url('assets/fond-feuilles.jpg'); height: 100vh; background-size: cover; z-index: -2;">
+  <!-- TODO : changer image en pré-floutée -->
+  <ion-fab horizontal="end" vertical="top" slot="fixed">
+    <ion-fab-button color="light" (click)="back()">
+      <img src="assets/pictos/croix.svg" width="50px">
+    </ion-fab-button>
+  </ion-fab>
 
-<h2 class="rectangle" tappable (click)="goToPage('apropos')">À propos</h2>
+  <div style="display: block; margin: 50% 10%;">
+    <h2 class="rectangle bold" tappable (click)="goToPage('apropos')">À propos</h2>
+    <h2 class="bold" tappable (click)="goToPage('partenaires')">Partenaires</h2>
+    <h2 class="bold" tappable (click)="goToPage('cgu')">CGU</h2>
+    <h2 class="bold" tappable (click)="goToPage('mentions')">Mentions Légales</h2>
+  </div>
+</div>

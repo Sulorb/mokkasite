@@ -7,10 +7,13 @@ const routes: Routes = [
   { path: 'upload', loadChildren: './upload/upload.module#UploadPageModule' },
   { path: 'connection', loadChildren: './connection/connection.module#ConnectionPageModule' },
   { path: 'inscription', loadChildren: './inscription/inscription.module#InscriptionPageModule' },
-  { path: 'options', loadChildren: './options/options.module#OptionsPageModule' },
   { path: 'plus', loadChildren: './plus/plus.module#PlusPageModule' },
   { path: 'podium', loadChildren: './podium/podium.module#PodiumPageModule' },
-  { path: 'profil', loadChildren: './profil/profil.module#ProfilPageModule' },
+  { path: 'profil', loadChildren: './profil/profil.module#ProfilPageModule' },  { path: 'apropos', loadChildren: './apropos/apropos.module#AproposPageModule' },
+  { path: 'partenaires', loadChildren: './partenaires/partenaires.module#PartenairesPageModule' },
+  { path: 'cgu', loadChildren: './cgu/cgu.module#CguPageModule' },
+  { path: 'mentions', loadChildren: './mentions/mentions.module#MentionsPageModule' },
+
 ];
 
 @NgModule({
