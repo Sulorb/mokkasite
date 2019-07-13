@@ -7,9 +7,9 @@
 
   <h1 class="rectangle">Faites alliance avec la nature</h1>
 
-  <p>Nous avons décidé de sauver le monde, et pas tout seuls ! En rejoignant notre ligue de citoyens responsables, vous contribuerez à un monde plus propre et pérenne.</p>
+  <p padding>Nous avons décidé de sauver le monde, et pas tout seuls ! En rejoignant notre ligue de citoyens responsables, vous contribuerez à un monde plus propre et pérenne.</p>
 
-  <p>Établissez votre demande via le formulaire ci-dessous. Nous reviendrons rapidement vers vous !</p>
+  <p padding>Établissez votre demande via le formulaire ci-dessous. Nous reviendrons rapidement vers vous !</p>
 
 
   <ion-item>
@@ -32,10 +32,10 @@
       <ion-input [(ngModel)]="name" placeholder="Pourquoi nous ?_" style="width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);"></ion-input>
 
   <div padding margin>
-    <ion-checkbox checked="true"></ion-checkbox> J'accepte que mes données soient conservées
+    <ion-checkbox [(ngModel)]="checkbox"></ion-checkbox> J'accepte que mes données soient conservées
   </div>
 
 
-    <ion-button color="light" expand="block" color="tertiary" style="width: 75vw; display: block; margin: auto; margin-bottom: 30px;">Envoyer</ion-button>
+    <ion-button color="light" expand="block" color="tertiary" style="width: 75vw; display: block; margin: auto; margin-bottom: 30px;" (click)="send()">Envoyer</ion-button>
 
 </ion-content>

@@ -10,36 +10,43 @@
       <ion-input [(ngModel)]="password1" type="password" placeholder="mot de passe_" style="width: 75vw; margin: auto; background: transparent; border-bottom: 2px solid white; color: whitesmoke;"></ion-input>
       <ion-input [(ngModel)]="password2" type="password" placeholder="répéter mot de passe_" style="width: 75vw; margin: auto; background: transparent; border-bottom: 2px solid white; color: whitesmoke;"></ion-input>
 
+
   <ion-radio-group [(ngModel)]="accountType">
-    <ion-row text-center>
-      <ion-col>
-        <ion-row>
-          <img src="assets/icon/favicon.png" width="30px"><br>
-        </ion-row>
-        <ion-row>
-          <ion-label>Ramasseur</ion-label>
-          <ion-radio value="ramasseur"></ion-radio>
-        </ion-row>
-      </ion-col>
-      <ion-col>
-        <ion-row>
-          <img src="assets/icon/favicon.png" width="30px"><br>
-        </ion-row>
-        <ion-row>
-          <ion-label>Association</ion-label>
-          <ion-radio value="association"></ion-radio>
-        </ion-row>
-      </ion-col>
-      <ion-col>
-        <ion-row>
-          <img src="assets/icon/favicon.png" width="30px"><br>
-        </ion-row>
-        <ion-row>
-          <ion-label>Entreprise financeuse</ion-label>
-          <ion-radio value="entreprise"></ion-radio>
-        </ion-row>
-      </ion-col>
-    </ion-row>
+      <ion-row>
+          <ion-col>
+              <ion-row class="center">
+                  <img src="assets/icon/favicon.png" width="30px"><br>
+              </ion-row>
+              <ion-row class="center">
+                  <ion-label>Ramasseur</ion-label>
+              </ion-row>
+              <ion-row class="center">
+                  <ion-radio value="ramasseur"></ion-radio>
+              </ion-row>
+          </ion-col>
+          <ion-col>
+              <ion-row class="center">
+                  <img src="assets/icon/favicon.png" width="30px"><br>
+              </ion-row>
+              <ion-row class="center">
+                  <ion-label>Association</ion-label>
+              </ion-row>
+              <ion-row class="center">
+                  <ion-radio value="association"></ion-radio>
+              </ion-row>
+          </ion-col>
+          <ion-col>
+              <ion-row class="center">
+                  <img src="assets/icon/favicon.png" width="30px"><br>
+              </ion-row>
+              <ion-row class="center">
+                  <ion-label>Entreprise financeuse</ion-label>
+              </ion-row>
+              <ion-row class="center">
+                  <ion-radio value="entreprise"></ion-radio>
+              </ion-row>
+          </ion-col>
+      </ion-row>
   </ion-radio-group>
 
     <ion-button color="light" expand="block" size="large" (click)="inscription()" style="width: 75vw; display: block; margin: auto;">Valider</ion-button>

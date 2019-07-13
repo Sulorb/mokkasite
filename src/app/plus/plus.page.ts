@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
 import { CguPage } from '../cgu/cgu.page';
@@ -12,7 +13,7 @@ import { PartenairesPage } from '../partenaires/partenaires.page';
 })
 export class PlusPage implements OnInit {
 
-  constructor(private modalController: ModalController, private navCtrl: NavController) { }
+  constructor(private modalController: ModalController, private navCtrl: NavController, private cookieService: CookieService) { }
 
   ngOnInit() {
   }
@@ -47,6 +48,12 @@ export class PlusPage implements OnInit {
       component: AproposPage
     });
     return await modal.present();
+  }
+
+  deconnexion() {
+    this.cookieService.delete('token');
+    this.modalController.dismiss()
+    this.navCtrl.navigateRoot('connection');
   }
 
 }

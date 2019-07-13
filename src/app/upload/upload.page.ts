@@ -121,7 +121,6 @@ export class UploadPage implements OnInit {
             description: this.description,
             userDirtyName: "Selorb",
             pictureDirty: this.webcamImage.imageAsDataUrl,
-            rewardPoints: 12,
             dirtyKind: this.typeSale
           }
           this.global.addPlace(placeToInsert)

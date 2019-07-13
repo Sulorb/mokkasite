@@ -28,7 +28,6 @@ export class GlobalService {
 
 
   isLoading = false;
-  //test
 
 
   async presentLoader() {
@@ -53,7 +52,9 @@ export class GlobalService {
   async toast(message) {
     const toast = await this.toastController.create({
       message: message,
-      duration: 2000
+      duration: 2000,
+      showCloseButton: true,
+      closeButtonText: 'Fermer'
     });
     toast.present();
   }

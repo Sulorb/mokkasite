@@ -17,4 +17,16 @@
 
 ion-content {
     --background: transparent; // you don't need to use a css custom property, but you can of course
-    }
+}
+
+ion-radio {
+    border: 2px solid rgb(75, 218, 62);
+    border-radius: 50%;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

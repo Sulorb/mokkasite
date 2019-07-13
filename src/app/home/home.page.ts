@@ -56,18 +56,31 @@ export class HomePage implements OnInit {
 
 
   loadPlaces() {
-
     this.global.loadPlaces().then((data: any) => {
       for (var i = 0; i < data.length; i++) {
-        let customOptions = { 'maxWidth': '500' }
+        let customOptions = { 'maxWidth': '365' }
 
         // if data.type = (tres)sale on affiche ça
         // if monId se trouve dans place.mission, on affiche bouton valider
 
-        var popupLink = '<img src="' + data[i]['pictureDirty'] + '"><a class="merch-link" data-merchId="' + i + '">Lieu très sale</a><br><button style="border:1px solid red">Je compte m\'y rendre à telle date</button><button style="border:1px solid red">J\'ai nettoyé cet endroit</button>'
+        // On transforme les variables en texte pertinents
+        var dirty = data[i]['dirtyKind'] == 'sale' ? 'Très sale' : 'Pas juste sale'
+
+        // différentes popups selon le type de compte connecté
+        // si user lambda :
+        var popupLink = `
+        <img src="` + data[i]['pictureDirty'] + `"><br>
+        <img src="assets/pictos/poubelle.svg" width="25px">` + dirty + `<br>
+        Description : `+ data[i]['description'] +
+          `<a class="merch-link" data-merchId="` + i + `">J'accepte la mission</a>
+
+        `
+
+        // '<img src="' + data[i]['pictureDirty'] + '"><a class="merch-link" data-merchId="' + i + '">Lieu très sale</a><br><button style="border:1px solid red">Je compte m\'y rendre à telle date</button><button style="border:1px solid red">J\'ai nettoyé cet endroit</button> Je suis le marqueur' + i + 'cf : ' + data[i]['rewardPoints']
 
         let marker: any = leaflet.marker([data[i]['lat'], data[i]['lng']]).bindPopup(popupLink, customOptions).addTo(this.map)
         let self = this;
+
         marker.on('popupopen', function () {
           console.log('poopup open')
           // add event listener to newly added a.merch-link element
@@ -79,10 +92,11 @@ export class HomePage implements OnInit {
               self.goToMerchant(merchId)
             });
         });
+
       }
     })
-
   }
+
   // provisoire
   goToMerchant(merchantId) {
     //this.navCtrl.push(MerchantPage, { merchantId: merchantId });
