@@ -24,28 +24,32 @@ export class PlusPage implements OnInit {
 
   async goToPartenaires() {
     const modal = await this.modalController.create({
-      component: PartenairesPage
+      component: PartenairesPage,
+      backdropDismiss: false
     });
     return await modal.present();
   }
 
   async goToCgu() {
     const modal = await this.modalController.create({
-      component: CguPage
+      component: CguPage,
+      backdropDismiss: false
     });
     return await modal.present();
   }
 
   async goToMentions() {
     const modal = await this.modalController.create({
-      component: MentionsPage
+      component: MentionsPage,
+      backdropDismiss: false
     });
     return await modal.present();
   }
 
   async goToApropos() {
     const modal = await this.modalController.create({
-      component: AproposPage
+      component: AproposPage,
+      backdropDismiss: false
     });
     return await modal.present();
   }

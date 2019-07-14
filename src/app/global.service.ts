@@ -52,7 +52,7 @@ export class GlobalService {
   async toast(message) {
     const toast = await this.toastController.create({
       message: message,
-      duration: 2000,
+      duration: 3000,
       showCloseButton: true,
       closeButtonText: 'Fermer'
     });
@@ -91,7 +91,17 @@ export class GlobalService {
     return new Promise(resolve => {
       this.http.get(this.serverSite + 'places=getPlaces')
         .subscribe((data: any) => {
-          console.log('getplaces : ')
+          console.log('loadPlaces : ', data)
+          resolve(data)
+        })
+    })
+  }
+
+  loadPlacesWithToken(token): Promise<any> {
+    return new Promise(resolve => {
+      this.http.get(this.serverSite + 'places=getPlacesWithToken&token=' + token)
+        .subscribe((data: any) => {
+          console.log('loadPlacesWithToken : ', data)
           resolve(data)
         })
     })
@@ -102,6 +112,16 @@ export class GlobalService {
       .subscribe((data: any) => {
         console.log('addPlace : ', item)
       })
+  }
+
+  validatePlace(item): Promise<any> {
+    return new Promise(resolve => {
+      this.http.post(this.serverSite + 'places=validatePlace', item)
+        .subscribe((data: any) => {
+          console.log('addPlace : ', item)
+          resolve(data)
+        })
+    })
   }
 
 

@@ -1,0 +1,41 @@
+<ion-content>
+
+  <ion-button fill="clear" icon-only (click)="back()">
+    <ion-icon name="arrow-back" color="dark"></ion-icon>
+  </ion-button>
+
+  <h1 class="rectangle">Mission accomplie</h1>
+
+  <p padding>Por que ta mission soit validée, envoie nous une photo du lie après son nettoyage. Après vérification tu seras crédité de tes
+    points ! ✅</p>
+
+  <p padding>Merci de prendre une photo avec le même angle de vue que celle-ci :</p>
+
+  <img src="{{this.dataPlace.pictureDirty}}" alt="photo de l'endroit sale">
+
+  <div style="text-align:center">
+    <div>
+      <webcam [width]="365" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+        [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" [imageQuality]="1"
+        (cameraSwitched)="cameraWasSwitched($event)" (initError)="handleInitError($event)"></webcam>
+
+      <br />
+      <ion-button color="light" large (click)="triggerSnapshot();">
+        <img width="50px" src="assets/pictos/photo.svg" alt="prendre une photo">
+      </ion-button>
+
+      <br />
+
+    </div>
+  </div>
+
+  <div class="snapshot" *ngIf="webcamImage" style="text-align:center">
+    <h2>Résultat de la photo</h2>
+    <img [src]="webcamImage.imageAsDataUrl" />
+  </div>
+
+
+    <ion-button size="block" style="max-width: 75%; display: block; margin: auto; margin-bottom: 30px;" color="tertiary"
+    (click)="validate()">Envoyer</ion-button>
+
+</ion-content>

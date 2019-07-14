@@ -5,14 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PlusPage } from './plus.page';
-
-
+import { ValidationPage } from './validation.page';
+import {WebcamModule} from 'ngx-webcam';
 
 const routes: Routes = [
   {
     path: '',
-    component: PlusPage
+    component: ValidationPage
   }
 ];
 
@@ -20,9 +19,10 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    WebcamModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [PlusPage]
+  declarations: [ValidationPage]
 })
-export class PlusPageModule {}
+export class ValidationPageModule {}

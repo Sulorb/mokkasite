@@ -1,3 +1,6 @@
+import { ValidationPage } from './../validation/validation.page';
+import { CookieService } from 'ngx-cookie-service';
+import { HttpClient } from '@angular/common/http';
 import { GlobalService } from './../global.service';
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import leaflet from 'leaflet';
@@ -13,10 +16,16 @@ export class HomePage implements OnInit {
   @ViewChild('map') mapContainer: ElementRef;
   map: any;
 
-  constructor(private global: GlobalService, private elementRef: ElementRef, public modalController: ModalController) { }
+  constructor(private global: GlobalService, private elementRef: ElementRef, public modalController: ModalController, private http: HttpClient, private cookieService: CookieService) { }
 
   ionViewWillEnter() {
-    this.loadPlaces()
+    console.log('WILLENTER HOME')
+    // Si y a un token en cookie on check la map avec token sinon sans
+    if (this.cookieService.check('token')) {
+      this.loadPlacesWithToken(this.cookieService.get('token'));
+    } else {
+      this.loadPlaces()
+    }
   }
 
   ngOnInit() {
@@ -54,58 +63,173 @@ export class HomePage implements OnInit {
     })
   }
 
-
-  loadPlaces() {
-    this.global.loadPlaces().then((data: any) => {
+  loadPlacesWithToken(token) {
+    this.global.loadPlacesWithToken(token).then((data: any) => {
       for (var i = 0; i < data.length; i++) {
-        let customOptions = { 'maxWidth': '365' }
+        let customOptions = { 'maxWidth': '365', className: 'customPopup' }
 
         // if data.type = (tres)sale on affiche ça
         // if monId se trouve dans place.mission, on affiche bouton valider
 
+        var dirty = 'Sale';
+        var amountMembers = 2;
         // On transforme les variables en texte pertinents
-        var dirty = data[i]['dirtyKind'] == 'sale' ? 'Très sale' : 'Pas juste sale'
+        if (data[i]['dirtyKind'] == 'tressale') {
+          dirty = 'Très sale';
+          amountMembers = 3;
+        } else if (data[i]['dirtyKind'] == 'hypersale') {
+          dirty = 'Hyper sale';
+          amountMembers = 4;
+        }
 
         // différentes popups selon le type de compte connecté
         // si user lambda :
-        var popupLink = `
-        <img src="` + data[i]['pictureDirty'] + `"><br>
-        <img src="assets/pictos/poubelle.svg" width="25px">` + dirty + `<br>
-        Description : `+ data[i]['description'] +
-          `<a class="merch-link" data-merchId="` + i + `">J'accepte la mission</a>
-
+        // <img src="` + data[i]['pictureDirty'] + `"><br>
+        var popupContent = `
+        <img src="http://www.pnr-scarpe-escaut.fr/sites/default/files/imagecache/evenement_pleine_page_image_large/sources/depot_sauvage_3.jpg"><br>
+        <img src="assets/pictos/poubelle.svg" width="25px">` + dirty + `<span style="position: absolute; right: 20px; border-radius: 10px; border: 2px solid red; color: red; padding: 3px;">` + data[i]['rewardPoints'] + `pts</span><br>
+        <img src="assets/pictos/membres.svg" width="25px">` + amountMembers + ` pers. min.<br>
+        <p style="margin: 2px;">Description : `+ data[i]['description'] + `</p><br>
         `
 
-        // '<img src="' + data[i]['pictureDirty'] + '"><a class="merch-link" data-merchId="' + i + '">Lieu très sale</a><br><button style="border:1px solid red">Je compte m\'y rendre à telle date</button><button style="border:1px solid red">J\'ai nettoyé cet endroit</button> Je suis le marqueur' + i + 'cf : ' + data[i]['rewardPoints']
+        if (data[i]['pictureCleaned'] !== null) {
+          console.log('picturecleaned pas nul')
+          popupContent += `Lieu nettoyé grâce à la communauté !`;
+        } else {
+          if (data[i]['hasAcceptedMission'] == true) {
+            console.log('picturecleaned  nul mission acceptée')
+            popupContent += `<a class="` + data[i]['description'] + `" data-merchId="` + i + `" style="margin: auto; display: block; text-align: center;">Valider</a>`;
+          } else {
+            popupContent += `<a class="` + data[i]['description'] + `" data-merchId="` + i + `" style="margin: auto; display: block; text-align: center;">J'accepte la mission</a>`;
+            console.log('picturecleaned  nul mission PAS acceptée')
+          }
+        }
 
-        let marker: any = leaflet.marker([data[i]['lat'], data[i]['lng']]).bindPopup(popupLink, customOptions).addTo(this.map)
+
+        let marker: any = leaflet.marker([data[i]['lat'], data[i]['lng']]).bindPopup(popupContent, customOptions).addTo(this.map)
         let self = this;
+        let markerInfos = data[i];
 
+        // si j'ouvre la popup
         marker.on('popupopen', function () {
           console.log('poopup open')
-          // add event listener to newly added a.merch-link element
-          self.elementRef.nativeElement.querySelector(".merch-link")
-            .addEventListener('click', (e) => {
-              // get id from attribute
-              console.log('eee', e)
-              var merchId = e.target.getAttribute("data-merchId");
-              self.goToMerchant(merchId)
-            });
+          if (markerInfos['pictureCleaned'] == null) {
+            console.log('lemarker :', markerInfos)
+            // add event listener to newly added a.merch-link element
+            self.elementRef.nativeElement.querySelector("." + markerInfos['description'])
+              .addEventListener('click', (e) => {
+                console.log('infos : ', markerInfos)
+                // s'il faut valider mission
+                if (markerInfos['hasAcceptedMission'] == true) {
+                  self.validerMission(markerInfos)
+                } else {
+                  self.accepterMission(markerInfos)
+                }
+              });
+          }
+        });
+      }
+    })
+  }
+
+  loadPlaces() {
+    this.global.loadPlaces().then((data: any) => {
+      for (var i = 0; i < data.length; i++) {
+        let customOptions = { 'maxWidth': '365', className: 'customPopup' }
+
+        // if data.type = (tres)sale on affiche ça
+        // if monId se trouve dans place.mission, on affiche bouton valider
+
+        var dirty = 'Sale';
+        var amountMembers = 2;
+        // On transforme les variables en texte pertinents
+        if (data[i]['dirtyKind'] == 'tressale') {
+          dirty = 'Très sale';
+          amountMembers = 3;
+        } else if (data[i]['dirtyKind'] == 'hypersale') {
+          dirty = 'Hyper sale';
+          amountMembers = 4;
+        }
+
+        // différentes popups selon le type de compte connecté
+        // si user lambda :
+        // <img src="` + data[i]['pictureDirty'] + `"><br>
+        var popupContent = `
+        <img src="http://www.pnr-scarpe-escaut.fr/sites/default/files/imagecache/evenement_pleine_page_image_large/sources/depot_sauvage_3.jpg"><br>
+        <img src="assets/pictos/poubelle.svg" width="25px">` + dirty + `<span style="position: absolute; right: 20px; border-radius: 10px; border: 2px solid red; color: red; padding: 3px;">` + data[i]['rewardPoints'] + `pts</span><br>
+        <img src="assets/pictos/membres.svg" width="25px">` + amountMembers + ` pers. min.<br>
+        <p style="margin: 2px;">Description : `+ data[i]['description'] + `</p><br>
+        `
+
+        if (data[i]['pictureCleaned'] !== null) {
+          popupContent += `Lieu nettoyé grâce à la communauté !`;
+        } else {
+          `<a class="` + data[i]['description'] + `" data-merchId="` + i + `" style="margin: auto; display: block; text-align: center;">J'accepte la mission</a>`
+        }
+
+        let marker: any = leaflet.marker([data[i]['lat'], data[i]['lng']]).bindPopup(popupContent, customOptions).addTo(this.map)
+        let self = this;
+        let markerInfos = data[i];
+
+        // si j'ouvre la popup
+        marker.on('popupopen', function () {
+          console.log('poopup open')
+          if (markerInfos['pictureCleaned'] == null) {
+            self.elementRef.nativeElement.querySelector("." + markerInfos['description'])
+              .addEventListener('click', (e) => {
+                console.log('infos : ', markerInfos)
+                // get id from attribute
+                console.log('eee', e)
+                // pourrait être plus pertinent que class description
+                // var merchId = e.target.getAttribute("data-merchId");
+
+                // TO DO renvoyer vers inscription plutôt
+                self.accepterMission(markerInfos)
+              });
+          }
         });
 
       }
     })
   }
 
-  // provisoire
-  goToMerchant(merchantId) {
+  accepterMission(placeInfos) {
     //this.navCtrl.push(MerchantPage, { merchantId: merchantId });
-    console.log("going to merchant " + merchantId)
+    console.log("acceptation mission " + placeInfos['id'])
+
+    this.http.get(this.global.serverSite + 'places=acceptMission&token=' + this.cookieService.get('token') + '&placeId=' + placeInfos['id'])
+      .subscribe((data: any) => {
+        console.log(data)
+        if (data == "alreadyMission") {
+          this.global.toast('Vous avez déjà accepté cette mission !')
+        } else if (data == true) {
+          this.global.toast('Vous avez bien accepté cette mission ! Cliquez sur le bouton "Valider" lorsque vous aurez nettoyé la zone pour envoyer votre photo.')
+          // On change le bouton texte
+
+          document.getElementsByClassName(placeInfos['description'])[0].innerHTML = `<img src="assets/pictos/cercleChecked.svg" width="20px" style="vertical-align: bottom">Valider`
+        }
+      })
+  }
+
+  async validerMission(placeInfos) {
+    // to do pour valider : ouvrir page proposant de prendre une photo du lieu avec transfert données de la place
+    const modal = await this.modalController.create({
+      component: ValidationPage,
+      componentProps: { data: placeInfos },
+      backdropDismiss: false
+    });
+    modal.onWillDismiss().then(() => {
+      console.log('va être dismiss')
+      this.ionViewWillEnter()
+    })
+
+    return await modal.present();
   }
 
   async openModalMenu() {
     const modal = await this.modalController.create({
-      component: PlusPage
+      component: PlusPage,
+      backdropDismiss: false
     });
     return await modal.present();
   }

@@ -9,3 +9,17 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+// CSS pour popups map
+// .customPopup .leaflet-popup-tip,
+// .customPopup .leaflet-popup-content-wrapper {
+//     background: #e93434;
+//     color: #ffffff;
+// }
+
+.customPopup .leaflet-popup-content-wrapper a {
+    border-radius: 8px;
+    background-color: purple;
+    color: white;
+    padding: 5px;
+}

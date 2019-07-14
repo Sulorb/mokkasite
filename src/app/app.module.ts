@@ -1,3 +1,4 @@
+import { ValidationPageModule } from './validation/validation.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -51,7 +52,8 @@ import { PartenairesPageModule } from './partenaires/partenaires.module';
     CguPageModule,
     PartenairesPageModule,
     MentionsPageModule,
-    AproposPageModule
+    AproposPageModule,
+    ValidationPageModule
   ],
   providers: [
     StatusBar,

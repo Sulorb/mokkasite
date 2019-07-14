@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'cgu', loadChildren: './cgu/cgu.module#CguPageModule' },
   { path: 'mentions', loadChildren: './mentions/mentions.module#MentionsPageModule' },
   { path: 'missions', loadChildren: './missions/missions.module#MissionsPageModule' },
+  { path: 'validation', loadChildren: './validation/validation.module#ValidationPageModule' },
 
 ];
 
