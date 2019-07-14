@@ -107,11 +107,14 @@ export class GlobalService {
     })
   }
 
-  addPlace(item) {
-    this.http.post(this.serverSite + 'places=addPlace', item)
-      .subscribe((data: any) => {
-        console.log('addPlace : ', item)
-      })
+  addPlace(item): Promise<any> {
+    return new Promise(resolve => {
+      this.http.post(this.serverSite + 'places=addPlace', item)
+        .subscribe((data: any) => {
+          console.log('addPlace : ', item)
+          resolve(data)
+        })
+    })
   }
 
   validatePlace(item): Promise<any> {

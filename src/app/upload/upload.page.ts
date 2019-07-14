@@ -1,16 +1,9 @@
 import { GlobalService } from './../global.service';
-import { NavController, LoadingController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
-import { Storage } from '@ionic/storage';
-
-import { File } from '@ionic-native/file/ngx';
-import { Media, MediaObject } from '@ionic-native/media/ngx';
-
-const MEDIA_FILES_KEY = 'mediaFiles';
 
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
 import { Observable, Subject } from 'rxjs';
@@ -95,7 +88,7 @@ export class UploadPage implements OnInit {
   }
 
 
-  constructor(private activatedRoute: ActivatedRoute, private navCtrl: NavController, private global: GlobalService, private geolocation: Geolocation, private storage: Storage, private file: File, private media: Media, private loadingController: LoadingController) { }
+  constructor(private global: GlobalService, private geolocation: Geolocation, private modalCtrl: ModalController) { }
 
   // ngOnInit() {
   //   this.activatedRoute.params.subscribe((data: any) => {
@@ -105,7 +98,6 @@ export class UploadPage implements OnInit {
   // }
 
   validate() {
-
     if (this.webcamImage) {
       if (this.description.length < 300) {
 
@@ -123,11 +115,11 @@ export class UploadPage implements OnInit {
             pictureDirty: this.webcamImage.imageAsDataUrl,
             dirtyKind: this.typeSale
           }
-          this.global.addPlace(placeToInsert)
-        }).then((dataInexistante) => {
-          this.global.dismissLoader()
-          console.log('inex data:', dataInexistante)
-          this.navCtrl.pop()
+          this.global.addPlace(placeToInsert).then((dataInex) => {
+            this.global.dismissLoader()
+            console.log('inex data:', dataInex)
+            this.modalCtrl.dismiss(true)
+          })
         })
       } else {
         this.global.toast('La description ne doit pas dépasser les 300 caractères')
@@ -139,7 +131,7 @@ export class UploadPage implements OnInit {
   }
 
   back() {
-    this.navCtrl.pop();
+    this.modalCtrl.dismiss()
   }
 
 

@@ -101,7 +101,7 @@ export class ValidationPage implements OnInit {
       console.log('on upload ça : ', placeToUpdate)
       this.global.validatePlace(placeToUpdate).then((data: any) => {
         this.global.dismissLoader()
-        this.modalCtrl.dismiss()
+        this.modalCtrl.dismiss(true)
       })
     } else {
       this.global.toast("Prenez d'abord une photo pardi !")

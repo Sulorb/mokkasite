@@ -34,6 +34,7 @@ import { CguPageModule } from './cgu/cgu.module';
 import { MentionsPageModule } from './mentions/mentions.module';
 import { AproposPageModule } from './apropos/apropos.module';
 import { PartenairesPageModule } from './partenaires/partenaires.module';
+import { UploadPageModule } from './upload/upload.module';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { PartenairesPageModule } from './partenaires/partenaires.module';
     PartenairesPageModule,
     MentionsPageModule,
     AproposPageModule,
-    ValidationPageModule
+    ValidationPageModule,
+    UploadPageModule
   ],
   providers: [
     StatusBar,
