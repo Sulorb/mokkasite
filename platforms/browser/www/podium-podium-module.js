@@ -58,7 +58,7 @@ var PodiumPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"home\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Classement</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n\n\n\n  <ion-grid>\n    <ion-row *ngFor=\"let rank of ranks; let i = index\">\n      <ion-col size=\"2\">{{i+1}}</ion-col>\n      <ion-col size=\"2\">\n        <img src=\"{{rank.img}}\" height=\"20px\">\n      </ion-col>\n      <ion-col size=\"8\">{{rank.name}}</ion-col>\n    </ion-row>\n  </ion-grid>\n\n</ion-content>"
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"home\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>Classement</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n\r\n\r\n\r\n  <ion-grid>\r\n    <ion-row *ngFor=\"let rank of ranks; let i = index\">\r\n      <ion-col size=\"2\">{{i+1}}</ion-col>\r\n      <ion-col size=\"2\">\r\n        <img src=\"{{rank.img}}\" height=\"20px\">\r\n      </ion-col>\r\n      <ion-col size=\"8\">{{rank.name}}</ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n</ion-content>"
 
 /***/ }),
 
@@ -85,13 +85,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PodiumPage", function() { return PodiumPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/file/ngx */ "./node_modules/@ionic-native/file/ngx/index.js");
-
 
 
 var PodiumPage = /** @class */ (function () {
-    function PodiumPage(file) {
-        this.file = file;
+    function PodiumPage() {
         this.ranks = [
             {
                 img: 'assets/rank1.png',
@@ -183,7 +180,7 @@ var PodiumPage = /** @class */ (function () {
             template: __webpack_require__(/*! ./podium.page.html */ "./src/app/podium/podium.page.html"),
             styles: [__webpack_require__(/*! ./podium.page.scss */ "./src/app/podium/podium.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_2__["File"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], PodiumPage);
     return PodiumPage;
 }());

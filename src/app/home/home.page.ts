@@ -5,22 +5,30 @@ import { HttpClient } from '@angular/common/http';
 import { GlobalService } from './../global.service';
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import leaflet from 'leaflet';
-import { ModalController } from '@ionic/angular';
+import { ModalController, PopoverController } from '@ionic/angular';
 import { PlusPage } from '../plus/plus.page';
+import { TutoPage } from '../tuto/tuto.page';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  styleUrls: ['home.page.scss']
 })
 export class HomePage implements OnInit {
   @ViewChild('map') mapContainer: ElementRef;
   map: any;
 
-  constructor(private global: GlobalService, private elementRef: ElementRef, public modalController: ModalController, private http: HttpClient, private cookieService: CookieService) { }
+  constructor(
+    private global: GlobalService,
+    private elementRef: ElementRef,
+    public modalController: ModalController,
+    private http: HttpClient,
+    private cookieService: CookieService,
+    public popoverController: PopoverController
+  ) {}
 
   ionViewWillEnter() {
-    console.log('WILLENTER HOME')
+    console.log('WILLENTER HOME');
     // Si y a un token en cookie on check la map avec token sinon sans
     if (this.map) {
       this.map.remove();
@@ -29,48 +37,67 @@ export class HomePage implements OnInit {
     if (this.cookieService.check('token')) {
       this.loadPlacesWithToken(this.cookieService.get('token'));
     } else {
-      this.loadPlaces()
+      this.loadPlaces();
+    }
+    if (!this.cookieService.check('alreadySeen')) {
+      this.presentPopover();
     }
   }
 
+  async presentPopover() {
+    const popover = await this.popoverController.create({
+      component: TutoPage,
+      translucent: true
+    });
+    return await popover.present();
+  }
+
   ngOnInit() {
-    console.log('didLoadHome')
-    this.global.getCookieToken()
+    console.log('didLoadHome');
+    this.global.getCookieToken();
   }
 
   focusMap() {
-    this.map.locate({
-      setView: true,
-      maxZoom: 20
-    }).on('locationfound', (e) => {
-      this.map.setView([e.latlng.lat, e.latlng.lng], 15);
-      console.log('loc', e)
-    }).on('locationerror', (err) => {
-      alert(err.message);
-    })
+    this.map
+      .locate({
+        setView: true,
+        maxZoom: 20
+      })
+      .on('locationfound', e => {
+        this.map.setView([e.latlng.lat, e.latlng.lng], 15);
+        console.log('loc', e);
+      })
+      .on('locationerror', err => {
+        alert(err.message);
+      });
   }
 
   loadmap() {
-    this.map = leaflet.map("map", { zoomControl: false })
-    leaflet.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      maxZoom: 20
-    }).addTo(this.map);
+    this.map = leaflet.map('map', { zoomControl: false });
+    leaflet
+      .tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        maxZoom: 20
+      })
+      .addTo(this.map);
 
-    this.map.locate({
-      setView: true,
-      maxZoom: 20
-    }).on('locationfound', (e) => {
-      this.map.setView([e.latlng.lat, e.latlng.lng], 15);
-      console.log('loc', e)
-    }).on('locationerror', (err) => {
-      alert(err.message);
-    })
+    this.map
+      .locate({
+        setView: true,
+        maxZoom: 20
+      })
+      .on('locationfound', e => {
+        this.map.setView([e.latlng.lat, e.latlng.lng], 15);
+        console.log('loc', e);
+      })
+      .on('locationerror', err => {
+        alert(err.message);
+      });
   }
 
   loadPlacesWithToken(token) {
     this.global.loadPlacesWithToken(token).then((data: any) => {
       for (var i = 0; i < data.length; i++) {
-        let customOptions = { 'maxWidth': '365', className: 'customPopup' }
+        let customOptions = { maxWidth: '365', className: 'customPopup' };
 
         // if data.type = (tres)sale on affiche ça
         // if monId se trouve dans place.mission, on affiche bouton valider
@@ -98,10 +125,10 @@ export class HomePage implements OnInit {
 
         var dateCleaned = new Date(data[i]['dateCleaned']).getTime();
         var dateNow = new Date().getTime();
-        console.log('cleaned : ' + dateCleaned + 'now : ' + dateNow + 'nowMoinsUnJour  ' + (dateNow - 86400000))
+        console.log('cleaned : ' + dateCleaned + 'now : ' + dateNow + 'nowMoinsUnJour  ' + (dateNow - 86400000));
 
         if (dateCleaned > dateNow - 86400000) {
-          console.log("nettoyé y a moins d'une jour")
+          console.log("nettoyé y a moins d'une jour");
           if (data[i]['pictureCleaned'] !== null) {
             var markerSale = leaflet.icon({
               iconUrl: 'assets/pictos/poubelleFondNoir.svg',
@@ -112,7 +139,7 @@ export class HomePage implements OnInit {
             });
           }
         } else {
-          console.log("nettoyé y a PLUS d'une jour")
+          console.log("nettoyé y a PLUS d'une jour");
           if (data[i]['pictureCleaned'] !== null) {
             var markerSale = leaflet.icon({
               iconUrl: 'assets/pictos/feuilleVerte.svg',
@@ -127,57 +154,79 @@ export class HomePage implements OnInit {
         // différentes popups selon le type de compte connecté
         // si user lambda :
         // <img src="` + data[i]['pictureDirty'] + `"><br>
-        var popupContent = `
-        <img src="http://www.pnr-scarpe-escaut.fr/sites/default/files/imagecache/evenement_pleine_page_image_large/sources/depot_sauvage_3.jpg"><br>
-        <img src="assets/pictos/poubelle.svg" width="25px">` + dirty + `<span style="position: absolute; right: 20px; border-radius: 10px; border: 2px solid red; color: red; padding: 3px;">` + data[i]['rewardPoints'] + `pts</span><br>
-        <img src="assets/pictos/membres.svg" width="25px">` + amountMembers + ` pers. min.<br>
-        <p style="margin: 2px;">Description : `+ data[i]['description'] + `</p><br>
-        `
+        var popupContent =
+          `
+        <img src="` +
+          data[i]['pictureDirty'] +
+          `"><br>
+        <img src="assets/pictos/poubelle.svg" width="25px">` +
+          dirty +
+          `<span style="position: absolute; right: 20px; border-radius: 10px; border: 2px solid red; color: red; padding: 3px;">` +
+          data[i]['rewardPoints'] +
+          `pts</span><br>
+        <img src="assets/pictos/membres.svg" width="25px">` +
+          amountMembers +
+          ` pers. min.<br>
+        <p style="margin: 2px;">Description : ` +
+          data[i]['description'] +
+          `</p><br>
+        `;
 
         if (data[i]['pictureCleaned'] !== null) {
-          console.log('picturecleaned pas nul')
+          console.log('picturecleaned pas nul');
           popupContent += `Lieu nettoyé grâce à la communauté !`;
         } else {
           if (data[i]['hasAcceptedMission'] == true) {
-            console.log('picturecleaned  nul mission acceptée')
-            popupContent += `<a class=marker` + data[i]['id'] + ` data-merchId="` + i + `" style="margin: auto; display: block; text-align: center;">Valider</a>`;
+            console.log('picturecleaned  nul mission acceptée');
+            popupContent +=
+              `<a class=marker` +
+              data[i]['id'] +
+              ` data-merchId="` +
+              i +
+              `" style="margin: auto; display: block; text-align: center;">Valider</a>`;
           } else {
-            popupContent += `<a class=marker` + data[i]['id'] + ` data-merchId="` + i + `" style="margin: auto; display: block; text-align: center;">J'accepte la mission</a>`;
-            console.log('picturecleaned  nul mission PAS acceptée')
+            popupContent +=
+              `<a class=marker` +
+              data[i]['id'] +
+              ` data-merchId="` +
+              i +
+              `" style="margin: auto; display: block; text-align: center;">J'accepte la mission</a>`;
+            console.log('picturecleaned  nul mission PAS acceptée');
           }
         }
 
-
-        let marker: any = leaflet.marker([data[i]['lat'], data[i]['lng']], { icon: markerSale }).bindPopup(popupContent, customOptions).addTo(this.map)
+        let marker: any = leaflet
+          .marker([data[i]['lat'], data[i]['lng']], { icon: markerSale })
+          .bindPopup(popupContent, customOptions)
+          .addTo(this.map);
         let self = this;
         let markerInfos = data[i];
 
         // si j'ouvre la popup
-        marker.on('popupopen', function () {
-          console.log('poopup open : ', markerInfos)
+        marker.on('popupopen', function() {
+          console.log('poopup open : ', markerInfos);
           if (markerInfos['pictureCleaned'] == null) {
-            console.log('lemarker :', markerInfos)
+            console.log('lemarker :', markerInfos);
             // add event listener to newly added a.merch-link element
-            self.elementRef.nativeElement.querySelector(".marker" + markerInfos['id'])
-              .addEventListener('click', (e) => {
-                console.log('infos : ', markerInfos)
-                // s'il faut valider mission
-                if (markerInfos['hasAcceptedMission'] == true) {
-                  self.validerMission(markerInfos)
-                } else {
-                  self.accepterMission(markerInfos)
-                }
-              });
+            self.elementRef.nativeElement.querySelector('.marker' + markerInfos['id']).addEventListener('click', e => {
+              console.log('infos : ', markerInfos);
+              // s'il faut valider mission
+              if (markerInfos['hasAcceptedMission'] == true) {
+                self.validerMission(markerInfos);
+              } else {
+                self.accepterMission(markerInfos);
+              }
+            });
           }
         });
       }
-    })
+    });
   }
 
   loadPlaces() {
     this.global.loadPlaces().then((data: any) => {
       for (var i = 0; i < data.length; i++) {
-        let customOptions = { 'maxWidth': '365', className: 'customPopup' }
+        let customOptions = { maxWidth: '365', className: 'customPopup' };
 
         // if data.type = (tres)sale on affiche ça
         // if monId se trouve dans place.mission, on affiche bouton valider
@@ -231,62 +280,81 @@ export class HomePage implements OnInit {
         // différentes popups selon le type de compte connecté
         // si user lambda :
         // <img src="` + data[i]['pictureDirty'] + `"><br>
-        var popupContent = `
+        var popupContent =
+          `
         <img src="http://www.pnr-scarpe-escaut.fr/sites/default/files/imagecache/evenement_pleine_page_image_large/sources/depot_sauvage_3.jpg"><br>
-        <img src="assets/pictos/poubelle.svg" width="25px">` + dirty + `<span style="position: absolute; right: 20px; border-radius: 10px; border: 2px solid red; color: red; padding: 3px;">` + data[i]['rewardPoints'] + `pts</span><br>
-        <img src="assets/pictos/membres.svg" width="25px">` + amountMembers + ` pers. min.<br>
-        <p style="margin: 2px;">Description : `+ data[i]['description'] + `</p><br>
-        `
+        <img src="assets/pictos/poubelle.svg" width="25px">` +
+          dirty +
+          `<span style="position: absolute; right: 20px; border-radius: 10px; border: 2px solid red; color: red; padding: 3px;">` +
+          data[i]['rewardPoints'] +
+          `pts</span><br>
+        <img src="assets/pictos/membres.svg" width="25px">` +
+          amountMembers +
+          ` pers. min.<br>
+        <p style="margin: 2px;">Description : ` +
+          data[i]['description'] +
+          `</p><br>
+        `;
 
         if (data[i]['pictureCleaned'] !== null) {
           popupContent += `Lieu nettoyé grâce à la communauté !`;
         } else {
-          `<a class=marker` + data[i]['id'] + ` data-merchId="` + i + `" style="margin: auto; display: block; text-align: center;">J'accepte la mission</a>`
+          `<a class=marker` +
+            data[i]['id'] +
+            ` data-merchId="` +
+            i +
+            `" style="margin: auto; display: block; text-align: center;">J'accepte la mission</a>`;
         }
 
-        let marker: any = leaflet.marker([data[i]['lat'], data[i]['lng']], { icon: markerSale }).bindPopup(popupContent, customOptions).addTo(this.map)
+        let marker: any = leaflet
+          .marker([data[i]['lat'], data[i]['lng']], { icon: markerSale })
+          .bindPopup(popupContent, customOptions)
+          .addTo(this.map);
         let self = this;
         let markerInfos = data[i];
 
         // si j'ouvre la popup
-        marker.on('popupopen', function () {
-          console.log('poopup open')
+        marker.on('popupopen', function() {
+          console.log('poopup open');
           if (markerInfos['pictureCleaned'] == null) {
-            self.elementRef.nativeElement.querySelector(".marker" + markerInfos['id'])
-              .addEventListener('click', (e) => {
-                console.log('infos : ', markerInfos)
-                // get id from attribute
-                console.log('eee', e)
-                // var merchId = e.target.getAttribute("data-merchId");
+            self.elementRef.nativeElement.querySelector('.marker' + markerInfos['id']).addEventListener('click', e => {
+              console.log('infos : ', markerInfos);
+              // get id from attribute
+              console.log('eee', e);
+              // var merchId = e.target.getAttribute("data-merchId");
 
-                // TO DO renvoyer vers inscription plutôt
-                self.accepterMission(markerInfos)
-              });
+              // TO DO renvoyer vers inscription plutôt
+              self.accepterMission(markerInfos);
+            });
           }
         });
-
       }
-    })
+    });
   }
 
   accepterMission(placeInfos) {
     //this.navCtrl.push(MerchantPage, { merchantId: merchantId });
-    console.log("acceptation mission " + placeInfos['id'])
+    console.log('acceptation mission ' + placeInfos['id']);
 
-    this.http.get(this.global.serverSite + 'places=acceptMission&token=' + this.cookieService.get('token') + '&placeId=' + placeInfos['id'])
+    this.http
+      .get(this.global.serverSite + 'places=acceptMission&token=' + this.cookieService.get('token') + '&placeId=' + placeInfos['id'])
       .subscribe((data: any) => {
-        console.log(data)
-        if (data == "alreadyMission") {
-          this.global.toast('Vous avez déjà accepté cette mission !')
+        console.log(data);
+        if (data == 'alreadyMission') {
+          this.global.toast('Vous avez déjà accepté cette mission !');
         } else if (data == true) {
-          this.global.toast('Vous avez bien accepté cette mission ! Cliquez sur le bouton "Valider" lorsque vous aurez nettoyé la zone pour envoyer votre photo.')
+          this.global.toast(
+            'Vous avez bien accepté cette mission ! Cliquez sur le bouton "Valider" lorsque vous aurez nettoyé la zone pour envoyer votre photo.'
+          );
           // On change le bouton texte
-          console.log('ici on accepte mission true et on change en valider')
+          console.log('ici on accepte mission true et on change en valider');
           placeInfos['hasAcceptedMission'] = true;
 
-          document.getElementsByClassName("marker" + placeInfos['id'])[0].innerHTML = `<img src="assets/pictos/cercleChecked.svg" width="20px" style="vertical-align: bottom">Valider`
+          document.getElementsByClassName(
+            'marker' + placeInfos['id']
+          )[0].innerHTML = `<img src="assets/pictos/cercleChecked.svg" width="20px" style="vertical-align: bottom">Valider`;
         }
-      })
+      });
   }
 
   async validerMission(placeInfos) {
@@ -296,14 +364,13 @@ export class HomePage implements OnInit {
       componentProps: { data: placeInfos },
       backdropDismiss: false
     });
-    modal.onWillDismiss().then((dataDismissed) => {
-
-      console.log('va être dismiss', dataDismissed)
+    modal.onWillDismiss().then(dataDismissed => {
+      console.log('va être dismiss', dataDismissed);
       if (dataDismissed.data == true) {
-        console.log('dismissed via valider')
-        this.ionViewWillEnter()
+        console.log('dismissed via valider');
+        this.ionViewWillEnter();
       }
-    })
+    });
 
     return await modal.present();
   }
@@ -322,16 +389,14 @@ export class HomePage implements OnInit {
       backdropDismiss: false
     });
 
-    modal.onWillDismiss().then((dataDismissed) => {
-      console.log('va être dismiss upload', dataDismissed)
+    modal.onWillDismiss().then(dataDismissed => {
+      console.log('va être dismiss upload', dataDismissed);
       if (dataDismissed.data == true) {
-        console.log('dismissed via upload')
-        this.ionViewWillEnter()
+        console.log('dismissed via upload');
+        this.ionViewWillEnter();
       }
-    })
+    });
 
     return await modal.present();
   }
-
-
 }

@@ -1,19 +1,19 @@
 <ion-content>
-
-
   <ion-button fill="clear" icon-only (click)="back()">
     <ion-icon name="arrow-back" color="dark"></ion-icon>
   </ion-button>
 
   <h1 class="rectangle">Faites alliance avec la nature</h1>
 
-  <p padding>Nous avons décidé de sauver le monde, et pas tout seuls ! En rejoignant notre ligue de citoyens responsables, vous contribuerez à un monde plus propre et pérenne.</p>
+  <p padding>
+    Nous avons décidé de sauver le monde, et pas tout seuls ! En rejoignant notre ligue de citoyens responsables, vous contribuerez à un
+    monde plus propre et pérenne.
+  </p>
 
   <p padding>Établissez votre demande via le formulaire ci-dessous. Nous reviendrons rapidement vers vous !</p>
 
-
   <ion-item>
-    <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Motif de la demande">
+    <ion-select interface="popover" placeholder="Motif de la demande">
       <ion-select-option value="brown">Brown</ion-select-option>
       <ion-select-option value="blonde">Blonde</ion-select-option>
       <ion-select-option value="black">Black</ion-select-option>
@@ -21,21 +21,44 @@
     </ion-select>
   </ion-item>
 
-      <ion-input [(ngModel)]="nom" placeholder="nom_" style="width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);"></ion-input>
+  <ion-input
+    [(ngModel)]="nom"
+    placeholder="nom_"
+    style="width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);"
+  ></ion-input>
 
-      <ion-input [(ngModel)]="prenom" placeholder="prénom_" style="width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);"></ion-input>
+  <ion-input
+    [(ngModel)]="prenom"
+    placeholder="prénom_"
+    style="width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);"
+  ></ion-input>
 
-      <ion-input [(ngModel)]="entreprise" placeholder="entreprise/marque_" style="width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);"></ion-input>
+  <ion-input
+    [(ngModel)]="entreprise"
+    placeholder="entreprise/marque_"
+    style="width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);"
+  ></ion-input>
 
-      <ion-input [(ngModel)]="site" placeholder="site internet_" style="width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);"></ion-input>
+  <ion-input
+    [(ngModel)]="site"
+    placeholder="site internet_"
+    style="width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);"
+  ></ion-input>
 
-      <ion-input [(ngModel)]="name" placeholder="Pourquoi nous ?_" style="width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);"></ion-input>
+  <ion-input
+    [(ngModel)]="name"
+    placeholder="Pourquoi nous ?_"
+    style="width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);"
+  ></ion-input>
 
-  <div padding margin>
-    <ion-checkbox [(ngModel)]="checkbox"></ion-checkbox> J'accepte que mes données soient conservées
-  </div>
+  <div padding margin><ion-checkbox [(ngModel)]="checkbox"></ion-checkbox> J'accepte que mes données soient conservées</div>
 
-
-    <ion-button color="light" expand="block" color="tertiary" style="width: 75vw; display: block; margin: auto; margin-bottom: 30px;" (click)="send()">Envoyer</ion-button>
-
+  <ion-button
+    color="light"
+    expand="block"
+    color="tertiary"
+    style="width: 75vw; display: block; margin: auto; margin-bottom: 30px;"
+    (click)="send()"
+    >Envoyer</ion-button
+  >
 </ion-content>

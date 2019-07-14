@@ -35,6 +35,7 @@ import { MentionsPageModule } from './mentions/mentions.module';
 import { AproposPageModule } from './apropos/apropos.module';
 import { PartenairesPageModule } from './partenaires/partenaires.module';
 import { UploadPageModule } from './upload/upload.module';
+import { TutoPageModule } from './tuto/tuto.module';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { UploadPageModule } from './upload/upload.module';
     MentionsPageModule,
     AproposPageModule,
     ValidationPageModule,
-    UploadPageModule
+    UploadPageModule,
+    TutoPageModule
   ],
   providers: [
     StatusBar,

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { File } from '@ionic-native/file/ngx';
 
 
 @Component({
@@ -95,7 +94,7 @@ export class PodiumPage implements OnInit {
   ]
 
 
-  constructor(private file: File) { }
+  constructor() { }
 
 
 

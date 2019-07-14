@@ -15,6 +15,8 @@ const routes: Routes = [
   { path: 'mentions', loadChildren: './mentions/mentions.module#MentionsPageModule' },
   { path: 'missions', loadChildren: './missions/missions.module#MissionsPageModule' },
   { path: 'validation', loadChildren: './validation/validation.module#ValidationPageModule' },
+  { path: 'paiement', loadChildren: './paiement/paiement.module#PaiementPageModule' },
+  { path: 'tuto', loadChildren: './tuto/tuto.module#TutoPageModule' },
 
 ];
 

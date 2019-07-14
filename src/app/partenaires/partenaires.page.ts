@@ -8,7 +8,12 @@ import { GlobalService } from './../global.service';
   styleUrls: ['./partenaires.page.scss'],
 })
 export class PartenairesPage implements OnInit {
-checkbox=false
+checkbox=false;
+nom;
+prenom;
+entreprise;
+site;
+name;
   constructor(private navCtrl: NavController, private modalCtrl: ModalController, private global: GlobalService) { }
 
   ngOnInit() {

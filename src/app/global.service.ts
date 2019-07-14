@@ -8,19 +8,8 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class GlobalService {
 
-  // cookieService.delete('test');
-  language = "fr";
-
-  places = [
-    ["http://www.pnr-scarpe-escaut.fr/sites/default/files/imagecache/evenement_pleine_page_image_large/sources/depot_sauvage_3.jpg", 48.865, 2.33],
-    ["http://www.ecouflant.fr/medias/2017/03/depot-sauvage.jpg", 48.845, 2.37],
-    ["https://images.larepubliquedespyrenees.fr/2012/05/31/56815f97a43f5e4d4094696d/golden/les-dechets-ont-ete-retrouves-sur-un-petit-chemin-de-randonnee-dr.jpg", 48.815, 2.31],
-    ["https://static.actu.fr/uploads/2015/04/L176607_HD01005385.JPG", 48.75, 2.33],
-    ["https://cdn-s-www.estrepublicain.fr/images/EF5FCA7C-65D6-4400-8C1A-A2A5D003EBC5/LER_22/tout-depot-sauvage-constitue-une-infraction-reprimee-par-le-code-penal-et-est-passible-d-une-amende-1523801299.jpg", 48.4465, 2.33],
-  ];
-
-  // serverSite = "https://joingaia.fr/joingaia-back/?";
-  serverSite = "http://localhost:8888/mokkaserver/?";
+  serverSite = "https://joingaia.fr/joingaia-back/index.php?";
+  // serverSite = "http://localhost:8888/mokkaserver/?";
   // serverSite = "http://localhost/joingaia-back/?";
 
 
