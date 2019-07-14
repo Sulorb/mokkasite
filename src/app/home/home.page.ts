@@ -1,3 +1,4 @@
+import { PaiementPage } from './../paiement/paiement.page';
 import { UploadPage } from './../upload/upload.page';
 import { ValidationPage } from './../validation/validation.page';
 import { CookieService } from 'ngx-cookie-service';
@@ -5,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { GlobalService } from './../global.service';
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import leaflet from 'leaflet';
-import { ModalController, PopoverController } from '@ionic/angular';
+import { ModalController, PopoverController, NavController } from '@ionic/angular';
 import { PlusPage } from '../plus/plus.page';
 import { TutoPage } from '../tuto/tuto.page';
 
@@ -24,7 +25,8 @@ export class HomePage implements OnInit {
     public modalController: ModalController,
     private http: HttpClient,
     private cookieService: CookieService,
-    public popoverController: PopoverController
+    public popoverController: PopoverController,
+    private navCtrl: NavController
   ) {}
 
   ionViewWillEnter() {
@@ -175,24 +177,30 @@ export class HomePage implements OnInit {
         if (data[i]['pictureCleaned'] !== null) {
           console.log('picturecleaned pas nul');
           popupContent += `Lieu nettoyé grâce à la communauté !`;
+        } else if (data[i]['accountType'] == 'entreprise') {
+          console.log('accountType == entreprise');
+          popupContent +=
+            `<a class=marker` +
+            data[i]['id'] +
+            ` data-merchId="` +
+            i +
+            `" style="margin: auto; display: block; text-align: center;">Investir pour ce nettoyage</a>`;
+        } else if (data[i]['hasAcceptedMission'] == true) {
+          console.log('picturecleaned  nul mission acceptée');
+          popupContent +=
+            `<a class=marker` +
+            data[i]['id'] +
+            ` data-merchId="` +
+            i +
+            `" style="margin: auto; display: block; text-align: center;">Valider</a>`;
         } else {
-          if (data[i]['hasAcceptedMission'] == true) {
-            console.log('picturecleaned  nul mission acceptée');
-            popupContent +=
-              `<a class=marker` +
-              data[i]['id'] +
-              ` data-merchId="` +
-              i +
-              `" style="margin: auto; display: block; text-align: center;">Valider</a>`;
-          } else {
-            popupContent +=
-              `<a class=marker` +
-              data[i]['id'] +
-              ` data-merchId="` +
-              i +
-              `" style="margin: auto; display: block; text-align: center;">J'accepte la mission</a>`;
-            console.log('picturecleaned  nul mission PAS acceptée');
-          }
+          popupContent +=
+            `<a class=marker` +
+            data[i]['id'] +
+            ` data-merchId="` +
+            i +
+            `" style="margin: auto; display: block; text-align: center;">J'accepte la mission</a>`;
+          console.log('picturecleaned  nul mission PAS acceptée');
         }
 
         let marker: any = leaflet
@@ -211,7 +219,9 @@ export class HomePage implements OnInit {
             self.elementRef.nativeElement.querySelector('.marker' + markerInfos['id']).addEventListener('click', e => {
               console.log('infos : ', markerInfos);
               // s'il faut valider mission
-              if (markerInfos['hasAcceptedMission'] == true) {
+              if (markerInfos['accountType'] == 'entreprise') {
+                self.pageInvestissement();
+              } else if (markerInfos['hasAcceptedMission'] == true) {
                 self.validerMission(markerInfos);
               } else {
                 self.accepterMission(markerInfos);
@@ -299,7 +309,8 @@ export class HomePage implements OnInit {
         if (data[i]['pictureCleaned'] !== null) {
           popupContent += `Lieu nettoyé grâce à la communauté !`;
         } else {
-          `<a class=marker` +
+          popupContent +=
+            `<a class=marker` +
             data[i]['id'] +
             ` data-merchId="` +
             i +
@@ -324,7 +335,7 @@ export class HomePage implements OnInit {
               // var merchId = e.target.getAttribute("data-merchId");
 
               // TO DO renvoyer vers inscription plutôt
-              self.accepterMission(markerInfos);
+              self.inscription();
             });
           }
         });
@@ -332,6 +343,10 @@ export class HomePage implements OnInit {
     });
   }
 
+  inscription() {
+    this.navCtrl.navigateRoot('inscription')
+    this.global.toast('Veuillez vous inscrire pour rejoindre notre ligue');
+  }
   accepterMission(placeInfos) {
     //this.navCtrl.push(MerchantPage, { merchantId: merchantId });
     console.log('acceptation mission ' + placeInfos['id']);
@@ -370,6 +385,16 @@ export class HomePage implements OnInit {
         console.log('dismissed via valider');
         this.ionViewWillEnter();
       }
+    });
+
+    return await modal.present();
+  }
+
+  async pageInvestissement() {
+    // to do pour valider : ouvrir page proposant de prendre une photo du lieu avec transfert données de la place
+    const modal = await this.modalController.create({
+      component: PaiementPage,
+      backdropDismiss: false
     });
 
     return await modal.present();

@@ -42,7 +42,7 @@ export class InscriptionPage {
   }
 
   back() {
-    this.navCtrl.pop();
+    this.navCtrl.navigateRoot('connection');
   }
 
 }

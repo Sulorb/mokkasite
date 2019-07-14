@@ -2,14 +2,15 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'connection', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'upload', loadChildren: './upload/upload.module#UploadPageModule' },
   { path: 'connection', loadChildren: './connection/connection.module#ConnectionPageModule' },
   { path: 'inscription', loadChildren: './inscription/inscription.module#InscriptionPageModule' },
   { path: 'plus', loadChildren: './plus/plus.module#PlusPageModule' },
   { path: 'podium', loadChildren: './podium/podium.module#PodiumPageModule' },
-  { path: 'profil', loadChildren: './profil/profil.module#ProfilPageModule' },  { path: 'apropos', loadChildren: './apropos/apropos.module#AproposPageModule' },
+  { path: 'profil', loadChildren: './profil/profil.module#ProfilPageModule' },
+  { path: 'apropos', loadChildren: './apropos/apropos.module#AproposPageModule' },
   { path: 'partenaires', loadChildren: './partenaires/partenaires.module#PartenairesPageModule' },
   { path: 'cgu', loadChildren: './cgu/cgu.module#CguPageModule' },
   { path: 'mentions', loadChildren: './mentions/mentions.module#MentionsPageModule' },

@@ -1,3 +1,4 @@
+import { ModalController } from '@ionic/angular';
 import { GlobalService } from './../global.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -10,7 +11,7 @@ declare var Stripe;
   styleUrls: ['./paiement.page.scss']
 })
 export class PaiementPage implements OnInit {
-  constructor(private route: ActivatedRoute, private global: GlobalService) {}
+  constructor(private route: ActivatedRoute, private global: GlobalService, private modalCtrl: ModalController) {}
 
   ngOnInit() {
     this.route.fragment.subscribe((fragment: string) => {
@@ -47,5 +48,9 @@ export class PaiementPage implements OnInit {
           }
         });
     });
+  }
+
+  back() {
+    this.modalCtrl.dismiss();
   }
 }

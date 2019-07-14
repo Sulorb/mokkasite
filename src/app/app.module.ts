@@ -1,3 +1,4 @@
+import { PaiementPageModule } from './paiement/paiement.module';
 import { ValidationPageModule } from './validation/validation.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -57,7 +58,8 @@ import { TutoPageModule } from './tuto/tuto.module';
     AproposPageModule,
     ValidationPageModule,
     UploadPageModule,
-    TutoPageModule
+    TutoPageModule,
+    PaiementPageModule
   ],
   providers: [
     StatusBar,
