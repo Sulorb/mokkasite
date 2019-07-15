@@ -9,8 +9,8 @@ import { CookieService } from 'ngx-cookie-service';
 export class GlobalService {
 
   // serverSite = "https://joingaia.fr/joingaia-back/index.php?";
-  // serverSite = "http://localhost:8888/mokkaserver/?";
-  serverSite = "http://localhost/joingaia-back/?";
+  serverSite = "http://localhost:8888/mokkaserver/?";
+  // serverSite = "http://localhost/joingaia-back/?";
 
 
   constructor(private toastController: ToastController, private http: HttpClient, private cookieService: CookieService, private loadingController: LoadingController) { }

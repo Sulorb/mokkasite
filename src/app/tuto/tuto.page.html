@@ -2,6 +2,24 @@
   <ion-button fill="clear" icon-only (click)="back()">
     <ion-icon name="arrow-back" color="dark"></ion-icon>
   </ion-button>
-  <p>ici gît le tutoriel</p>
-  <ion-button (click)="declareSeen()">Ok</ion-button>
+
+  <h1 text-center>Bienvenue !</h1>
+  <ion-list lines="none">
+    <ion-item>
+      <img width="30px" src="assets/pictos/feuilleJaune.svg" alt=""> Lieux à nettoyer
+    </ion-item>
+    <ion-item>
+      <img width="30px" src="assets/pictos/feuilleVerte.svg" alt=""> Lieux nettoyés
+    </ion-item>
+    <ion-item>
+      <img width="30px" src="assets/pictos/poubelleFondNoir.svg" alt="">Déchets à récupérer
+    </ion-item>
+  </ion-list>
+
+  <p padding>
+    Chaque mission vaut un certain nombre de points en fonction de sa difficulté. Ces points te sont crédités dès lors que la preuve photo que tu as envoyée est validée par Gaïa. ✅<br><br>
+    Grâce à ces points, non seulement tu grimpes dans la classement mais tu pourras aussi les investir dans des projets rémunérant et les échanger dans notre future boutique !
+  </p>
+
+  <img width="50px" style="display: block; margin: auto; margin-bottom: 20px;" (click)="declareSeen()" src="assets/pictos/cercleChecked.svg" alt="">
 </ion-content>

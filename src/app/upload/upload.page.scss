@@ -20,8 +20,15 @@ ion-content {
 }
 
 ion-radio {
-    border: 2px solid rgb(75, 218, 62);
+    border: 2px solid rgb(168, 168, 168);
     border-radius: 50%;
+}
+
+ion-col {
+    // border: 2px solid rgb(168, 168, 168);
+    border-radius: 5px;
+    margin: 5px;
+    box-shadow: 2px 2px 5px lightgray;
 }
 
 .center {

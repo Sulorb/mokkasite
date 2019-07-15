@@ -18,6 +18,7 @@ import { TutoPage } from '../tuto/tuto.page';
 export class HomePage implements OnInit {
   @ViewChild('map') mapContainer: ElementRef;
   map: any;
+  isConnected = false;
 
   constructor(
     private global: GlobalService,
@@ -27,7 +28,7 @@ export class HomePage implements OnInit {
     private cookieService: CookieService,
     public popoverController: PopoverController,
     private navCtrl: NavController
-  ) {}
+  ) { }
 
   ionViewWillEnter() {
     console.log('WILLENTER HOME');
@@ -38,11 +39,22 @@ export class HomePage implements OnInit {
     this.loadmap();
     if (this.cookieService.check('token')) {
       this.loadPlacesWithToken(this.cookieService.get('token'));
+      this.isConnected = true;
     } else {
       this.loadPlaces();
+      this.isConnected = false;
     }
     if (!this.cookieService.check('alreadySeen')) {
       this.presentPopover();
+    }
+  }
+
+  ouvrirProfil() {
+    if (this.isConnected)
+      this.navCtrl.navigateForward('profil')
+    else {
+      this.navCtrl.navigateForward('inscription')
+      this.global.toast("Veuillez d'abord vous inscrire pour rejoindre notre ligue !")
     }
   }
 
@@ -158,10 +170,14 @@ export class HomePage implements OnInit {
         // <img src="` + data[i]['pictureDirty'] + `"><br>
         var popupContent =
           `
-        <img src="` +
-          data[i]['pictureDirty'] +
-          `"><br>
-        <img src="assets/pictos/poubelle.svg" width="25px">` +
+        <img src="` + data[i]['pictureDirty'] + `" style="max-width: 100%; max-height: 100px; margin: auto; display: block;"><br>
+        `;
+
+        if (data[i]['pictureCleaned'] != null) {
+          popupContent += ` <img src="` + data[i]['pictureCleaned'] + `" style="max-width: 100%; max-height: 100px; margin: auto; display: block;"><br>`;
+        }
+
+        popupContent += `<img src="assets/pictos/poubelle.svg" width="25px">` +
           dirty +
           `<span style="position: absolute; right: 20px; border-radius: 10px; border: 2px solid red; color: red; padding: 3px;">` +
           data[i]['rewardPoints'] +
@@ -211,7 +227,7 @@ export class HomePage implements OnInit {
         let markerInfos = data[i];
 
         // si j'ouvre la popup
-        marker.on('popupopen', function() {
+        marker.on('popupopen', function () {
           console.log('poopup open : ', markerInfos);
           if (markerInfos['pictureCleaned'] == null) {
             console.log('lemarker :', markerInfos);
@@ -290,9 +306,18 @@ export class HomePage implements OnInit {
         // différentes popups selon le type de compte connecté
         // si user lambda :
         // <img src="` + data[i]['pictureDirty'] + `"><br>
+
         var popupContent =
           `
-        <img src="http://www.pnr-scarpe-escaut.fr/sites/default/files/imagecache/evenement_pleine_page_image_large/sources/depot_sauvage_3.jpg"><br>
+      <img src="` + data[i]['pictureDirty'] + `" style="max-width: 100%; max-height: 100px; margin: auto; display: block;"><br>
+      `;
+
+        if (data[i]['pictureCleaned'] != null) {
+          popupContent += ` <img src="` + data[i]['pictureCleaned'] + `" style="max-width: 100%; max-height: 100px; margin: auto; display: block;"><br>`;
+        }
+
+        popupContent +=
+          `
         <img src="assets/pictos/poubelle.svg" width="25px">` +
           dirty +
           `<span style="position: absolute; right: 20px; border-radius: 10px; border: 2px solid red; color: red; padding: 3px;">` +
@@ -325,7 +350,7 @@ export class HomePage implements OnInit {
         let markerInfos = data[i];
 
         // si j'ouvre la popup
-        marker.on('popupopen', function() {
+        marker.on('popupopen', function () {
           console.log('poopup open');
           if (markerInfos['pictureCleaned'] == null) {
             self.elementRef.nativeElement.querySelector('.marker' + markerInfos['id']).addEventListener('click', e => {
@@ -409,19 +434,43 @@ export class HomePage implements OnInit {
   }
 
   async openUploadMenu() {
-    const modal = await this.modalController.create({
-      component: UploadPage,
-      backdropDismiss: false
-    });
+    if (this.isConnected) {
+      const modal = await this.modalController.create({
+        component: UploadPage,
+        backdropDismiss: false
+      });
 
-    modal.onWillDismiss().then(dataDismissed => {
-      console.log('va être dismiss upload', dataDismissed);
-      if (dataDismissed.data == true) {
-        console.log('dismissed via upload');
-        this.ionViewWillEnter();
-      }
-    });
+      modal.onWillDismiss().then(dataDismissed => {
+        console.log('va être dismiss upload', dataDismissed);
+        if (dataDismissed.data == true) {
+          console.log('dismissed via upload');
+          this.ionViewWillEnter();
+        }
+      });
 
-    return await modal.present();
+      return await modal.present();
+    } else {
+      this.navCtrl.navigateForward('upload')
+      this.global.toast("Veuillez d'abord vous inscrire pour rejoindre notre ligue !")
+    }
   }
+
+  openPodium() {
+    if (this.isConnected) {
+      this.navCtrl.navigateForward('podium')
+    } else {
+      this.navCtrl.navigateForward('inscription')
+      this.global.toast("Veuillez d'abord vous inscrire pour rejoindre notre ligue !")
+    }
+  }
+
+  openMissions() {
+    if (this.isConnected) {
+      this.navCtrl.navigateForward('missions')
+    } else {
+      this.navCtrl.navigateForward('inscription')
+      this.global.toast("Veuillez d'abord vous inscrire pour rejoindre notre ligue !")
+    }
+  }
+
 }

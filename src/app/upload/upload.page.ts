@@ -17,7 +17,6 @@ export class UploadPage implements OnInit {
 
   image;
   userContacts: any;
-  mediaFiles = [];
   title = "Ajout de la photo"
   description = ""
   // BALEK

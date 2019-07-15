@@ -3,4 +3,18 @@
   <ion-button fill="clear" icon-only (click)="back()">
     <ion-icon name="arrow-back" color="dark"></ion-icon>
   </ion-button>
+
+  <h1 class="rectangle">Mes missions</h1>
+
+  <ion-card text-center style="padding-bottom: 10px;" *ngFor="let a of missions; let i = index;">
+    <ion-card-content>
+      {{i}}
+      <h1>Quai de seine {{a.lieu}}</h1>
+      <p>17 boulevard Morland, 75001 Paris</p>
+      <ion-button>Y aller</ion-button>
+      <ion-button>Valider</ion-button>
+    </ion-card-content>
+    <a style="color: darkred;" (click)="annuler(i)">Annuler la mission</a>
+  </ion-card>
+
 </ion-content>

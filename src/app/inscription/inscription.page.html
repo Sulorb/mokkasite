@@ -1,27 +1,17 @@
-<div style="background-image: url('assets/fond-feuilles.jpg'); height: 100vh; background-size: cover;">
+<ion-content>
+
   <ion-button fill="clear" icon-only (click)="back()">
-    <ion-icon name="arrow-back" color="light"></ion-icon>
+    <ion-icon name="arrow-back" color="dark"></ion-icon>
   </ion-button>
 
-  <h1 text-center>Inscription</h1>
+  <h1 class="rectangle">Tu es bientôt un héros !</h1>
 
-  <ion-input
-    [(ngModel)]="name"
-    placeholder="identifiant_"
-    style="width: 75vw; margin: auto; background: transparent; border-bottom: 2px solid white; color: whitesmoke;"
-  ></ion-input>
-  <ion-input
-    [(ngModel)]="password1"
-    type="password"
-    placeholder="mot de passe_"
-    style="width: 75vw; margin: auto; background: transparent; border-bottom: 2px solid white; color: whitesmoke;"
-  ></ion-input>
-  <ion-input
-    [(ngModel)]="password2"
-    type="password"
-    placeholder="répéter mot de passe_"
-    style="width: 75vw; margin: auto; background: transparent; border-bottom: 2px solid white; color: whitesmoke;"
-  ></ion-input>
+  <p padding>Pas bien compliqué de rejoindre la ligue Gaïa ! Remplis les informations suivantes et démarre ta quête écologique ! ✨</p>
+
+  <ion-input [(ngModel)]="name" placeholder="prénom_" style="width: 75vw; margin: auto; background: transparent; border-bottom: 2px solid lightgray;"></ion-input>
+  <ion-input placeholder="adresse mail_" style="width: 75vw; margin: auto; background: transparent; border-bottom: 2px solid lightgray;"></ion-input>
+  <ion-input [(ngModel)]="password1" type="password" placeholder="mot de passe_" style="width: 75vw; margin: auto; background: transparent; border-bottom: 2px solid lightgray;"></ion-input>
+  <ion-input [(ngModel)]="password2" type="password" placeholder="répéter mot de passe_" style="width: 75vw; margin: auto; background: transparent; border-bottom: 2px solid lightgray;"></ion-input>
 
   <ion-radio-group [(ngModel)]="accountType">
     <ion-row>
@@ -46,7 +36,10 @@
     </ion-row>
   </ion-radio-group>
 
-  <ion-button color="light" expand="block" size="large" (click)="inscription()" style="width: 75vw; display: block; margin: auto;"
-    >Valider</ion-button
-  >
-</div>
+
+  <div padding margin>
+    <ion-checkbox></ion-checkbox> J'accepte que les informations saisies soient exploitées dans le cadre du mouvement Gaïa.
+  </div>
+
+  <ion-button color="tertiary" expand="block" size="large" (click)="inscription()" style="width: 75vw; display: block; margin: auto; margin-bottom: 20px;">Valider</ion-button>
+</ion-content>

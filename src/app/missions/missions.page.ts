@@ -8,13 +8,34 @@ import { NavController, ModalController } from '@ionic/angular';
 })
 export class MissionsPage implements OnInit {
 
+  missions = [
+    {
+      lieu: 'ouergi'
+    },
+    {
+      lieu: 'oergui'
+    },
+    {
+      lieu: 'ougeri'
+    },
+    {
+      lieu: 'ougrei'
+    },
+  ]
+
   constructor(private navCtrl: NavController, private modalCtrl: ModalController) { }
 
   ngOnInit() {
+    console.log(document)
   }
 
   back() {
-    this.modalCtrl.dismiss();
+    this.navCtrl.pop();
+  }
+
+  annuler(i){
+    console.log('splice')
+    this.missions.splice(i,1)
   }
 
 }

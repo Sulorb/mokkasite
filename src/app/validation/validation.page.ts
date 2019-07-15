@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { GlobalService } from './../global.service';
 import { Component, OnInit } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
@@ -32,7 +33,7 @@ export class ValidationPage implements OnInit {
 
   dataPlace;
 
-  constructor(private navParams: NavParams, private modalCtrl: ModalController, private global: GlobalService) { }
+  constructor(private navParams: NavParams, private modalCtrl: ModalController, private global: GlobalService, private cookieService: CookieService) { }
 
   public ngOnInit(): void {
     WebcamUtil.getAvailableVideoInputs()
@@ -95,7 +96,9 @@ export class ValidationPage implements OnInit {
       let placeToUpdate = {
         pictureCleaned: this.webcamImage.imageAsDataUrl,
         userCleanedName: 'Sulorbinette',
-        id: this.dataPlace.id
+        id: this.dataPlace.id,
+        token: this.cookieService.get('token'),
+        rewardPoints: this.dataPlace.rewardPoints
       }
 
       console.log('on upload ça : ', placeToUpdate)

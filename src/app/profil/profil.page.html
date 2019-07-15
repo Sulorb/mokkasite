@@ -1,7 +1,8 @@
 <div style="height: 100vh;">
-  <div style="background-image: url('assets/vague-profil.svg'); height: 230px; width: 100vw; position: absolute; top: 0; right: 0; background-repeat: no-repeat; z-index: -1;">
-
+  <div style="position: absolute; top: 0; right: 0; background-repeat: no-repeat; z-index: -1;">
+    <img src="assets/vague-profil.svg" alt="">
   </div>
+
 
 
   <ion-button fill="clear" icon-only (click)="back()">
@@ -9,10 +10,10 @@
   </ion-button>
 
   <div>
-    <img src="https://cache.cosmopolitan.fr/data/photo/w1000_ci/54/jeune-femme-blonde-lit-sereine-reflechit.jpg" alt="photo de profil" width="100px" height="100px" style="border-radius: 50%; margin-top: 50px; margin-left: calc(50% - 50px); background-size: contain;">
+    <img src="http://vaudou.be/wp-content/uploads/2012/12/Julie.jpg" alt="photo de profil" width="100px" height="100px" style="border-radius: 50%; margin-top: 50px; margin-left: calc(50% - 50px); background-size: contain;">
   </div>
 
-  <h2 text-center>Julie {{userInfos.name}}</h2>
+  <h2 text-center>{{userInfos.name}}</h2>
   <p text-center>Inscrit(e) le : {{userInfos.date}}</p>
 
   <ion-row>
@@ -20,7 +21,7 @@
   </ion-row>
 
   <ion-row>
-    <img src="assets/pictos/couronne.svg" width="20px" style="margin: 0 10px;"> <b>e au classement</b>
+    <img src="assets/pictos/couronne.svg" width="20px" style="margin: 0 10px;"> <b>4e au classement</b>
   </ion-row>
 
   <ion-row>
@@ -29,10 +30,12 @@
 
   <div style="margin-left: 20px;">
     <h1 class="rectangle">Historique</h1>
-    <div *ngFor="let go of ['1','2','3']">
-      <p>16/12/2019<br>
-        Nettoyage collectif<br>
-        <span style="border: 2px solid orangered; color: orangered; border-radius: 20px; padding: 3px;">+50pts</span></p>
+    <div *ngFor="let machin of trucs">
+      <p>{{machin.date}}<br>
+        {{machin.type}}<br>
+      </p>
+
+        <span style="border: 2px solid orangered; color: orangered; border-radius: 20px; padding: 8px; margin-top: -16px">+{{machin.pts}}pts</span>
     </div>
   </div>
 </div>
