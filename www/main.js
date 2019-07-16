@@ -863,8 +863,7 @@ var map = {
 		"missions-missions-module"
 	],
 	"./paiement/paiement.module": [
-		"./src/app/paiement/paiement.module.ts",
-		"paiement-paiement-module"
+		"./src/app/paiement/paiement.module.ts"
 	],
 	"./partenaires/partenaires.module": [
 		"./src/app/partenaires/partenaires.module.ts"
@@ -879,6 +878,9 @@ var map = {
 	"./profil/profil.module": [
 		"./src/app/profil/profil.module.ts",
 		"profil-profil-module"
+	],
+	"./tuto/tuto.module": [
+		"./src/app/tuto/tuto.module.ts"
 	],
 	"./upload/upload.module": [
 		"./src/app/upload/upload.module.ts"
@@ -926,7 +928,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
-    { path: '', redirectTo: 'connection', pathMatch: 'full' },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', loadChildren: './home/home.module#HomePageModule' },
     { path: 'upload', loadChildren: './upload/upload.module#UploadPageModule' },
     { path: 'connection', loadChildren: './connection/connection.module#ConnectionPageModule' },
@@ -941,6 +943,7 @@ var routes = [
     { path: 'missions', loadChildren: './missions/missions.module#MissionsPageModule' },
     { path: 'validation', loadChildren: './validation/validation.module#ValidationPageModule' },
     { path: 'paiement', loadChildren: './paiement/paiement.module#PaiementPageModule' },
+    { path: 'tuto', loadChildren: './tuto/tuto.module#TutoPageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -967,7 +970,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\r\n\r\n  <ion-router-outlet></ion-router-outlet>\r\n\r\n</ion-app>\r\n"
+module.exports = "<ion-app>\n\n  <ion-router-outlet></ion-router-outlet>\n\n</ion-app>\n"
 
 /***/ }),
 
@@ -1032,35 +1035,33 @@ var AppComponent = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _validation_validation_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./validation/validation.module */ "./src/app/validation/validation.module.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/ngx/index.js");
-/* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
-/* harmony import */ var _ionic_native_diagnostic_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ionic-native/diagnostic/ngx */ "./node_modules/@ionic-native/diagnostic/ngx/index.js");
-/* harmony import */ var _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic-native/android-permissions/ngx */ "./node_modules/@ionic-native/android-permissions/ngx/index.js");
-/* harmony import */ var _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ionic-native/media-capture/ngx */ "./node_modules/@ionic-native/media-capture/ngx/index.js");
-/* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ionic-native/file/ngx */ "./node_modules/@ionic-native/file/ngx/index.js");
+/* harmony import */ var _paiement_paiement_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./paiement/paiement.module */ "./src/app/paiement/paiement.module.ts");
+/* harmony import */ var _validation_validation_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./validation/validation.module */ "./src/app/validation/validation.module.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/ngx/index.js");
+/* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
+/* harmony import */ var _ionic_native_diagnostic_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic-native/diagnostic/ngx */ "./node_modules/@ionic-native/diagnostic/ngx/index.js");
+/* harmony import */ var _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ionic-native/android-permissions/ngx */ "./node_modules/@ionic-native/android-permissions/ngx/index.js");
+/* harmony import */ var _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ionic-native/media-capture/ngx */ "./node_modules/@ionic-native/media-capture/ngx/index.js");
 /* harmony import */ var _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ionic-native/media/ngx */ "./node_modules/@ionic-native/media/ngx/index.js");
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
-/* harmony import */ var _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ionic-native/social-sharing/ngx */ "./node_modules/@ionic-native/social-sharing/ngx/index.js");
-/* harmony import */ var _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @ionic-native/screen-orientation/ngx */ "./node_modules/@ionic-native/screen-orientation/ngx/index.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var ngx_webcam__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ngx-webcam */ "./node_modules/ngx-webcam/fesm5/ngx-webcam.js");
-/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
-/* harmony import */ var _plus_plus_module__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./plus/plus.module */ "./src/app/plus/plus.module.ts");
-/* harmony import */ var _cgu_cgu_module__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./cgu/cgu.module */ "./src/app/cgu/cgu.module.ts");
-/* harmony import */ var _mentions_mentions_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./mentions/mentions.module */ "./src/app/mentions/mentions.module.ts");
-/* harmony import */ var _apropos_apropos_module__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./apropos/apropos.module */ "./src/app/apropos/apropos.module.ts");
-/* harmony import */ var _partenaires_partenaires_module__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./partenaires/partenaires.module */ "./src/app/partenaires/partenaires.module.ts");
-/* harmony import */ var _upload_upload_module__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./upload/upload.module */ "./src/app/upload/upload.module.ts");
-
+/* harmony import */ var _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ionic-native/screen-orientation/ngx */ "./node_modules/@ionic-native/screen-orientation/ngx/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var ngx_webcam__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ngx-webcam */ "./node_modules/ngx-webcam/fesm5/ngx-webcam.js");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
+/* harmony import */ var _plus_plus_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./plus/plus.module */ "./src/app/plus/plus.module.ts");
+/* harmony import */ var _cgu_cgu_module__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./cgu/cgu.module */ "./src/app/cgu/cgu.module.ts");
+/* harmony import */ var _mentions_mentions_module__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./mentions/mentions.module */ "./src/app/mentions/mentions.module.ts");
+/* harmony import */ var _apropos_apropos_module__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./apropos/apropos.module */ "./src/app/apropos/apropos.module.ts");
+/* harmony import */ var _partenaires_partenaires_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./partenaires/partenaires.module */ "./src/app/partenaires/partenaires.module.ts");
+/* harmony import */ var _upload_upload_module__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./upload/upload.module */ "./src/app/upload/upload.module.ts");
+/* harmony import */ var _tuto_tuto_module__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./tuto/tuto.module */ "./src/app/tuto/tuto.module.ts");
 
 
 
@@ -1093,42 +1094,41 @@ var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]],
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]],
             entryComponents: [],
             imports: [
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"],
-                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot({
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["BrowserModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["IonicModule"].forRoot({
                     backButtonText: '',
                 }),
                 _ionic_storage__WEBPACK_IMPORTED_MODULE_16__["IonicStorageModule"].forRoot(),
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_19__["HttpClientModule"],
-                ngx_webcam__WEBPACK_IMPORTED_MODULE_20__["WebcamModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"],
-                _plus_plus_module__WEBPACK_IMPORTED_MODULE_23__["PlusPageModule"],
-                _cgu_cgu_module__WEBPACK_IMPORTED_MODULE_24__["CguPageModule"],
-                _partenaires_partenaires_module__WEBPACK_IMPORTED_MODULE_27__["PartenairesPageModule"],
-                _mentions_mentions_module__WEBPACK_IMPORTED_MODULE_25__["MentionsPageModule"],
-                _apropos_apropos_module__WEBPACK_IMPORTED_MODULE_26__["AproposPageModule"],
-                _validation_validation_module__WEBPACK_IMPORTED_MODULE_1__["ValidationPageModule"],
-                _upload_upload_module__WEBPACK_IMPORTED_MODULE_28__["UploadPageModule"]
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_18__["HttpClientModule"],
+                ngx_webcam__WEBPACK_IMPORTED_MODULE_19__["WebcamModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"],
+                _plus_plus_module__WEBPACK_IMPORTED_MODULE_21__["PlusPageModule"],
+                _cgu_cgu_module__WEBPACK_IMPORTED_MODULE_22__["CguPageModule"],
+                _partenaires_partenaires_module__WEBPACK_IMPORTED_MODULE_25__["PartenairesPageModule"],
+                _mentions_mentions_module__WEBPACK_IMPORTED_MODULE_23__["MentionsPageModule"],
+                _apropos_apropos_module__WEBPACK_IMPORTED_MODULE_24__["AproposPageModule"],
+                _validation_validation_module__WEBPACK_IMPORTED_MODULE_2__["ValidationPageModule"],
+                _upload_upload_module__WEBPACK_IMPORTED_MODULE_26__["UploadPageModule"],
+                _tuto_tuto_module__WEBPACK_IMPORTED_MODULE_27__["TutoPageModule"],
+                _paiement_paiement_module__WEBPACK_IMPORTED_MODULE_1__["PaiementPageModule"]
             ],
             providers: [
-                _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_7__["StatusBar"],
-                _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_6__["SplashScreen"],
-                ngx_cookie_service__WEBPACK_IMPORTED_MODULE_22__["CookieService"],
-                _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_10__["Geolocation"],
-                _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_21__["NativeStorage"],
-                _ionic_native_diagnostic_ngx__WEBPACK_IMPORTED_MODULE_11__["Diagnostic"],
-                _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_18__["ScreenOrientation"],
-                _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_17__["SocialSharing"],
-                _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_13__["MediaCapture"],
+                _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_8__["StatusBar"],
+                _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_7__["SplashScreen"],
+                ngx_cookie_service__WEBPACK_IMPORTED_MODULE_20__["CookieService"],
+                _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_11__["Geolocation"],
+                _ionic_native_diagnostic_ngx__WEBPACK_IMPORTED_MODULE_12__["Diagnostic"],
+                _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_17__["ScreenOrientation"],
+                _ionic_native_media_capture_ngx__WEBPACK_IMPORTED_MODULE_14__["MediaCapture"],
                 _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_15__["Media"],
-                _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_14__["File"],
-                _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_12__["AndroidPermissions"],
-                { provide: _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicRouteStrategy"] }
+                _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_13__["AndroidPermissions"],
+                { provide: _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["IonicRouteStrategy"] }
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -1196,7 +1196,7 @@ var AproposPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content>\r\n\r\n        <ion-button fill=\"clear\" icon-only (click)=\"back()\">\r\n            <ion-icon name=\"arrow-back\" color=\"dark\"></ion-icon>\r\n        </ion-button>\r\n    \r\n        <h1 class=\"rectangle\">Mentions légales</h1>\r\n    \r\n        <p padding>Nous avons décidé de sauver le monde, et pas tout seuls ! En rejoignant notre ligue de citoyens responsables, vous contribuerez à un\r\n            monde plus propre et pérenne.</p>\r\n    \r\n        <p padding>Établissez votre demande via le formulaire ci-dessous. Nous reviendrons rapidement vers vous !</p>\r\n    \r\n    </ion-content>"
+module.exports = "<ion-content>\n\n    <ion-button fill=\"clear\" icon-only (click)=\"back()\">\n        <ion-icon name=\"arrow-back\" color=\"dark\"></ion-icon>\n    </ion-button>\n\n    <h1 class=\"rectangle\">Découvrez la ligue Gaïa</h1>\n\n    <p padding>Halte là ! Si tu es arrivé sur cette page ce n’est pas par hasard, c’est qu’au fond de toi bouillonne déjà l’envie de sauver le monde ! 🦸🏿‍♂️</p>\n\n    <p padding>Ok on se présente ; Gaïa est une jeune start-up qui a pour but de donner l’occasion aux jeunes d’agir pour la préservation de la planète, et ce à l’aide d’une carte interactive. Accessible publiquement, notre map permet de localiser des lieux recensés comme pollués et d’aller les nettoyer de façon individuelle ou en groupe pour gagner des points. 💸<br>\n        Au fur et à mesure de ton ascension héroïque, tu as accès à des événements de plus grande ampleur, mais aussi à une super boutique où tu peux échanger tes points contre des récompenses !</p>\n\n    <p padding>Maintenant que tu en sais un peu plus sur nous,\n        nous espérons que tu es impatient de nous\n        rejoindre ! Parce que ton action compte aussi !\n        Nous sommes tous de potentiels héros de la\n        nature, il suffit de prendre conscience de nos\n        pouvoirs, et de se lancer ! La ligue n’attend que\n        toi !</p>\n\n\n        <ion-button color=\"tertiary\" expand=\"block\" size=\"large\" (click)=\"inscription()\" style=\"width: 75vw; display: block; margin: auto; margin-bottom: 20px;\">Je rejoins la ligue !</ion-button>\n</ion-content>\n<img src=\"assets/cercle.svg\" style=\"z-index: -1; position: absolute; bottom: 0;\">\n"
 
 /***/ }),
 
@@ -1207,7 +1207,7 @@ module.exports = "<ion-content>\r\n\r\n        <ion-button fill=\"clear\" icon-o
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".rectangle::after {\n  content: \"\";\n  display: block;\n  width: 78%;\n  height: 31px;\n  background-color: #45e6c6;\n  position: relative;\n  top: -43px;\n  right: -13px;\n  z-index: -1; }\n\n.rectangle {\n  font-weight: bolder;\n  font-size: 2.5em; }\n\nion-content {\n  --background: transparent; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXByb3Bvcy9DOlxcVXNlcnNcXGFsZXhpXFxPbmVEcml2ZVxcQnVyZWF1XFxtb2trYXNpdGUvc3JjXFxhcHBcXGFwcm9wb3NcXGFwcm9wb3MucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBVztFQUNYLGNBQWM7RUFDZCxVQUFVO0VBQ1YsWUFBWTtFQUNaLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLFlBQVk7RUFDWixXQUFXLEVBQUE7O0FBR2Y7RUFDSSxtQkFBbUI7RUFDbkIsZ0JBQWdCLEVBQUE7O0FBR3BCO0VBQ0kseUJBQWEsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2Fwcm9wb3MvYXByb3Bvcy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucmVjdGFuZ2xlOjphZnRlciB7XHJcbiAgICBjb250ZW50OiBcIlwiO1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICB3aWR0aDogNzglO1xyXG4gICAgaGVpZ2h0OiAzMXB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzQ1ZTZjNjtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIHRvcDogLTQzcHg7XHJcbiAgICByaWdodDogLTEzcHg7XHJcbiAgICB6LWluZGV4OiAtMTtcclxufVxyXG5cclxuLnJlY3RhbmdsZSB7XHJcbiAgICBmb250LXdlaWdodDogYm9sZGVyO1xyXG4gICAgZm9udC1zaXplOiAyLjVlbTtcclxufVxyXG5cclxuaW9uLWNvbnRlbnQge1xyXG4gICAgLS1iYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsgLy8geW91IGRvbid0IG5lZWQgdG8gdXNlIGEgY3NzIGN1c3RvbSBwcm9wZXJ0eSwgYnV0IHlvdSBjYW4gb2YgY291cnNlXHJcbn0iXX0= */"
+module.exports = ".rectangle::after {\n  content: \"\";\n  display: block;\n  width: 78%;\n  height: 31px;\n  background-color: #45e6c6;\n  position: relative;\n  top: -43px;\n  right: -13px;\n  z-index: -1; }\n\n.rectangle {\n  font-weight: bolder;\n  font-size: 2.5em; }\n\nion-content {\n  --background: transparent; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hbGV4aXMvRGVza3RvcC9Jb25pYy9Nb2trYVNpdGUvc3JjL2FwcC9hcHJvcG9zL2Fwcm9wb3MucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBVztFQUNYLGNBQWM7RUFDZCxVQUFVO0VBQ1YsWUFBWTtFQUNaLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLFlBQVk7RUFDWixXQUFXLEVBQUE7O0FBR2Y7RUFDSSxtQkFBbUI7RUFDbkIsZ0JBQWdCLEVBQUE7O0FBR3BCO0VBQ0kseUJBQWEsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2Fwcm9wb3MvYXByb3Bvcy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucmVjdGFuZ2xlOjphZnRlciB7XG4gICAgY29udGVudDogXCJcIjtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICB3aWR0aDogNzglO1xuICAgIGhlaWdodDogMzFweDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDVlNmM2O1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB0b3A6IC00M3B4O1xuICAgIHJpZ2h0OiAtMTNweDtcbiAgICB6LWluZGV4OiAtMTtcbn1cblxuLnJlY3RhbmdsZSB7XG4gICAgZm9udC13ZWlnaHQ6IGJvbGRlcjtcbiAgICBmb250LXNpemU6IDIuNWVtO1xufVxuXG5pb24tY29udGVudCB7XG4gICAgLS1iYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsgLy8geW91IGRvbid0IG5lZWQgdG8gdXNlIGEgY3NzIGN1c3RvbSBwcm9wZXJ0eSwgYnV0IHlvdSBjYW4gb2YgY291cnNlXG59Il19 */"
 
 /***/ }),
 
@@ -1236,6 +1236,9 @@ var AproposPage = /** @class */ (function () {
     };
     AproposPage.prototype.back = function () {
         this.modalCtrl.dismiss();
+    };
+    AproposPage.prototype.inscription = function () {
+        this.navCtrl.navigateRoot('inscription');
     };
     AproposPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1310,7 +1313,7 @@ var CguPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content>\r\n\r\n        <ion-button fill=\"clear\" icon-only (click)=\"back()\">\r\n            <ion-icon name=\"arrow-back\" color=\"dark\"></ion-icon>\r\n        </ion-button>\r\n    \r\n        <h1 class=\"rectangle\">Mentions légales</h1>\r\n    \r\n        <p padding>Nous avons décidé de sauver le monde, et pas tout seuls ! En rejoignant notre ligue de citoyens responsables, vous contribuerez à un\r\n            monde plus propre et pérenne.</p>\r\n    \r\n        <p padding>Établissez votre demande via le formulaire ci-dessous. Nous reviendrons rapidement vers vous !</p>\r\n    \r\n    </ion-content>"
+module.exports = "<ion-content>\n\n    <ion-button fill=\"clear\" icon-only (click)=\"back()\">\n        <ion-icon name=\"arrow-back\" color=\"dark\"></ion-icon>\n    </ion-button>\n\n    <h1 class=\"rectangle\">Conditions Générales d'Utilisation</h1>\n\n    <p padding>Gaïa Inc. est une association à but un peu lucratif mais pas trop. Nous voulons changer le monde tout en se faisant un peu d'argent parce que ça reste quelque chose de cool d'autant plus que nous sommes dans un monde capitaliste donc à moins d'accepter de continuer à manger des pâtes toute notre vie il faut bien que nous nous fassions quelques deniers.</p>\n\n    <p padding>Pour utiliser Gaïa, vous devez vous inscrire depuis la plateforme sur https://www.JoinGaia.fr et en plus de ça vous devez être gentil parce que c'est cool.</p>\n\n    <p padding>Si vous ou un membre de votre famille désire supprimer ces données alors l'hippopotame ne trollera plus l'ours brun. Donc tu es vraiment descendu aussi bas dans les mentions légales ? Ton temps pourrait être bien plus optimisé.<br>\n\n        En effet, chez Gaïa nous privilégions l'optimisation du temps de nos utilisateurs. C'est pourquoi nous les encourageons à cesser de lire ce texte futile. Là, tout de suite, vous pourriez vous arrêter (eh oui maintenant je vouvoie) et faire quelque chose de productif, quelque chose en quoi vous croyez et qui améliorera la vie d'au moins une personne, que ce soit vous ou celle d'une autre.</p>\n\n    <p padding>\n        C'est pourquoi il convient que vous vous posiez la question \"qu'ai-je envie de changer dans ce monde, en quoi pourrais-je rendre ce monde meilleur ?\". Peu importe à quoi vous pensiez, faites-le, vous avez assez perdu de temps comme ça et rester sans rien faire fera du vous une personne parfaitement banale et futile. Remarque, c'est déjà mieux qu'un parasite sociétal, mais vous pouvez viser bien plus haut.\n    </p>\n\n\n</ion-content>\n<img src=\"assets/cercle.svg\" style=\"z-index: -1; position: absolute; bottom: 0;\">"
 
 /***/ }),
 
@@ -1321,7 +1324,7 @@ module.exports = "<ion-content>\r\n\r\n        <ion-button fill=\"clear\" icon-o
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".rectangle::after {\n  content: \"\";\n  display: block;\n  width: 78%;\n  height: 31px;\n  background-color: #45e6c6;\n  position: relative;\n  top: -43px;\n  right: -13px;\n  z-index: -1; }\n\n.rectangle {\n  font-weight: bolder;\n  font-size: 2.5em; }\n\nion-content {\n  --background: transparent; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2d1L0M6XFxVc2Vyc1xcYWxleGlcXE9uZURyaXZlXFxCdXJlYXVcXG1va2thc2l0ZS9zcmNcXGFwcFxcY2d1XFxjZ3UucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBVztFQUNYLGNBQWM7RUFDZCxVQUFVO0VBQ1YsWUFBWTtFQUNaLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLFlBQVk7RUFDWixXQUFXLEVBQUE7O0FBR2Y7RUFDSSxtQkFBbUI7RUFDbkIsZ0JBQWdCLEVBQUE7O0FBR3BCO0VBQ0kseUJBQWEsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2NndS9jZ3UucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnJlY3RhbmdsZTo6YWZ0ZXIge1xyXG4gICAgY29udGVudDogXCJcIjtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgd2lkdGg6IDc4JTtcclxuICAgIGhlaWdodDogMzFweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICM0NWU2YzY7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICB0b3A6IC00M3B4O1xyXG4gICAgcmlnaHQ6IC0xM3B4O1xyXG4gICAgei1pbmRleDogLTE7XHJcbn1cclxuXHJcbi5yZWN0YW5nbGUge1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGRlcjtcclxuICAgIGZvbnQtc2l6ZTogMi41ZW07XHJcbn1cclxuXHJcbmlvbi1jb250ZW50IHtcclxuICAgIC0tYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7IC8vIHlvdSBkb24ndCBuZWVkIHRvIHVzZSBhIGNzcyBjdXN0b20gcHJvcGVydHksIGJ1dCB5b3UgY2FuIG9mIGNvdXJzZVxyXG59Il19 */"
+module.exports = ".rectangle::after {\n  content: \"\";\n  display: block;\n  width: 78%;\n  height: 31px;\n  background-color: #45e6c6;\n  position: relative;\n  top: -43px;\n  right: -13px;\n  z-index: -1; }\n\n.rectangle {\n  font-weight: bolder;\n  font-size: 2.5em; }\n\nion-content {\n  --background: transparent; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hbGV4aXMvRGVza3RvcC9Jb25pYy9Nb2trYVNpdGUvc3JjL2FwcC9jZ3UvY2d1LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQVc7RUFDWCxjQUFjO0VBQ2QsVUFBVTtFQUNWLFlBQVk7RUFDWix5QkFBeUI7RUFDekIsa0JBQWtCO0VBQ2xCLFVBQVU7RUFDVixZQUFZO0VBQ1osV0FBVyxFQUFBOztBQUdmO0VBQ0ksbUJBQW1CO0VBQ25CLGdCQUFnQixFQUFBOztBQUdwQjtFQUNJLHlCQUFhLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9jZ3UvY2d1LnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5yZWN0YW5nbGU6OmFmdGVyIHtcbiAgICBjb250ZW50OiBcIlwiO1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHdpZHRoOiA3OCU7XG4gICAgaGVpZ2h0OiAzMXB4O1xuICAgIGJhY2tncm91bmQtY29sb3I6ICM0NWU2YzY7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIHRvcDogLTQzcHg7XG4gICAgcmlnaHQ6IC0xM3B4O1xuICAgIHotaW5kZXg6IC0xO1xufVxuXG4ucmVjdGFuZ2xlIHtcbiAgICBmb250LXdlaWdodDogYm9sZGVyO1xuICAgIGZvbnQtc2l6ZTogMi41ZW07XG59XG5cbmlvbi1jb250ZW50IHtcbiAgICAtLWJhY2tncm91bmQ6IHRyYW5zcGFyZW50OyAvLyB5b3UgZG9uJ3QgbmVlZCB0byB1c2UgYSBjc3MgY3VzdG9tIHByb3BlcnR5LCBidXQgeW91IGNhbiBvZiBjb3Vyc2Vcbn0iXX0= */"
 
 /***/ }),
 
@@ -1585,7 +1588,7 @@ var MentionsPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content>\r\n\r\n    <ion-button fill=\"clear\" icon-only (click)=\"back()\">\r\n        <ion-icon name=\"arrow-back\" color=\"dark\"></ion-icon>\r\n    </ion-button>\r\n\r\n    <h1 class=\"rectangle\">Mentions légales</h1>\r\n\r\n    <p padding>Nous avons décidé de sauver le monde, et pas tout seuls ! En rejoignant notre ligue de citoyens responsables, vous contribuerez à un\r\n        monde plus propre et pérenne.</p>\r\n\r\n    <p padding>Établissez votre demande via le formulaire ci-dessous. Nous reviendrons rapidement vers vous !</p>\r\n\r\n</ion-content>"
+module.exports = "<ion-content>\n\n    <ion-button fill=\"clear\" icon-only (click)=\"back()\">\n        <ion-icon name=\"arrow-back\" color=\"dark\"></ion-icon>\n    </ion-button>\n\n    <h1 class=\"rectangle\">Mentions légales</h1>\n\n    <p padding>Gaïa Inc. est une association à but un peu lucratif mais pas trop. Nous voulons changer le monde tout en se faisant un peu d'argent parce que ça reste quelque chose de cool d'autant plus que nous sommes dans un monde capitaliste donc à moins d'accepter de continuer à manger des pâtes toute notre vie il faut bien que nous nous fassions quelques deniers.</p>\n\n    <p padding>Toutes les données entrées sur https://www.JoinGaia.fr seront enregistrées dans notre base de données OVH à vie et revendues super cher à des gens malintentionnés.</p>\n\n    <p padding>Si vous ou un membre de votre famille désire supprimer ces données alors l'hippopotame ne trollera plus l'ours brun. Donc tu es vraiment descendu aussi bas dans les mentions légales ? Ton temps pourrait être bien plus optimisé.<br>\n    \n    En effet, chez Gaïa nous privilégions l'optimisation du temps de nos utilisateurs. C'est pourquoi nous les encourageons à cesser de lire ce texte futile. Là, tout de suite, vous pourriez vous arrêter (eh oui maintenant je vouvoie) et faire quelque chose de productif, quelque chose en quoi vous croyez et qui améliorera la vie d'au moins une personne, que ce soit vous ou celle d'une autre.</p>\n\n    <p padding>\n        C'est pourquoi il convient que vous vous posiez la question \"qu'ai-je envie de changer dans ce monde, en quoi pourrais-je rendre ce monde meilleur ?\". Peu importe à quoi vous pensiez, faites-le, vous avez assez perdu de temps comme ça et rester sans rien faire fera du vous une personne parfaitement banale et futile. Remarque, c'est déjà mieux qu'un parasite sociétal, mais vous pouvez viser bien plus haut.\n    </p>\n\n\n</ion-content>\n\n\n<img src=\"assets/cercle.svg\" style=\"z-index: -1; position: absolute; bottom: 0;\">\n"
 
 /***/ }),
 
@@ -1596,7 +1599,7 @@ module.exports = "<ion-content>\r\n\r\n    <ion-button fill=\"clear\" icon-only 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".rectangle::after {\n  content: \"\";\n  display: block;\n  width: 78%;\n  height: 31px;\n  background-color: #45e6c6;\n  position: relative;\n  top: -43px;\n  right: -13px;\n  z-index: -1; }\n\n.rectangle {\n  font-weight: bolder;\n  font-size: 2.5em; }\n\nion-content {\n  --background: transparent; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVudGlvbnMvQzpcXFVzZXJzXFxhbGV4aVxcT25lRHJpdmVcXEJ1cmVhdVxcbW9ra2FzaXRlL3NyY1xcYXBwXFxtZW50aW9uc1xcbWVudGlvbnMucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBVztFQUNYLGNBQWM7RUFDZCxVQUFVO0VBQ1YsWUFBWTtFQUNaLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLFlBQVk7RUFDWixXQUFXLEVBQUE7O0FBR2Y7RUFDSSxtQkFBbUI7RUFDbkIsZ0JBQWdCLEVBQUE7O0FBR3BCO0VBQ0kseUJBQWEsRUFBQSIsImZpbGUiOiJzcmMvYXBwL21lbnRpb25zL21lbnRpb25zLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5yZWN0YW5nbGU6OmFmdGVyIHtcclxuICAgIGNvbnRlbnQ6IFwiXCI7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIHdpZHRoOiA3OCU7XHJcbiAgICBoZWlnaHQ6IDMxcHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDVlNmM2O1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgdG9wOiAtNDNweDtcclxuICAgIHJpZ2h0OiAtMTNweDtcclxuICAgIHotaW5kZXg6IC0xO1xyXG59XHJcblxyXG4ucmVjdGFuZ2xlIHtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkZXI7XHJcbiAgICBmb250LXNpemU6IDIuNWVtO1xyXG59XHJcblxyXG5pb24tY29udGVudCB7XHJcbiAgICAtLWJhY2tncm91bmQ6IHRyYW5zcGFyZW50OyAvLyB5b3UgZG9uJ3QgbmVlZCB0byB1c2UgYSBjc3MgY3VzdG9tIHByb3BlcnR5LCBidXQgeW91IGNhbiBvZiBjb3Vyc2VcclxufSJdfQ== */"
+module.exports = ".rectangle::after {\n  content: \"\";\n  display: block;\n  width: 78%;\n  height: 31px;\n  background-color: #45e6c6;\n  position: relative;\n  top: -43px;\n  right: -13px;\n  z-index: -1; }\n\n.rectangle {\n  font-weight: bolder;\n  font-size: 2.5em; }\n\nion-content {\n  --background: transparent; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hbGV4aXMvRGVza3RvcC9Jb25pYy9Nb2trYVNpdGUvc3JjL2FwcC9tZW50aW9ucy9tZW50aW9ucy5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxXQUFXO0VBQ1gsY0FBYztFQUNkLFVBQVU7RUFDVixZQUFZO0VBQ1oseUJBQXlCO0VBQ3pCLGtCQUFrQjtFQUNsQixVQUFVO0VBQ1YsWUFBWTtFQUNaLFdBQVcsRUFBQTs7QUFHZjtFQUNJLG1CQUFtQjtFQUNuQixnQkFBZ0IsRUFBQTs7QUFHcEI7RUFDSSx5QkFBYSxFQUFBIiwiZmlsZSI6InNyYy9hcHAvbWVudGlvbnMvbWVudGlvbnMucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnJlY3RhbmdsZTo6YWZ0ZXIge1xuICAgIGNvbnRlbnQ6IFwiXCI7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgd2lkdGg6IDc4JTtcbiAgICBoZWlnaHQ6IDMxcHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzQ1ZTZjNjtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgdG9wOiAtNDNweDtcbiAgICByaWdodDogLTEzcHg7XG4gICAgei1pbmRleDogLTE7XG59XG5cbi5yZWN0YW5nbGUge1xuICAgIGZvbnQtd2VpZ2h0OiBib2xkZXI7XG4gICAgZm9udC1zaXplOiAyLjVlbTtcbn1cblxuaW9uLWNvbnRlbnQge1xuICAgIC0tYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7IC8vIHlvdSBkb24ndCBuZWVkIHRvIHVzZSBhIGNzcyBjdXN0b20gcHJvcGVydHksIGJ1dCB5b3UgY2FuIG9mIGNvdXJzZVxufSJdfQ== */"
 
 /***/ }),
 
@@ -1635,6 +1638,157 @@ var MentionsPage = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"]])
     ], MentionsPage);
     return MentionsPage;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/paiement/paiement.module.ts":
+/*!*********************************************!*\
+  !*** ./src/app/paiement/paiement.module.ts ***!
+  \*********************************************/
+/*! exports provided: PaiementPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaiementPageModule", function() { return PaiementPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _paiement_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./paiement.page */ "./src/app/paiement/paiement.page.ts");
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _paiement_page__WEBPACK_IMPORTED_MODULE_6__["PaiementPage"]
+    }
+];
+var PaiementPageModule = /** @class */ (function () {
+    function PaiementPageModule() {
+    }
+    PaiementPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+            ],
+            declarations: [_paiement_page__WEBPACK_IMPORTED_MODULE_6__["PaiementPage"]]
+        })
+    ], PaiementPageModule);
+    return PaiementPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/paiement/paiement.page.html":
+/*!*********************************************!*\
+  !*** ./src/app/paiement/paiement.page.html ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n\n<ion-content>\n  \n    <ion-button fill=\"clear\" icon-only (click)=\"back()\">\n        <ion-icon name=\"arrow-back\" color=\"dark\"></ion-icon>\n      </ion-button>\n  <h2>Grâce à vous, l'avenir sera meilleur</h2>\n\n  <p>Investissez sur le nettoyage de cette zone afin de mobiliser un maximum d'adolescents qui feront de ce monde un monde plus propre !</p>\n\n  <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->\n  <button\n    style=\"background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em; margin: auto; display: block;\"\n    id=\"checkout-button-sku_FR3kvbqLPSnph3\"\n    role=\"link\"\n  >\n    Investir pour l'avenir\n  </button>\n\n  <div id=\"error-message\"></div>\n</ion-content>\n"
+
+/***/ }),
+
+/***/ "./src/app/paiement/paiement.page.scss":
+/*!*********************************************!*\
+  !*** ./src/app/paiement/paiement.page.scss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhaWVtZW50L3BhaWVtZW50LnBhZ2Uuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/paiement/paiement.page.ts":
+/*!*******************************************!*\
+  !*** ./src/app/paiement/paiement.page.ts ***!
+  \*******************************************/
+/*! exports provided: PaiementPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaiementPage", function() { return PaiementPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _global_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../global.service */ "./src/app/global.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+
+
+var PaiementPage = /** @class */ (function () {
+    function PaiementPage(route, global, modalCtrl) {
+        this.route = route;
+        this.global = global;
+        this.modalCtrl = modalCtrl;
+    }
+    PaiementPage.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.fragment.subscribe(function (fragment) {
+            console.log('My hash fragment is here => ', fragment);
+            if (fragment == 'success') {
+                _this.global.toast('La planète vous remercie pour votre investissement !');
+            }
+        });
+        var stripe = Stripe('pk_test_cMQm2DrzTCBsfFvdSwYD296k00Sx9SNFkT');
+        var checkoutButton = document.getElementById('checkout-button-sku_FR3kvbqLPSnph3');
+        checkoutButton.addEventListener('click', function () {
+            // When the customer clicks on the button, redirect
+            // them to Checkout.
+            stripe
+                .redirectToCheckout({
+                items: [{ sku: 'sku_FR3kvbqLPSnph3', quantity: 1 }],
+                // Do not rely on the redirect to the successUrl for fulfilling
+                // purchases, customers may not always reach the success_url after
+                // a successful payment.
+                // Instead use one of the strategies described in
+                // https://stripe.com/docs/payments/checkout/fulfillment
+                successUrl: 'https://www.joingaia.fr/joingaia-back/paiementreussi.php',
+                cancelUrl: 'https://www.joingaia.fr/joingaia-back/paiementrate.php'
+            })
+                .then(function (result) {
+                if (result.error) {
+                    // If `redirectToCheckout` fails due to a browser or network
+                    // error, display the localized error message to your customer.
+                    var displayError = document.getElementById('error-message');
+                    displayError.textContent = result.error.message;
+                }
+            });
+        });
+    };
+    PaiementPage.prototype.back = function () {
+        this.modalCtrl.dismiss();
+    };
+    PaiementPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+            selector: 'app-paiement',
+            template: __webpack_require__(/*! ./paiement.page.html */ "./src/app/paiement/paiement.page.html"),
+            styles: [__webpack_require__(/*! ./paiement.page.scss */ "./src/app/paiement/paiement.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _global_service__WEBPACK_IMPORTED_MODULE_2__["GlobalService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["ModalController"]])
+    ], PaiementPage);
+    return PaiementPage;
 }());
 
 
@@ -1699,7 +1853,7 @@ var PartenairesPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content>\r\n\r\n\r\n  <ion-button fill=\"clear\" icon-only (click)=\"back()\">\r\n    <ion-icon name=\"arrow-back\" color=\"dark\"></ion-icon>\r\n  </ion-button>\r\n\r\n  <h1 class=\"rectangle\">Faites alliance avec la nature</h1>\r\n\r\n  <p padding>Nous avons décidé de sauver le monde, et pas tout seuls ! En rejoignant notre ligue de citoyens responsables, vous contribuerez à un monde plus propre et pérenne.</p>\r\n\r\n  <p padding>Établissez votre demande via le formulaire ci-dessous. Nous reviendrons rapidement vers vous !</p>\r\n\r\n\r\n  <ion-item>\r\n    <ion-select [interfaceOptions]=\"customPopoverOptions\" interface=\"popover\" placeholder=\"Motif de la demande\">\r\n      <ion-select-option value=\"brown\">Brown</ion-select-option>\r\n      <ion-select-option value=\"blonde\">Blonde</ion-select-option>\r\n      <ion-select-option value=\"black\">Black</ion-select-option>\r\n      <ion-select-option value=\"red\">Red</ion-select-option>\r\n    </ion-select>\r\n  </ion-item>\r\n\r\n      <ion-input [(ngModel)]=\"nom\" placeholder=\"nom_\" style=\"width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);\"></ion-input>\r\n\r\n      <ion-input [(ngModel)]=\"prenom\" placeholder=\"prénom_\" style=\"width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);\"></ion-input>\r\n\r\n      <ion-input [(ngModel)]=\"entreprise\" placeholder=\"entreprise/marque_\" style=\"width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);\"></ion-input>\r\n\r\n      <ion-input [(ngModel)]=\"site\" placeholder=\"site internet_\" style=\"width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);\"></ion-input>\r\n\r\n      <ion-input [(ngModel)]=\"name\" placeholder=\"Pourquoi nous ?_\" style=\"width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);\"></ion-input>\r\n\r\n  <div padding margin>\r\n    <ion-checkbox [(ngModel)]=\"checkbox\"></ion-checkbox> J'accepte que mes données soient conservées\r\n  </div>\r\n\r\n\r\n    <ion-button color=\"light\" expand=\"block\" color=\"tertiary\" style=\"width: 75vw; display: block; margin: auto; margin-bottom: 30px;\" (click)=\"send()\">Envoyer</ion-button>\r\n\r\n</ion-content>"
+module.exports = "<ion-content>\n  <ion-button fill=\"clear\" icon-only (click)=\"back()\">\n    <ion-icon name=\"arrow-back\" color=\"dark\"></ion-icon>\n  </ion-button>\n\n\n  <h1 class=\"rectangle\">Faites alliance avec la nature</h1>\n\n  <p padding>\n    Gaïa s'engage à faire de notre planète un lieu de vie durable et accueillant pour toutes les générations à venir. Si notre mouvement s'adresse essetiellement à nos jeunes pousses, vous aussi en tant qu'entreprise vous pouvez rejoindre la ligue et mettre vos valeurs zau profit de notre mouvement !\n  </p>\n\n  <p padding>\n    Il vous suffit d'établir une demande via le formulaire suivant. Pensez à nous dire ce qui vous motive à nous rejoindre, c'est toujours plus engageant ! 🙂<br>\n    Nous étudierons votre demande le plus rapidement possible et si votre projet nous a conquis, nous reviendrons vers vous pour convenir d'une entrevue et vous deviendrez officiellement un super-héros Gaïa ! 🦸🏿‍\n  </p>\n\n  <ion-item>\n    <ion-select interface=\"popover\" placeholder=\"Motif de la demande\">\n      <ion-select-option value=\"brown\">Investissement</ion-select-option>\n      <ion-select-option value=\"blonde\">Simple coucou</ion-select-option>\n      <ion-select-option value=\"black\">Partenariat</ion-select-option>\n      <ion-select-option value=\"red\">Barbecue</ion-select-option>\n    </ion-select>\n  </ion-item>\n\n  <ion-input\n    [(ngModel)]=\"nom\"\n    placeholder=\"nom_\"\n    style=\"width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);\"\n  ></ion-input>\n\n  <ion-input\n    [(ngModel)]=\"prenom\"\n    placeholder=\"prénom_\"\n    style=\"width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);\"\n  ></ion-input>\n\n  <ion-input\n    [(ngModel)]=\"entreprise\"\n    placeholder=\"entreprise/marque_\"\n    style=\"width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);\"\n  ></ion-input>\n\n  <ion-input\n    [(ngModel)]=\"site\"\n    placeholder=\"site internet_\"\n    style=\"width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);\"\n  ></ion-input>\n\n  <ion-input\n    [(ngModel)]=\"name\"\n    placeholder=\"Pourquoi nous ?_\"\n    style=\"width: 75vw; margin: auto; border-bottom: 1px solid lightgray; color: rgb(165, 165, 165);\"\n  ></ion-input>\n\n  <div padding margin><ion-checkbox [(ngModel)]=\"checkbox\"></ion-checkbox> J'accepte que mes données soient conservées</div>\n\n  <ion-button\n    color=\"light\"\n    expand=\"block\"\n    color=\"tertiary\"\n    style=\"width: 75vw; display: block; margin: auto; margin-bottom: 30px;\"\n    (click)=\"send()\"\n    >Envoyer</ion-button\n  >\n\n\n</ion-content>\n<div style=\"position: absolute; bottom: 0; left: 0; background-repeat: no-repeat; z-index: -1; opacity: 0.5\">\n    <img src=\"assets/forme-partenaires.svg\" alt=\"\">\n  </div>\n  \n"
 
 /***/ }),
 
@@ -1710,7 +1864,7 @@ module.exports = "<ion-content>\r\n\r\n\r\n  <ion-button fill=\"clear\" icon-onl
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".rectangle::after {\n  content: \"\";\n  display: block;\n  width: 78%;\n  height: 31px;\n  background-color: #45e6c6;\n  position: relative;\n  top: -43px;\n  right: -13px;\n  z-index: -1; }\n\n.rectangle {\n  font-weight: bolder;\n  font-size: 2.5em; }\n\nion-content {\n  --background: transparent; }\n\nion-select {\n  all: unset;\n  display: flex; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFydGVuYWlyZXMvQzpcXFVzZXJzXFxhbGV4aVxcT25lRHJpdmVcXEJ1cmVhdVxcbW9ra2FzaXRlL3NyY1xcYXBwXFxwYXJ0ZW5haXJlc1xccGFydGVuYWlyZXMucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBVztFQUNYLGNBQWM7RUFDZCxVQUFVO0VBQ1YsWUFBWTtFQUNaLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLFlBQVk7RUFDWixXQUFXLEVBQUE7O0FBR2Y7RUFDSSxtQkFBbUI7RUFDbkIsZ0JBQWdCLEVBQUE7O0FBR3BCO0VBQ0kseUJBQWEsRUFBQTs7QUFHakI7RUFDSSxVQUFVO0VBQ1YsYUFBYSxFQUFBIiwiZmlsZSI6InNyYy9hcHAvcGFydGVuYWlyZXMvcGFydGVuYWlyZXMucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnJlY3RhbmdsZTo6YWZ0ZXIge1xyXG4gICAgY29udGVudDogXCJcIjtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgd2lkdGg6IDc4JTtcclxuICAgIGhlaWdodDogMzFweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICM0NWU2YzY7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICB0b3A6IC00M3B4O1xyXG4gICAgcmlnaHQ6IC0xM3B4O1xyXG4gICAgei1pbmRleDogLTE7XHJcbn1cclxuXHJcbi5yZWN0YW5nbGUge1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGRlcjtcclxuICAgIGZvbnQtc2l6ZTogMi41ZW07XHJcbn1cclxuXHJcbmlvbi1jb250ZW50IHtcclxuICAgIC0tYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7IC8vIHlvdSBkb24ndCBuZWVkIHRvIHVzZSBhIGNzcyBjdXN0b20gcHJvcGVydHksIGJ1dCB5b3UgY2FuIG9mIGNvdXJzZVxyXG59XHJcblxyXG5pb24tc2VsZWN0IHtcclxuICAgIGFsbDogdW5zZXQ7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbiJdfQ== */"
+module.exports = ".rectangle::after {\n  content: \"\";\n  display: block;\n  width: 78%;\n  height: 31px;\n  background-color: #45e6c6;\n  position: relative;\n  top: -43px;\n  right: -13px;\n  z-index: -1; }\n\n.rectangle {\n  font-weight: bolder;\n  font-size: 2.5em; }\n\nion-content {\n  --background: transparent; }\n\nion-select {\n  all: unset;\n  display: flex; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hbGV4aXMvRGVza3RvcC9Jb25pYy9Nb2trYVNpdGUvc3JjL2FwcC9wYXJ0ZW5haXJlcy9wYXJ0ZW5haXJlcy5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxXQUFXO0VBQ1gsY0FBYztFQUNkLFVBQVU7RUFDVixZQUFZO0VBQ1oseUJBQXlCO0VBQ3pCLGtCQUFrQjtFQUNsQixVQUFVO0VBQ1YsWUFBWTtFQUNaLFdBQVcsRUFBQTs7QUFHZjtFQUNJLG1CQUFtQjtFQUNuQixnQkFBZ0IsRUFBQTs7QUFHcEI7RUFDSSx5QkFBYSxFQUFBOztBQUdqQjtFQUNJLFVBQVU7RUFDVixhQUFhLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9wYXJ0ZW5haXJlcy9wYXJ0ZW5haXJlcy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucmVjdGFuZ2xlOjphZnRlciB7XG4gICAgY29udGVudDogXCJcIjtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICB3aWR0aDogNzglO1xuICAgIGhlaWdodDogMzFweDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDVlNmM2O1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB0b3A6IC00M3B4O1xuICAgIHJpZ2h0OiAtMTNweDtcbiAgICB6LWluZGV4OiAtMTtcbn1cblxuLnJlY3RhbmdsZSB7XG4gICAgZm9udC13ZWlnaHQ6IGJvbGRlcjtcbiAgICBmb250LXNpemU6IDIuNWVtO1xufVxuXG5pb24tY29udGVudCB7XG4gICAgLS1iYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsgLy8geW91IGRvbid0IG5lZWQgdG8gdXNlIGEgY3NzIGN1c3RvbSBwcm9wZXJ0eSwgYnV0IHlvdSBjYW4gb2YgY291cnNlXG59XG5cbmlvbi1zZWxlY3Qge1xuICAgIGFsbDogdW5zZXQ7XG4gICAgZGlzcGxheTogZmxleDtcbn1cbiJdfQ== */"
 
 /***/ }),
 
@@ -1826,7 +1980,7 @@ var PlusPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"background-image: url('assets/fond-feuilles.jpg'); height: 100vh; background-size: cover; z-index: -2;\">\r\n  <!-- TODO : changer image en pré-floutée -->\r\n  <ion-fab horizontal=\"end\" vertical=\"top\" slot=\"fixed\">\r\n    <ion-fab-button color=\"light\" (click)=\"back()\">\r\n      <img src=\"assets/pictos/croix.svg\" width=\"50px\">\r\n    </ion-fab-button>\r\n  </ion-fab>\r\n\r\n  <div style=\"display: block; margin: 50% 10%;\">\r\n    <h2 class=\"rectangle bold\" tappable (click)=\"goToApropos()\">À propos</h2>\r\n    <h2 class=\"bold\" tappable (click)=\"goToPartenaires()\">Partenaires</h2>\r\n    <h2 class=\"bold\" tappable (click)=\"goToCgu()\">CGU</h2>\r\n    <h2 class=\"bold\" tappable (click)=\"goToMentions()\">Mentions Légales</h2>\r\n    <h2 class=\"bold\" tappable (click)=\"deconnexion()\" style=\"position: absolute; bottom: 50px;\">Se déconnecter</h2>\r\n  </div>\r\n</div>"
+module.exports = "<div style=\"background-image: url('assets/fond-feuilles.jpg'); height: 100vh; background-size: cover; z-index: -2;\">\n  <!-- TODO : changer image en pré-floutée -->\n  <ion-fab horizontal=\"end\" vertical=\"top\" slot=\"fixed\">\n    <ion-fab-button color=\"light\" (click)=\"back()\">\n      <img src=\"assets/pictos/croix.svg\" width=\"50px\">\n    </ion-fab-button>\n  </ion-fab>\n\n  <div style=\"display: block; margin: 50% 10%;\">\n    <h2 class=\"rectangle bold\" tappable (click)=\"goToApropos()\">À propos</h2>\n    <h2 class=\"bold\" tappable (click)=\"goToPartenaires()\">Partenaires</h2>\n    <h2 class=\"bold\" tappable (click)=\"goToCgu()\">CGU</h2>\n    <h2 class=\"bold\" tappable (click)=\"goToMentions()\">Mentions Légales</h2>\n    <h2 class=\"bold\" tappable (click)=\"deconnexion()\" style=\"position: absolute; bottom: 50px;\">Se déconnecter</h2>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1837,7 +1991,7 @@ module.exports = "<div style=\"background-image: url('assets/fond-feuilles.jpg')
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".rectangle::after {\n  content: \"\";\n  display: block;\n  width: 48%;\n  height: 31px;\n  background-color: #45e6c6;\n  position: relative;\n  top: -40px;\n  right: -13px;\n  z-index: -1; }\n\n.bold {\n  font-weight: bolder;\n  height: 31px;\n  font-size: 2em; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGx1cy9DOlxcVXNlcnNcXGFsZXhpXFxPbmVEcml2ZVxcQnVyZWF1XFxtb2trYXNpdGUvc3JjXFxhcHBcXHBsdXNcXHBsdXMucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBVztFQUNYLGNBQWM7RUFDZCxVQUFVO0VBQ1YsWUFBWTtFQUNaLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLFlBQVk7RUFDWixXQUFXLEVBQUE7O0FBR2Y7RUFDSSxtQkFBbUI7RUFDbkIsWUFBWTtFQUNaLGNBQWMsRUFBQSIsImZpbGUiOiJzcmMvYXBwL3BsdXMvcGx1cy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucmVjdGFuZ2xlOjphZnRlciB7XHJcbiAgICBjb250ZW50OiBcIlwiO1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICB3aWR0aDogNDglO1xyXG4gICAgaGVpZ2h0OiAzMXB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzQ1ZTZjNjtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIHRvcDogLTQwcHg7XHJcbiAgICByaWdodDogLTEzcHg7XHJcbiAgICB6LWluZGV4OiAtMTtcclxufVxyXG5cclxuLmJvbGQge1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGRlcjtcclxuICAgIGhlaWdodDogMzFweDtcclxuICAgIGZvbnQtc2l6ZTogMmVtO1xyXG59Il19 */"
+module.exports = ".rectangle::after {\n  content: \"\";\n  display: block;\n  width: 48%;\n  height: 31px;\n  background-color: #45e6c6;\n  position: relative;\n  top: -40px;\n  right: -13px;\n  z-index: -1; }\n\n.bold {\n  font-weight: bolder;\n  height: 31px;\n  font-size: 2em; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hbGV4aXMvRGVza3RvcC9Jb25pYy9Nb2trYVNpdGUvc3JjL2FwcC9wbHVzL3BsdXMucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBVztFQUNYLGNBQWM7RUFDZCxVQUFVO0VBQ1YsWUFBWTtFQUNaLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLFlBQVk7RUFDWixXQUFXLEVBQUE7O0FBR2Y7RUFDSSxtQkFBbUI7RUFDbkIsWUFBWTtFQUNaLGNBQWMsRUFBQSIsImZpbGUiOiJzcmMvYXBwL3BsdXMvcGx1cy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucmVjdGFuZ2xlOjphZnRlciB7XG4gICAgY29udGVudDogXCJcIjtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICB3aWR0aDogNDglO1xuICAgIGhlaWdodDogMzFweDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDVlNmM2O1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB0b3A6IC00MHB4O1xuICAgIHJpZ2h0OiAtMTNweDtcbiAgICB6LWluZGV4OiAtMTtcbn1cblxuLmJvbGQge1xuICAgIGZvbnQtd2VpZ2h0OiBib2xkZXI7XG4gICAgaGVpZ2h0OiAzMXB4O1xuICAgIGZvbnQtc2l6ZTogMmVtO1xufSJdfQ== */"
 
 /***/ }),
 
@@ -1966,6 +2120,125 @@ var PlusPage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/tuto/tuto.module.ts":
+/*!*************************************!*\
+  !*** ./src/app/tuto/tuto.module.ts ***!
+  \*************************************/
+/*! exports provided: TutoPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TutoPageModule", function() { return TutoPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _tuto_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./tuto.page */ "./src/app/tuto/tuto.page.ts");
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _tuto_page__WEBPACK_IMPORTED_MODULE_6__["TutoPage"]
+    }
+];
+var TutoPageModule = /** @class */ (function () {
+    function TutoPageModule() {
+    }
+    TutoPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+            ],
+            declarations: [_tuto_page__WEBPACK_IMPORTED_MODULE_6__["TutoPage"]]
+        })
+    ], TutoPageModule);
+    return TutoPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/tuto/tuto.page.html":
+/*!*************************************!*\
+  !*** ./src/app/tuto/tuto.page.html ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-content>\n  <ion-button fill=\"clear\" icon-only (click)=\"back()\">\n    <ion-icon name=\"arrow-back\" color=\"dark\"></ion-icon>\n  </ion-button>\n\n  <h1 text-center>Bienvenue !</h1>\n  <ion-list lines=\"none\">\n    <ion-item>\n      <img width=\"30px\" src=\"assets/pictos/feuilleJaune.svg\" alt=\"\"> Lieux à nettoyer\n    </ion-item>\n    <ion-item>\n      <img width=\"30px\" src=\"assets/pictos/feuilleVerte.svg\" alt=\"\"> Lieux nettoyés\n    </ion-item>\n    <ion-item>\n      <img width=\"30px\" src=\"assets/pictos/poubelleFondNoir.svg\" alt=\"\">Déchets à récupérer\n    </ion-item>\n  </ion-list>\n\n  <p padding>\n    Chaque mission vaut un certain nombre de points en fonction de sa difficulté. Ces points te sont crédités dès lors que la preuve photo que tu as envoyée est validée par Gaïa. ✅<br><br>\n    Grâce à ces points, non seulement tu grimpes dans la classement mais tu pourras aussi les investir dans des projets rémunérant et les échanger dans notre future boutique !\n  </p>\n\n  <img width=\"50px\" style=\"display: block; margin: auto; margin-bottom: 20px;\" (click)=\"declareSeen()\" src=\"assets/pictos/cercleChecked.svg\" alt=\"\">\n</ion-content>"
+
+/***/ }),
+
+/***/ "./src/app/tuto/tuto.page.scss":
+/*!*************************************!*\
+  !*** ./src/app/tuto/tuto.page.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3R1dG8vdHV0by5wYWdlLnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/tuto/tuto.page.ts":
+/*!***********************************!*\
+  !*** ./src/app/tuto/tuto.page.ts ***!
+  \***********************************/
+/*! exports provided: TutoPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TutoPage", function() { return TutoPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
+
+
+
+
+var TutoPage = /** @class */ (function () {
+    function TutoPage(popoverCtrl, cookieService) {
+        this.popoverCtrl = popoverCtrl;
+        this.cookieService = cookieService;
+    }
+    TutoPage.prototype.ngOnInit = function () { };
+    TutoPage.prototype.back = function () {
+        this.popoverCtrl.dismiss();
+    };
+    TutoPage.prototype.declareSeen = function () {
+        this.cookieService.set('alreadySeen', 'true');
+        this.popoverCtrl.dismiss();
+    };
+    TutoPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+            selector: 'app-tuto',
+            template: __webpack_require__(/*! ./tuto.page.html */ "./src/app/tuto/tuto.page.html"),
+            styles: [__webpack_require__(/*! ./tuto.page.scss */ "./src/app/tuto/tuto.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_1__["PopoverController"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])
+    ], TutoPage);
+    return TutoPage;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/upload/upload.module.ts":
 /*!*****************************************!*\
   !*** ./src/app/upload/upload.module.ts ***!
@@ -2027,7 +2300,7 @@ var UploadPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content>\r\n\r\n    <ion-button fill=\"clear\" icon-only (click)=\"back()\">\r\n        <ion-icon name=\"arrow-back\" color=\"dark\"></ion-icon>\r\n    </ion-button>\r\n\r\n    <h1 class=\"rectangle\">Signaler un lieu</h1>\r\n\r\n    <div style=\"text-align:center\">\r\n        <div>\r\n            <webcam [width]=\"365\" [trigger]=\"triggerObservable\" (imageCapture)=\"handleImage($event)\" *ngIf=\"showWebcam\"\r\n                [allowCameraSwitch]=\"allowCameraSwitch\" [switchCamera]=\"nextWebcamObservable\" [videoOptions]=\"videoOptions\"\r\n                [imageQuality]=\"1\" (cameraSwitched)=\"cameraWasSwitched($event)\" (initError)=\"handleInitError($event)\"></webcam>\r\n\r\n            <br />\r\n            <ion-button color=\"light\" large (click)=\"triggerSnapshot();\">\r\n                <img width=\"50px\" src=\"assets/pictos/photo.svg\" alt=\"prendre une photo\">\r\n            </ion-button>\r\n\r\n            <!-- <ion-button icon-only class=\"actionBtn\" (click)=\"toggleWebcam();\">\r\n                <ion-icon name=\"refresh\"></ion-icon> Changer de caméra\r\n            </!-->\r\n\r\n            <br />\r\n\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"snapshot\" *ngIf=\"webcamImage\" style=\"text-align:center\">\r\n        <h2>Résultat de la photo</h2>\r\n        <img [src]=\"webcamImage.imageAsDataUrl\" />\r\n    </div>\r\n\r\n    <!-- <h4 *ngIf=\"errors.length > 0\">Messages:</h4>\r\n    <ul *ngFor=\"let error of errors\">\r\n        <li>{{error | json}}</li>\r\n    </ul> -->\r\n\r\n    <h3>Niveau de saleté</h3>\r\n    <ion-radio-group [(ngModel)]=\"typeSale\">\r\n        <ion-row>\r\n            <ion-col>\r\n                <ion-row class=\"center\">\r\n                    <img src=\"assets/icon/favicon.png\" width=\"30px\"><br>\r\n                </ion-row>\r\n                <ion-row class=\"center\">\r\n                    <ion-label>Sale</ion-label>\r\n                </ion-row>\r\n                <ion-row class=\"center\">\r\n                    <ion-radio value=\"sale\"></ion-radio>\r\n                </ion-row>\r\n            </ion-col>\r\n            <ion-col>\r\n                <ion-row class=\"center\">\r\n                    <img src=\"assets/icon/favicon.png\" width=\"30px\"><br>\r\n                </ion-row>\r\n                <ion-row class=\"center\">\r\n                    <ion-label>Très sale</ion-label>\r\n                </ion-row>\r\n                <ion-row class=\"center\">\r\n                    <ion-radio value=\"tressale\"></ion-radio>\r\n                </ion-row>\r\n            </ion-col>\r\n            <ion-col>\r\n                <ion-row class=\"center\">\r\n                    <img src=\"assets/icon/favicon.png\" width=\"30px\"><br>\r\n                </ion-row>\r\n                <ion-row class=\"center\">\r\n                    <ion-label>Hyper sale</ion-label>\r\n                </ion-row>\r\n                <ion-row class=\"center\">\r\n                    <ion-radio value=\"hypersale\"></ion-radio>\r\n                </ion-row>\r\n            </ion-col>\r\n        </ion-row>\r\n    </ion-radio-group>\r\n      <ion-item>\r\n            <ion-input [(ngModel)]=\"description\" placeholder=\"Des commentaires particuliers ?\"></ion-input>\r\n         </ion-item>\r\n\r\n      <ion-list>\r\n            <ion-item *ngFor=\"let file of mediaFiles\" text-wrap>\r\n                  {{ file.name }}\r\n                  <p>{{ file.size / 1000 / 1000 | number }} MB</p>\r\n                  <ion-button class=\"btncolor\" (click)=\"play(file)\">Lire</ion-button>\r\n                </ion-item>\r\n          </ion-list>\r\n\r\n      <ion-button size=\"block\" style=\"max-width: 75%; display: block; margin: auto; margin-bottom: 30px;\" color=\"tertiary\" (click)=\"validate()\">Envoyer</ion-button>\r\n\r\n</ion-content>"
+module.exports = "<ion-content>\n\n    <ion-button fill=\"clear\" icon-only (click)=\"back()\">\n        <ion-icon name=\"arrow-back\" color=\"dark\"></ion-icon>\n    </ion-button>\n\n    <h1 class=\"rectangle\">Signaler un lieu</h1>\n\n    <div style=\"text-align:center\">\n        <div>\n            <webcam [width]=\"365\" [trigger]=\"triggerObservable\" (imageCapture)=\"handleImage($event)\" *ngIf=\"showWebcam\"\n                [allowCameraSwitch]=\"allowCameraSwitch\" [switchCamera]=\"nextWebcamObservable\" [videoOptions]=\"videoOptions\"\n                [imageQuality]=\"1\" (cameraSwitched)=\"cameraWasSwitched($event)\" (initError)=\"handleInitError($event)\"></webcam>\n\n            <br />\n            <ion-button color=\"light\" large (click)=\"triggerSnapshot();\">\n                <img width=\"50px\" src=\"assets/pictos/photo.svg\" alt=\"prendre une photo\">\n            </ion-button>\n\n            <!-- <ion-button icon-only class=\"actionBtn\" (click)=\"toggleWebcam();\">\n                <ion-icon name=\"refresh\"></ion-icon> Changer de caméra\n            </!-->\n\n            <br />\n\n        </div>\n    </div>\n\n    <div class=\"snapshot\" *ngIf=\"webcamImage\" style=\"text-align:center\">\n        <h2>Résultat de la photo</h2>\n        <img [src]=\"webcamImage.imageAsDataUrl\" />\n    </div>\n\n    <!-- <h4 *ngIf=\"errors.length > 0\">Messages:</h4>\n    <ul *ngFor=\"let error of errors\">\n        <li>{{error | json}}</li>\n    </ul> -->\n\n    <h3>Niveau de saleté</h3>\n    <ion-radio-group [(ngModel)]=\"typeSale\">\n        <ion-row>\n            <ion-col>\n                <ion-row class=\"center\">\n                    <img src=\"assets/pictos/sale.svg\" width=\"50px\"><br>\n                </ion-row>\n                <ion-row class=\"center\">\n                    <ion-label>Sale</ion-label>\n                </ion-row>\n                <ion-row class=\"center\">\n                    <ion-radio value=\"sale\"></ion-radio>\n                </ion-row>\n            </ion-col>\n            <ion-col>\n                <ion-row class=\"center\">\n                    <img src=\"assets/pictos/tressale.svg\" width=\"50px\"><br>\n                </ion-row>\n                <ion-row class=\"center\">\n                    <ion-label>Très sale</ion-label>\n                </ion-row>\n                <ion-row class=\"center\">\n                    <ion-radio value=\"tressale\"></ion-radio>\n                </ion-row>\n            </ion-col>\n            <ion-col>\n                <ion-row class=\"center\">\n                    <img src=\"assets/pictos/supersale.svg\" width=\"50px\"><br>\n                </ion-row>\n                <ion-row class=\"center\">\n                    <ion-label>Hyper sale</ion-label>\n                </ion-row>\n                <ion-row class=\"center\">\n                    <ion-radio value=\"hypersale\"></ion-radio>\n                </ion-row>\n            </ion-col>\n        </ion-row>\n    </ion-radio-group>\n      <ion-item>\n            <ion-input [(ngModel)]=\"description\" placeholder=\"Des commentaires particuliers ?\"></ion-input>\n         </ion-item>\n\n      <ion-list>\n            <ion-item *ngFor=\"let file of mediaFiles\" text-wrap>\n                  {{ file.name }}\n                  <p>{{ file.size / 1000 / 1000 | number }} MB</p>\n                  <ion-button class=\"btncolor\" (click)=\"play(file)\">Lire</ion-button>\n                </ion-item>\n          </ion-list>\n\n      <ion-button large size=\"block\" style=\"max-width: 75%; display: block; margin: auto; margin-bottom: 30px;\" color=\"tertiary\" (click)=\"validate()\">Envoyer</ion-button>\n\n</ion-content>"
 
 /***/ }),
 
@@ -2038,7 +2311,7 @@ module.exports = "<ion-content>\r\n\r\n    <ion-button fill=\"clear\" icon-only 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".rectangle::after {\n  content: \"\";\n  display: block;\n  width: 78%;\n  height: 31px;\n  background-color: #45e6c6;\n  position: relative;\n  top: -43px;\n  right: -13px;\n  z-index: -1; }\n\n.rectangle {\n  font-weight: bolder;\n  font-size: 2.5em; }\n\nion-content {\n  --background: transparent; }\n\nion-radio {\n  border: 2px solid #4bda3e;\n  border-radius: 50%; }\n\n.center {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  text-align: center; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXBsb2FkL0M6XFxVc2Vyc1xcYWxleGlcXE9uZURyaXZlXFxCdXJlYXVcXG1va2thc2l0ZS9zcmNcXGFwcFxcdXBsb2FkXFx1cGxvYWQucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBVztFQUNYLGNBQWM7RUFDZCxVQUFVO0VBQ1YsWUFBWTtFQUNaLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLFlBQVk7RUFDWixXQUFXLEVBQUE7O0FBR2Y7RUFDSSxtQkFBbUI7RUFDbkIsZ0JBQWdCLEVBQUE7O0FBR3BCO0VBQ0kseUJBQWEsRUFBQTs7QUFHakI7RUFDSSx5QkFBa0M7RUFDbEMsa0JBQWtCLEVBQUE7O0FBR3RCO0VBQ0ksYUFBYTtFQUNiLG1CQUFtQjtFQUNuQix1QkFBdUI7RUFDdkIsa0JBQWtCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC91cGxvYWQvdXBsb2FkLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5yZWN0YW5nbGU6OmFmdGVyIHtcclxuICAgIGNvbnRlbnQ6IFwiXCI7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIHdpZHRoOiA3OCU7XHJcbiAgICBoZWlnaHQ6IDMxcHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDVlNmM2O1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgdG9wOiAtNDNweDtcclxuICAgIHJpZ2h0OiAtMTNweDtcclxuICAgIHotaW5kZXg6IC0xO1xyXG59XHJcblxyXG4ucmVjdGFuZ2xlIHtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkZXI7XHJcbiAgICBmb250LXNpemU6IDIuNWVtO1xyXG59XHJcblxyXG5pb24tY29udGVudCB7XHJcbiAgICAtLWJhY2tncm91bmQ6IHRyYW5zcGFyZW50OyAvLyB5b3UgZG9uJ3QgbmVlZCB0byB1c2UgYSBjc3MgY3VzdG9tIHByb3BlcnR5LCBidXQgeW91IGNhbiBvZiBjb3Vyc2VcclxufVxyXG5cclxuaW9uLXJhZGlvIHtcclxuICAgIGJvcmRlcjogMnB4IHNvbGlkIHJnYig3NSwgMjE4LCA2Mik7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbn1cclxuXHJcbi5jZW50ZXIge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxufSJdfQ== */"
+module.exports = ".rectangle::after {\n  content: \"\";\n  display: block;\n  width: 78%;\n  height: 31px;\n  background-color: #45e6c6;\n  position: relative;\n  top: -43px;\n  right: -13px;\n  z-index: -1; }\n\n.rectangle {\n  font-weight: bolder;\n  font-size: 2.5em; }\n\nion-content {\n  --background: transparent; }\n\nion-radio {\n  border: 2px solid #a8a8a8;\n  border-radius: 50%; }\n\nion-col {\n  border-radius: 5px;\n  margin: 5px;\n  box-shadow: 2px 2px 5px lightgray; }\n\n.center {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  text-align: center; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hbGV4aXMvRGVza3RvcC9Jb25pYy9Nb2trYVNpdGUvc3JjL2FwcC91cGxvYWQvdXBsb2FkLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQVc7RUFDWCxjQUFjO0VBQ2QsVUFBVTtFQUNWLFlBQVk7RUFDWix5QkFBeUI7RUFDekIsa0JBQWtCO0VBQ2xCLFVBQVU7RUFDVixZQUFZO0VBQ1osV0FBVyxFQUFBOztBQUdmO0VBQ0ksbUJBQW1CO0VBQ25CLGdCQUFnQixFQUFBOztBQUdwQjtFQUNJLHlCQUFhLEVBQUE7O0FBR2pCO0VBQ0kseUJBQW9DO0VBQ3BDLGtCQUFrQixFQUFBOztBQUd0QjtFQUVJLGtCQUFrQjtFQUNsQixXQUFXO0VBQ1gsaUNBQWlDLEVBQUE7O0FBR3JDO0VBQ0ksYUFBYTtFQUNiLG1CQUFtQjtFQUNuQix1QkFBdUI7RUFDdkIsa0JBQWtCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC91cGxvYWQvdXBsb2FkLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5yZWN0YW5nbGU6OmFmdGVyIHtcbiAgICBjb250ZW50OiBcIlwiO1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHdpZHRoOiA3OCU7XG4gICAgaGVpZ2h0OiAzMXB4O1xuICAgIGJhY2tncm91bmQtY29sb3I6ICM0NWU2YzY7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIHRvcDogLTQzcHg7XG4gICAgcmlnaHQ6IC0xM3B4O1xuICAgIHotaW5kZXg6IC0xO1xufVxuXG4ucmVjdGFuZ2xlIHtcbiAgICBmb250LXdlaWdodDogYm9sZGVyO1xuICAgIGZvbnQtc2l6ZTogMi41ZW07XG59XG5cbmlvbi1jb250ZW50IHtcbiAgICAtLWJhY2tncm91bmQ6IHRyYW5zcGFyZW50OyAvLyB5b3UgZG9uJ3QgbmVlZCB0byB1c2UgYSBjc3MgY3VzdG9tIHByb3BlcnR5LCBidXQgeW91IGNhbiBvZiBjb3Vyc2Vcbn1cblxuaW9uLXJhZGlvIHtcbiAgICBib3JkZXI6IDJweCBzb2xpZCByZ2IoMTY4LCAxNjgsIDE2OCk7XG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xufVxuXG5pb24tY29sIHtcbiAgICAvLyBib3JkZXI6IDJweCBzb2xpZCByZ2IoMTY4LCAxNjgsIDE2OCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIG1hcmdpbjogNXB4O1xuICAgIGJveC1zaGFkb3c6IDJweCAycHggNXB4IGxpZ2h0Z3JheTtcbn1cblxuLmNlbnRlciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbn0iXX0= */"
 
 /***/ }),
 
@@ -2071,7 +2344,6 @@ var UploadPage = /** @class */ (function () {
         this.global = global;
         this.geolocation = geolocation;
         this.modalCtrl = modalCtrl;
-        this.mediaFiles = [];
         this.title = "Ajout de la photo";
         this.description = "";
         // BALEK
@@ -2174,7 +2446,18 @@ var UploadPage = /** @class */ (function () {
         }
     };
     UploadPage.prototype.back = function () {
-        this.modalCtrl.dismiss();
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var modal;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.modalCtrl.getTop()];
+                    case 1:
+                        modal = _a.sent();
+                        modal.dismiss();
+                        return [2 /*return*/];
+                }
+            });
+        });
     };
     UploadPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -2252,7 +2535,7 @@ var ValidationPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content>\r\n\r\n  <ion-button fill=\"clear\" icon-only (click)=\"back()\">\r\n    <ion-icon name=\"arrow-back\" color=\"dark\"></ion-icon>\r\n  </ion-button>\r\n\r\n  <h1 class=\"rectangle\">Mission accomplie</h1>\r\n\r\n  <p padding>Por que ta mission soit validée, envoie nous une photo du lie après son nettoyage. Après vérification tu seras crédité de tes\r\n    points ! ✅</p>\r\n\r\n  <p padding>Merci de prendre une photo avec le même angle de vue que celle-ci :</p>\r\n\r\n  <img src=\"{{this.dataPlace.pictureDirty}}\" alt=\"photo de l'endroit sale\">\r\n\r\n  <div style=\"text-align:center\">\r\n    <div>\r\n      <webcam [width]=\"365\" [trigger]=\"triggerObservable\" (imageCapture)=\"handleImage($event)\" *ngIf=\"showWebcam\"\r\n        [allowCameraSwitch]=\"allowCameraSwitch\" [switchCamera]=\"nextWebcamObservable\" [videoOptions]=\"videoOptions\" [imageQuality]=\"1\"\r\n        (cameraSwitched)=\"cameraWasSwitched($event)\" (initError)=\"handleInitError($event)\"></webcam>\r\n\r\n      <br />\r\n      <ion-button color=\"light\" large (click)=\"triggerSnapshot();\">\r\n        <img width=\"50px\" src=\"assets/pictos/photo.svg\" alt=\"prendre une photo\">\r\n      </ion-button>\r\n\r\n      <br />\r\n\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"snapshot\" *ngIf=\"webcamImage\" style=\"text-align:center\">\r\n    <h2>Résultat de la photo</h2>\r\n    <img [src]=\"webcamImage.imageAsDataUrl\" />\r\n  </div>\r\n\r\n\r\n    <ion-button size=\"block\" style=\"max-width: 75%; display: block; margin: auto; margin-bottom: 30px;\" color=\"tertiary\"\r\n    (click)=\"validate()\">Envoyer</ion-button>\r\n\r\n</ion-content>"
+module.exports = "<ion-content>\n\n  <ion-button fill=\"clear\" icon-only (click)=\"back()\">\n    <ion-icon name=\"arrow-back\" color=\"dark\"></ion-icon>\n  </ion-button>\n\n  <h1 class=\"rectangle\">Mission accomplie</h1>\n\n  <p padding>Por que ta mission soit validée, envoie nous une photo du lie après son nettoyage. Après vérification tu seras crédité de tes\n    points ! ✅</p>\n\n  <p padding>Merci de prendre une photo avec le même angle de vue que celle-ci :</p>\n\n  <img src=\"{{this.dataPlace.pictureDirty}}\" alt=\"photo de l'endroit sale\">\n\n  <div style=\"text-align:center\">\n    <div>\n      <webcam [width]=\"365\" [trigger]=\"triggerObservable\" (imageCapture)=\"handleImage($event)\" *ngIf=\"showWebcam\"\n        [allowCameraSwitch]=\"allowCameraSwitch\" [switchCamera]=\"nextWebcamObservable\" [videoOptions]=\"videoOptions\" [imageQuality]=\"1\"\n        (cameraSwitched)=\"cameraWasSwitched($event)\" (initError)=\"handleInitError($event)\"></webcam>\n\n      <br />\n      <ion-button color=\"light\" large (click)=\"triggerSnapshot();\">\n        <img width=\"50px\" src=\"assets/pictos/photo.svg\" alt=\"prendre une photo\">\n      </ion-button>\n\n      <br />\n\n    </div>\n  </div>\n\n  <div class=\"snapshot\" *ngIf=\"webcamImage\" style=\"text-align:center\">\n    <h2>Résultat de la photo</h2>\n    <img [src]=\"webcamImage.imageAsDataUrl\" />\n  </div>\n\n\n    <ion-button size=\"block\" style=\"max-width: 75%; display: block; margin: auto; margin-bottom: 30px;\" color=\"tertiary\"\n    (click)=\"validate()\">Envoyer</ion-button>\n\n</ion-content>"
 
 /***/ }),
 
@@ -2263,7 +2546,7 @@ module.exports = "<ion-content>\r\n\r\n  <ion-button fill=\"clear\" icon-only (c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".rectangle::after {\n  content: \"\";\n  display: block;\n  width: 78%;\n  height: 31px;\n  background-color: #45e6c6;\n  position: relative;\n  top: -43px;\n  right: -13px;\n  z-index: -1; }\n\n.rectangle {\n  font-weight: bolder;\n  font-size: 2.5em; }\n\nion-content {\n  --background: transparent; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmFsaWRhdGlvbi9DOlxcVXNlcnNcXGFsZXhpXFxPbmVEcml2ZVxcQnVyZWF1XFxtb2trYXNpdGUvc3JjXFxhcHBcXHZhbGlkYXRpb25cXHZhbGlkYXRpb24ucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBVztFQUNYLGNBQWM7RUFDZCxVQUFVO0VBQ1YsWUFBWTtFQUNaLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLFlBQVk7RUFDWixXQUFXLEVBQUE7O0FBR2Y7RUFDSSxtQkFBbUI7RUFDbkIsZ0JBQWdCLEVBQUE7O0FBR3BCO0VBQ0kseUJBQWEsRUFBQSIsImZpbGUiOiJzcmMvYXBwL3ZhbGlkYXRpb24vdmFsaWRhdGlvbi5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucmVjdGFuZ2xlOjphZnRlciB7XHJcbiAgICBjb250ZW50OiBcIlwiO1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICB3aWR0aDogNzglO1xyXG4gICAgaGVpZ2h0OiAzMXB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzQ1ZTZjNjtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIHRvcDogLTQzcHg7XHJcbiAgICByaWdodDogLTEzcHg7XHJcbiAgICB6LWluZGV4OiAtMTtcclxufVxyXG5cclxuLnJlY3RhbmdsZSB7XHJcbiAgICBmb250LXdlaWdodDogYm9sZGVyO1xyXG4gICAgZm9udC1zaXplOiAyLjVlbTtcclxufVxyXG5cclxuaW9uLWNvbnRlbnQge1xyXG4gICAgLS1iYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsgLy8geW91IGRvbid0IG5lZWQgdG8gdXNlIGEgY3NzIGN1c3RvbSBwcm9wZXJ0eSwgYnV0IHlvdSBjYW4gb2YgY291cnNlXHJcbn0iXX0= */"
+module.exports = ".rectangle::after {\n  content: \"\";\n  display: block;\n  width: 78%;\n  height: 31px;\n  background-color: #45e6c6;\n  position: relative;\n  top: -43px;\n  right: -13px;\n  z-index: -1; }\n\n.rectangle {\n  font-weight: bolder;\n  font-size: 2.5em; }\n\nion-content {\n  --background: transparent; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hbGV4aXMvRGVza3RvcC9Jb25pYy9Nb2trYVNpdGUvc3JjL2FwcC92YWxpZGF0aW9uL3ZhbGlkYXRpb24ucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBVztFQUNYLGNBQWM7RUFDZCxVQUFVO0VBQ1YsWUFBWTtFQUNaLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLFlBQVk7RUFDWixXQUFXLEVBQUE7O0FBR2Y7RUFDSSxtQkFBbUI7RUFDbkIsZ0JBQWdCLEVBQUE7O0FBR3BCO0VBQ0kseUJBQWEsRUFBQSIsImZpbGUiOiJzcmMvYXBwL3ZhbGlkYXRpb24vdmFsaWRhdGlvbi5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucmVjdGFuZ2xlOjphZnRlciB7XG4gICAgY29udGVudDogXCJcIjtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICB3aWR0aDogNzglO1xuICAgIGhlaWdodDogMzFweDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDVlNmM2O1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB0b3A6IC00M3B4O1xuICAgIHJpZ2h0OiAtMTNweDtcbiAgICB6LWluZGV4OiAtMTtcbn1cblxuLnJlY3RhbmdsZSB7XG4gICAgZm9udC13ZWlnaHQ6IGJvbGRlcjtcbiAgICBmb250LXNpemU6IDIuNWVtO1xufVxuXG5pb24tY29udGVudCB7XG4gICAgLS1iYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsgLy8geW91IGRvbid0IG5lZWQgdG8gdXNlIGEgY3NzIGN1c3RvbSBwcm9wZXJ0eSwgYnV0IHlvdSBjYW4gb2YgY291cnNlXG59Il19 */"
 
 /***/ }),
 
@@ -2278,11 +2561,13 @@ module.exports = ".rectangle::after {\n  content: \"\";\n  display: block;\n  wi
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ValidationPage", function() { return ValidationPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _global_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../global.service */ "./src/app/global.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var ngx_webcam__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-webcam */ "./node_modules/ngx-webcam/fesm5/ngx-webcam.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
+/* harmony import */ var _global_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../global.service */ "./src/app/global.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var ngx_webcam__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-webcam */ "./node_modules/ngx-webcam/fesm5/ngx-webcam.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+
 
 
 
@@ -2290,10 +2575,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ValidationPage = /** @class */ (function () {
-    function ValidationPage(navParams, modalCtrl, global) {
+    function ValidationPage(navParams, modalCtrl, global, cookieService) {
         this.navParams = navParams;
         this.modalCtrl = modalCtrl;
         this.global = global;
+        this.cookieService = cookieService;
         // toggle webcam on/off
         this.showWebcam = true;
         this.allowCameraSwitch = true;
@@ -2306,13 +2592,13 @@ var ValidationPage = /** @class */ (function () {
         // latest snapshot
         this.webcamImage = null;
         // webcam snapshot trigger
-        this.trigger = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subject"]();
+        this.trigger = new rxjs__WEBPACK_IMPORTED_MODULE_6__["Subject"]();
         // switch to next / previous / specific webcam; true/false: forward/backwards, string: deviceId
-        this.nextWebcam = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subject"]();
+        this.nextWebcam = new rxjs__WEBPACK_IMPORTED_MODULE_6__["Subject"]();
     }
     ValidationPage.prototype.ngOnInit = function () {
         var _this = this;
-        ngx_webcam__WEBPACK_IMPORTED_MODULE_4__["WebcamUtil"].getAvailableVideoInputs()
+        ngx_webcam__WEBPACK_IMPORTED_MODULE_5__["WebcamUtil"].getAvailableVideoInputs()
             .then(function (mediaDevices) {
             _this.multipleWebcamsAvailable = mediaDevices && mediaDevices.length > 1;
         });
@@ -2366,7 +2652,9 @@ var ValidationPage = /** @class */ (function () {
             var placeToUpdate = {
                 pictureCleaned: this.webcamImage.imageAsDataUrl,
                 userCleanedName: 'Sulorbinette',
-                id: this.dataPlace.id
+                id: this.dataPlace.id,
+                token: this.cookieService.get('token'),
+                rewardPoints: this.dataPlace.rewardPoints
             };
             console.log('on upload ça : ', placeToUpdate);
             this.global.validatePlace(placeToUpdate).then(function (data) {
@@ -2379,12 +2667,12 @@ var ValidationPage = /** @class */ (function () {
         }
     };
     ValidationPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
             selector: 'app-validation',
             template: __webpack_require__(/*! ./validation.page.html */ "./src/app/validation/validation.page.html"),
             styles: [__webpack_require__(/*! ./validation.page.scss */ "./src/app/validation/validation.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavParams"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"], _global_service__WEBPACK_IMPORTED_MODULE_1__["GlobalService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavParams"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"], _global_service__WEBPACK_IMPORTED_MODULE_2__["GlobalService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_1__["CookieService"]])
     ], ValidationPage);
     return ValidationPage;
 }());
@@ -2454,7 +2742,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\alexi\OneDrive\Bureau\mokkasite\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/alexis/Desktop/Ionic/MokkaSite/src/main.ts */"./src/main.ts");
 
 
 /***/ })

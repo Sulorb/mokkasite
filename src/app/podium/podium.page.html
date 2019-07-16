@@ -1,8 +1,8 @@
 <ion-content>
 
-  <ion-button fill="clear" icon-only (click)="back()">
+  <ion-button fill="clear" icon-only (click)="back()" style="position: absolute; top: 0; left: 0;">
     <ion-icon name="arrow-back" color="dark"></ion-icon>
   </ion-button>
   
-  <img src="assets/classement.png">
+  <img src=" {{isMobile ? 'assets/classement.png' : ' assets/classementDesktop.png'}}">
 </ion-content>

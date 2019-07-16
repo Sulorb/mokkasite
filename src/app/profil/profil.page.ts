@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import * as moment from 'moment';
 import 'moment/locale/fr';
-import { NavController } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-profil',
@@ -39,10 +39,12 @@ export class ProfilPage implements OnInit {
       type: 'Nettoyage collectif'
     },
   ]
-
-  constructor(private global: GlobalService, private navCtrl: NavController) { }
+  isMobile = true;
+  constructor(private global: GlobalService, private navCtrl: NavController, private platform: Platform) { }
 
   ngOnInit() {
+    if (!this.platform.is('mobile'))
+      this.isMobile = false;
   }
 
 

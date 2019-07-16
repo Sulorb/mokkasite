@@ -129,8 +129,9 @@ export class UploadPage implements OnInit {
 
   }
 
-  back() {
-    this.modalCtrl.dismiss()
+  public async back() {
+    const modal = await this.modalCtrl.getTop();
+    modal.dismiss();
   }
 
 

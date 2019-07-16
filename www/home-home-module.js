@@ -13997,7 +13997,7 @@ var HomePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content>\r\n\r\n  <ion-fab horizontal=\"end\" vertical=\"top\" slot=\"fixed\">\r\n    <ion-fab-button color=\"light\" (click)=\"focusMap()\">\r\n      <img src=\"assets/pictos/focus.svg\" alt=\"\">\r\n    </ion-fab-button>\r\n    <ion-fab-button color=\"light\" (click)=\"openModalMenu()\" style=\"margin-top: 15px;\">\r\n      <img src=\"assets/pictos/burgerMenu.svg\" alt=\"\">\r\n    </ion-fab-button>\r\n  </ion-fab>\r\n\r\n  <ion-fab vertical=\"bottom\" horizontal=\"center\">\r\n\r\n    <ion-fab-button color=\"light\">\r\n      <img src=\"assets/pictos/plus.svg\" alt=\"\">\r\n    </ion-fab-button>\r\n\r\n    <ion-fab-list side=\"start\">\r\n      <ion-fab-button routerLink=\"/profil\">\r\n        <img src=\"assets/pictos/profil.svg\" alt=\"\">\r\n\r\n      </ion-fab-button>\r\n    </ion-fab-list>\r\n\r\n    <ion-fab-list side=\"top\">\r\n      <ion-fab-button routerLink=\"/missions\">\r\n        <img src=\"assets/pictos/doubleCercleCheck.svg\" alt=\"\">\r\n      </ion-fab-button>\r\n      <ion-fab-button (click)=\"openUploadMenu()\">\r\n        <img src=\"assets/pictos/marqueurPlus.svg\" alt=\"\">\r\n      </ion-fab-button>\r\n    </ion-fab-list>\r\n\r\n    <ion-fab-list side=\"end\">\r\n\r\n      <ion-fab-button routerLink=\"/podium\">\r\n        <img src=\"assets/pictos/couronne.svg\" alt=\"\">\r\n      </ion-fab-button>\r\n    </ion-fab-list>\r\n\r\n  </ion-fab>\r\n    \r\n  <!-- div contenant la map -->\r\n    <div id=\"map\" style=\"width:100%; height:100%;\"></div>\r\n\r\n</ion-content>"
+module.exports = "<ion-content>\n\n  <ion-fab horizontal=\"end\" vertical=\"top\" slot=\"fixed\">\n    <ion-fab-button color=\"light\" (click)=\"focusMap()\">\n      <img src=\"assets/pictos/focus.svg\" alt=\"\">\n    </ion-fab-button>\n    <ion-fab-button color=\"light\" (click)=\"openModalMenu()\" style=\"margin-top: 15px;\">\n      <img src=\"assets/pictos/burgerMenu.svg\" alt=\"\">\n    </ion-fab-button>\n  </ion-fab>\n\n  <ion-fab vertical=\"bottom\" horizontal=\"center\">\n\n    <ion-fab-button color=\"light\">\n      <img src=\"assets/pictos/plus.svg\" alt=\"\">\n    </ion-fab-button>\n\n    <ion-fab-list side=\"start\">\n      <ion-fab-button (click)=\"ouvrirProfil()\">\n        <img src=\"assets/pictos/profil.svg\" alt=\"\">\n\n      </ion-fab-button>\n    </ion-fab-list>\n\n    <ion-fab-list side=\"top\">\n      <ion-fab-button (click)=\"openMissions()\">\n        <img src=\"assets/pictos/doubleCercleCheck.svg\" alt=\"\">\n      </ion-fab-button>\n      <ion-fab-button (click)=\"openUploadMenu()\">\n        <img src=\"assets/pictos/marqueurPlus.svg\" alt=\"\">\n      </ion-fab-button>\n    </ion-fab-list>\n\n    <ion-fab-list side=\"end\">\n\n      <ion-fab-button (click)=\"openPodium()\">\n        <img src=\"assets/pictos/couronne.svg\" alt=\"\">\n      </ion-fab-button>\n    </ion-fab-list>\n\n  </ion-fab>\n  <!-- div contenant la map -->\n  <div id=\"map\" style=\"width:100%; height:100%;\"></div>\n\n</ion-content>"
 
 /***/ }),
 
@@ -14023,16 +14023,20 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePage", function() { return HomePage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _upload_upload_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../upload/upload.page */ "./src/app/upload/upload.page.ts");
-/* harmony import */ var _validation_validation_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../validation/validation.page */ "./src/app/validation/validation.page.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _global_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../global.service */ "./src/app/global.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _plus_plus_page__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../plus/plus.page */ "./src/app/plus/plus.page.ts");
+/* harmony import */ var _paiement_paiement_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../paiement/paiement.page */ "./src/app/paiement/paiement.page.ts");
+/* harmony import */ var _upload_upload_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../upload/upload.page */ "./src/app/upload/upload.page.ts");
+/* harmony import */ var _validation_validation_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../validation/validation.page */ "./src/app/validation/validation.page.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _global_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../global.service */ "./src/app/global.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _plus_plus_page__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../plus/plus.page */ "./src/app/plus/plus.page.ts");
+/* harmony import */ var _tuto_tuto_page__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../tuto/tuto.page */ "./src/app/tuto/tuto.page.ts");
+
+
 
 
 
@@ -14044,12 +14048,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var HomePage = /** @class */ (function () {
-    function HomePage(global, elementRef, modalController, http, cookieService) {
+    function HomePage(global, elementRef, modalController, http, cookieService, popoverController, navCtrl) {
         this.global = global;
         this.elementRef = elementRef;
         this.modalController = modalController;
         this.http = http;
         this.cookieService = cookieService;
+        this.popoverController = popoverController;
+        this.navCtrl = navCtrl;
+        this.isConnected = false;
     }
     HomePage.prototype.ionViewWillEnter = function () {
         console.log('WILLENTER HOME');
@@ -14060,10 +14067,40 @@ var HomePage = /** @class */ (function () {
         this.loadmap();
         if (this.cookieService.check('token')) {
             this.loadPlacesWithToken(this.cookieService.get('token'));
+            this.isConnected = true;
         }
         else {
             this.loadPlaces();
+            this.isConnected = false;
         }
+        if (!this.cookieService.check('alreadySeen')) {
+            this.presentPopover();
+        }
+    };
+    HomePage.prototype.ouvrirProfil = function () {
+        if (this.isConnected)
+            this.navCtrl.navigateForward('profil');
+        else {
+            this.navCtrl.navigateForward('inscription');
+            this.global.toast("Veuillez d'abord vous inscrire pour rejoindre notre ligue !");
+        }
+    };
+    HomePage.prototype.presentPopover = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var popover;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.popoverController.create({
+                            component: _tuto_tuto_page__WEBPACK_IMPORTED_MODULE_11__["TutoPage"],
+                            translucent: true
+                        })];
+                    case 1:
+                        popover = _a.sent();
+                        return [4 /*yield*/, popover.present()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
     };
     HomePage.prototype.ngOnInit = function () {
         console.log('didLoadHome');
@@ -14086,8 +14123,8 @@ var HomePage = /** @class */ (function () {
     };
     HomePage.prototype.loadmap = function () {
         var _this = this;
-        this.map = leaflet__WEBPACK_IMPORTED_MODULE_7___default.a.map('map', { zoomControl: false });
-        leaflet__WEBPACK_IMPORTED_MODULE_7___default.a
+        this.map = leaflet__WEBPACK_IMPORTED_MODULE_8___default.a.map('map', { zoomControl: false });
+        leaflet__WEBPACK_IMPORTED_MODULE_8___default.a
             .tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
             maxZoom: 20
         })
@@ -14125,7 +14162,7 @@ var HomePage = /** @class */ (function () {
                 }
                 // feuille jaune / vert /poubellefondnoir
                 // poubelle si cleaned sinon jaune et aléatoirement certains verts
-                markerSale = leaflet__WEBPACK_IMPORTED_MODULE_7___default.a.icon({
+                markerSale = leaflet__WEBPACK_IMPORTED_MODULE_8___default.a.icon({
                     iconUrl: 'assets/pictos/feuilleJaune.svg',
                     iconSize: [50, 50],
                     iconAnchor: [25, 50],
@@ -14137,7 +14174,7 @@ var HomePage = /** @class */ (function () {
                 if (dateCleaned > dateNow - 86400000) {
                     console.log("nettoyé y a moins d'une jour");
                     if (data[i]['pictureCleaned'] !== null) {
-                        markerSale = leaflet__WEBPACK_IMPORTED_MODULE_7___default.a.icon({
+                        markerSale = leaflet__WEBPACK_IMPORTED_MODULE_8___default.a.icon({
                             iconUrl: 'assets/pictos/poubelleFondNoir.svg',
                             iconSize: [50, 50],
                             iconAnchor: [25, 50],
@@ -14148,7 +14185,7 @@ var HomePage = /** @class */ (function () {
                 else {
                     console.log("nettoyé y a PLUS d'une jour");
                     if (data[i]['pictureCleaned'] !== null) {
-                        markerSale = leaflet__WEBPACK_IMPORTED_MODULE_7___default.a.icon({
+                        markerSale = leaflet__WEBPACK_IMPORTED_MODULE_8___default.a.icon({
                             iconUrl: 'assets/pictos/feuilleVerte.svg',
                             iconSize: [50, 50],
                             iconAnchor: [25, 50],
@@ -14159,7 +14196,11 @@ var HomePage = /** @class */ (function () {
                 // différentes popups selon le type de compte connecté
                 // si user lambda :
                 // <img src="` + data[i]['pictureDirty'] + `"><br>
-                popupContent = "\n        <img src=\"" + data[i]['pictureDirty'] + "\"><br>\n        <img src=\"assets/pictos/poubelle.svg\" width=\"25px\">" +
+                popupContent = "\n        <img src=\"" + data[i]['pictureDirty'] + "\" style=\"max-width: 100%; max-height: 100px; margin: auto; display: block;\"><br>\n        ";
+                if (data[i]['pictureCleaned'] != null) {
+                    popupContent += " <img src=\"" + data[i]['pictureCleaned'] + "\" style=\"max-width: 100%; max-height: 100px; margin: auto; display: block;\"><br>";
+                }
+                popupContent += "<img src=\"assets/pictos/poubelle.svg\" width=\"25px\">" +
                     dirty +
                     "<span style=\"position: absolute; right: 20px; border-radius: 10px; border: 2px solid red; color: red; padding: 3px;\">" +
                     data[i]['rewardPoints'] +
@@ -14172,27 +14213,34 @@ var HomePage = /** @class */ (function () {
                     console.log('picturecleaned pas nul');
                     popupContent += "Lieu nettoy\u00E9 gr\u00E2ce \u00E0 la communaut\u00E9 !";
                 }
-                else {
-                    if (data[i]['hasAcceptedMission'] == true) {
-                        console.log('picturecleaned  nul mission acceptée');
-                        popupContent +=
-                            "<a class=marker" +
-                                data[i]['id'] +
-                                " data-merchId=\"" +
-                                i +
-                                "\" style=\"margin: auto; display: block; text-align: center;\">Valider</a>";
-                    }
-                    else {
-                        popupContent +=
-                            "<a class=marker" +
-                                data[i]['id'] +
-                                " data-merchId=\"" +
-                                i +
-                                "\" style=\"margin: auto; display: block; text-align: center;\">J'accepte la mission</a>";
-                        console.log('picturecleaned  nul mission PAS acceptée');
-                    }
+                else if (data[i]['accountType'] == 'entreprise') {
+                    console.log('accountType == entreprise');
+                    popupContent +=
+                        "<a class=marker" +
+                            data[i]['id'] +
+                            " data-merchId=\"" +
+                            i +
+                            "\" style=\"margin: auto; display: block; text-align: center;\">Investir pour ce nettoyage</a>";
                 }
-                var marker = leaflet__WEBPACK_IMPORTED_MODULE_7___default.a
+                else if (data[i]['hasAcceptedMission'] == true) {
+                    console.log('picturecleaned  nul mission acceptée');
+                    popupContent +=
+                        "<a class=marker" +
+                            data[i]['id'] +
+                            " data-merchId=\"" +
+                            i +
+                            "\" style=\"margin: auto; display: block; text-align: center;\">Valider</a>";
+                }
+                else {
+                    popupContent +=
+                        "<a class=marker" +
+                            data[i]['id'] +
+                            " data-merchId=\"" +
+                            i +
+                            "\" style=\"margin: auto; display: block; text-align: center;\">J'accepte la mission</a>";
+                    console.log('picturecleaned  nul mission PAS acceptée');
+                }
+                var marker = leaflet__WEBPACK_IMPORTED_MODULE_8___default.a
                     .marker([data[i]['lat'], data[i]['lng']], { icon: markerSale })
                     .bindPopup(popupContent, customOptions)
                     .addTo(_this.map);
@@ -14207,7 +14255,10 @@ var HomePage = /** @class */ (function () {
                         self_1.elementRef.nativeElement.querySelector('.marker' + markerInfos['id']).addEventListener('click', function (e) {
                             console.log('infos : ', markerInfos);
                             // s'il faut valider mission
-                            if (markerInfos['hasAcceptedMission'] == true) {
+                            if (markerInfos['accountType'] == 'entreprise') {
+                                self_1.pageInvestissement();
+                            }
+                            else if (markerInfos['hasAcceptedMission'] == true) {
                                 self_1.validerMission(markerInfos);
                             }
                             else {
@@ -14243,7 +14294,7 @@ var HomePage = /** @class */ (function () {
                 }
                 // feuille jaune / vert /poubellefondnoir
                 // poubelle si cleaned sinon jaune et aléatoirement certains verts
-                markerSale = leaflet__WEBPACK_IMPORTED_MODULE_7___default.a.icon({
+                markerSale = leaflet__WEBPACK_IMPORTED_MODULE_8___default.a.icon({
                     iconUrl: 'assets/pictos/feuilleJaune.svg',
                     iconSize: [50, 50],
                     iconAnchor: [25, 50],
@@ -14253,7 +14304,7 @@ var HomePage = /** @class */ (function () {
                 dateNow = new Date().getTime();
                 if (dateCleaned > dateNow - 86400000) {
                     if (data[i]['pictureCleaned'] !== null) {
-                        markerSale = leaflet__WEBPACK_IMPORTED_MODULE_7___default.a.icon({
+                        markerSale = leaflet__WEBPACK_IMPORTED_MODULE_8___default.a.icon({
                             iconUrl: 'assets/pictos/poubelleFondNoir.svg',
                             iconSize: [50, 50],
                             iconAnchor: [25, 50],
@@ -14263,7 +14314,7 @@ var HomePage = /** @class */ (function () {
                 }
                 else {
                     if (data[i]['pictureCleaned'] !== null) {
-                        markerSale = leaflet__WEBPACK_IMPORTED_MODULE_7___default.a.icon({
+                        markerSale = leaflet__WEBPACK_IMPORTED_MODULE_8___default.a.icon({
                             iconUrl: 'assets/pictos/feuilleVerte.svg',
                             iconSize: [50, 50],
                             iconAnchor: [25, 50],
@@ -14274,26 +14325,32 @@ var HomePage = /** @class */ (function () {
                 // différentes popups selon le type de compte connecté
                 // si user lambda :
                 // <img src="` + data[i]['pictureDirty'] + `"><br>
-                popupContent = "\n        <img src=\"http://www.pnr-scarpe-escaut.fr/sites/default/files/imagecache/evenement_pleine_page_image_large/sources/depot_sauvage_3.jpg\"><br>\n        <img src=\"assets/pictos/poubelle.svg\" width=\"25px\">" +
-                    dirty +
-                    "<span style=\"position: absolute; right: 20px; border-radius: 10px; border: 2px solid red; color: red; padding: 3px;\">" +
-                    data[i]['rewardPoints'] +
-                    "pts</span><br>\n        <img src=\"assets/pictos/membres.svg\" width=\"25px\">" +
-                    amountMembers +
-                    " pers. min.<br>\n        <p style=\"margin: 2px;\">Description : " +
-                    data[i]['description'] +
-                    "</p><br>\n        ";
+                popupContent = "\n      <img src=\"" + data[i]['pictureDirty'] + "\" style=\"max-width: 100%; max-height: 100px; margin: auto; display: block;\"><br>\n      ";
+                if (data[i]['pictureCleaned'] != null) {
+                    popupContent += " <img src=\"" + data[i]['pictureCleaned'] + "\" style=\"max-width: 100%; max-height: 100px; margin: auto; display: block;\"><br>";
+                }
+                popupContent +=
+                    "\n        <img src=\"assets/pictos/poubelle.svg\" width=\"25px\">" +
+                        dirty +
+                        "<span style=\"position: absolute; right: 20px; border-radius: 10px; border: 2px solid red; color: red; padding: 3px;\">" +
+                        data[i]['rewardPoints'] +
+                        "pts</span><br>\n        <img src=\"assets/pictos/membres.svg\" width=\"25px\">" +
+                        amountMembers +
+                        " pers. min.<br>\n        <p style=\"margin: 2px;\">Description : " +
+                        data[i]['description'] +
+                        "</p><br>\n        ";
                 if (data[i]['pictureCleaned'] !== null) {
                     popupContent += "Lieu nettoy\u00E9 gr\u00E2ce \u00E0 la communaut\u00E9 !";
                 }
                 else {
-                    "<a class=marker" +
-                        data[i]['id'] +
-                        " data-merchId=\"" +
-                        i +
-                        "\" style=\"margin: auto; display: block; text-align: center;\">J'accepte la mission</a>";
+                    popupContent +=
+                        "<a class=marker" +
+                            data[i]['id'] +
+                            " data-merchId=\"" +
+                            i +
+                            "\" style=\"margin: auto; display: block; text-align: center;\">J'accepte la mission</a>";
                 }
-                var marker = leaflet__WEBPACK_IMPORTED_MODULE_7___default.a
+                var marker = leaflet__WEBPACK_IMPORTED_MODULE_8___default.a
                     .marker([data[i]['lat'], data[i]['lng']], { icon: markerSale })
                     .bindPopup(popupContent, customOptions)
                     .addTo(_this.map);
@@ -14309,7 +14366,7 @@ var HomePage = /** @class */ (function () {
                             console.log('eee', e);
                             // var merchId = e.target.getAttribute("data-merchId");
                             // TO DO renvoyer vers inscription plutôt
-                            self_2.accepterMission(markerInfos);
+                            self_2.inscription();
                         });
                     }
                 });
@@ -14319,6 +14376,10 @@ var HomePage = /** @class */ (function () {
                 _loop_2();
             }
         });
+    };
+    HomePage.prototype.inscription = function () {
+        this.navCtrl.navigateRoot('inscription');
+        this.global.toast('Veuillez vous inscrire pour rejoindre notre ligue');
     };
     HomePage.prototype.accepterMission = function (placeInfos) {
         var _this = this;
@@ -14347,7 +14408,7 @@ var HomePage = /** @class */ (function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.modalController.create({
-                            component: _validation_validation_page__WEBPACK_IMPORTED_MODULE_2__["ValidationPage"],
+                            component: _validation_validation_page__WEBPACK_IMPORTED_MODULE_3__["ValidationPage"],
                             componentProps: { data: placeInfos },
                             backdropDismiss: false
                         })];
@@ -14366,13 +14427,30 @@ var HomePage = /** @class */ (function () {
             });
         });
     };
+    HomePage.prototype.pageInvestissement = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var modal;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.modalController.create({
+                            component: _paiement_paiement_page__WEBPACK_IMPORTED_MODULE_1__["PaiementPage"],
+                            backdropDismiss: false
+                        })];
+                    case 1:
+                        modal = _a.sent();
+                        return [4 /*yield*/, modal.present()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
     HomePage.prototype.openModalMenu = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             var modal;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.modalController.create({
-                            component: _plus_plus_page__WEBPACK_IMPORTED_MODULE_9__["PlusPage"],
+                            component: _plus_plus_page__WEBPACK_IMPORTED_MODULE_10__["PlusPage"],
                             backdropDismiss: false
                         })];
                     case 1:
@@ -14389,10 +14467,13 @@ var HomePage = /** @class */ (function () {
             var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.modalController.create({
-                            component: _upload_upload_page__WEBPACK_IMPORTED_MODULE_1__["UploadPage"],
-                            backdropDismiss: false
-                        })];
+                    case 0:
+                        console.log('on ouvre la modale upload');
+                        if (!this.isConnected) return [3 /*break*/, 3];
+                        return [4 /*yield*/, this.modalController.create({
+                                component: _upload_upload_page__WEBPACK_IMPORTED_MODULE_2__["UploadPage"],
+                                backdropDismiss: false
+                            })];
                     case 1:
                         modal = _a.sent();
                         modal.onWillDismiss().then(function (dataDismissed) {
@@ -14404,25 +14485,50 @@ var HomePage = /** @class */ (function () {
                         });
                         return [4 /*yield*/, modal.present()];
                     case 2: return [2 /*return*/, _a.sent()];
+                    case 3:
+                        this.navCtrl.navigateForward('upload');
+                        this.global.toast("Veuillez d'abord vous inscrire pour rejoindre notre ligue !");
+                        _a.label = 4;
+                    case 4: return [2 /*return*/];
                 }
             });
         });
     };
+    HomePage.prototype.openPodium = function () {
+        if (this.isConnected) {
+            this.navCtrl.navigateForward('podium');
+        }
+        else {
+            this.navCtrl.navigateForward('inscription');
+            this.global.toast("Veuillez d'abord vous inscrire pour rejoindre notre ligue !");
+        }
+    };
+    HomePage.prototype.openMissions = function () {
+        if (this.isConnected) {
+            this.navCtrl.navigateForward('missions');
+        }
+        else {
+            this.navCtrl.navigateForward('inscription');
+            this.global.toast("Veuillez d'abord vous inscrire pour rejoindre notre ligue !");
+        }
+    };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["ViewChild"])('map'),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_6__["ElementRef"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_7__["ViewChild"])('map'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ElementRef"])
     ], HomePage.prototype, "mapContainer", void 0);
     HomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_7__["Component"])({
             selector: 'app-home',
             template: __webpack_require__(/*! ./home.page.html */ "./src/app/home/home.page.html"),
             styles: [__webpack_require__(/*! ./home.page.scss */ "./src/app/home/home.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_global_service__WEBPACK_IMPORTED_MODULE_5__["GlobalService"],
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ElementRef"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["ModalController"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"],
-            ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_global_service__WEBPACK_IMPORTED_MODULE_6__["GlobalService"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ElementRef"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_9__["ModalController"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"],
+            ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_9__["PopoverController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_9__["NavController"]])
     ], HomePage);
     return HomePage;
 }());

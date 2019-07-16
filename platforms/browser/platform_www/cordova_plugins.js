@@ -1,6 +1,14 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
+        "file": "plugins/com-sarriaroman-photoviewer/www/PhotoViewer.js",
+        "id": "com-sarriaroman-photoviewer.PhotoViewer",
+        "pluginId": "com-sarriaroman-photoviewer",
+        "clobbers": [
+            "PhotoViewer"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-android-permissions/www/permissions-dummy.js",
         "id": "cordova-plugin-android-permissions.Permissions",
         "pluginId": "cordova-plugin-android-permissions",
@@ -586,6 +594,7 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
+    "com-sarriaroman-photoviewer": "1.2.2",
     "cordova-plugin-android-permissions": "1.0.0",
     "cordova-plugin-badge": "0.8.8",
     "cordova-plugin-camera": "4.0.3",

@@ -7,6 +7,9 @@
     "files": {}
   },
   "installed_plugins": {
+    "com-sarriaroman-photoviewer": {
+      "PACKAGE_NAME": "io.ionic.shitscan"
+    },
     "cordova-plugin-android-permissions": {
       "PACKAGE_NAME": "io.ionic.shitscan"
     },

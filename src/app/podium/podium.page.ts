@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 
 
 
@@ -10,14 +10,17 @@ import { NavController } from '@ionic/angular';
 })
 export class PodiumPage implements OnInit {
 
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController, private platform: Platform) { }
 
 
-
+  isMobile = true;
   ngOnInit() {
+    if (!this.platform.is('mobile')) {
+      this.isMobile = false;
+    }
   }
 
-  back(){
+  back() {
     this.navCtrl.pop()
   }
 

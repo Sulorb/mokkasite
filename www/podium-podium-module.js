@@ -58,7 +58,7 @@ var PodiumPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"home\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>Classement</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n\r\n\r\n\r\n  <ion-grid>\r\n    <ion-row *ngFor=\"let rank of ranks; let i = index\">\r\n      <ion-col size=\"2\">{{i+1}}</ion-col>\r\n      <ion-col size=\"2\">\r\n        <img src=\"{{rank.img}}\" height=\"20px\">\r\n      </ion-col>\r\n      <ion-col size=\"8\">{{rank.name}}</ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n</ion-content>"
+module.exports = "<ion-content>\n\n  <ion-button fill=\"clear\" icon-only (click)=\"back()\" style=\"position: absolute; top: 0; left: 0;\">\n    <ion-icon name=\"arrow-back\" color=\"dark\"></ion-icon>\n  </ion-button>\n  \n  <img src=\" {{isMobile ? 'assets/classement.png' : ' assets/classementDesktop.png'}}\">\n</ion-content>"
 
 /***/ }),
 
@@ -85,94 +85,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PodiumPage", function() { return PodiumPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
 
 
 var PodiumPage = /** @class */ (function () {
-    function PodiumPage() {
-        this.ranks = [
-            {
-                img: 'assets/rank1.png',
-                name: "Jean Sarkozy"
-            },
-            {
-                img: 'assets/rank2.png',
-                name: "Christophe Lambert"
-            },
-            {
-                img: 'assets/rank3.png',
-                name: "Bernadette Chirac"
-            },
-            {
-                img: 'assets/poop.png',
-                name: "Anne Hidalgo"
-            },
-            {
-                img: 'assets/poop.png',
-                name: "Anne Hidalgo"
-            },
-            {
-                img: 'assets/poop.png',
-                name: "Anne Hidalgo"
-            },
-            {
-                img: 'assets/poop.png',
-                name: "Prince William"
-            },
-            {
-                img: 'assets/poop.png',
-                name: "Naël Messaoudene"
-            },
-            {
-                img: 'assets/poop.png',
-                name: "Jean Petitjean"
-            },
-            {
-                img: 'assets/poop.png',
-                name: "Crotteur Man"
-            },
-            {
-                img: 'assets/poop.png',
-                name: "Wanna Shit"
-            },
-            {
-                img: 'assets/poop.png',
-                name: "Verre d'eau"
-            },
-            {
-                img: 'assets/poop.png',
-                name: "Verre de Cidre"
-            },
-            {
-                img: 'assets/poop.png',
-                name: "Alphonse Brown"
-            },
-            {
-                img: 'assets/poop.png',
-                name: "Babar Terroriste"
-            },
-            {
-                img: 'assets/poop.png',
-                name: "Tanhna Tropri"
-            },
-            {
-                img: 'assets/poop.png',
-                name: "Gros maigre"
-            },
-            {
-                img: 'assets/poop.png',
-                name: "Quasiment fini"
-            },
-            {
-                img: 'assets/poop.png',
-                name: "Taspa Komençai"
-            },
-            {
-                img: 'assets/poop.png',
-                name: "Untruc Carré"
-            }
-        ];
+    function PodiumPage(navCtrl, platform) {
+        this.navCtrl = navCtrl;
+        this.platform = platform;
+        this.isMobile = true;
     }
     PodiumPage.prototype.ngOnInit = function () {
+        if (!this.platform.is('mobile')) {
+            this.isMobile = false;
+        }
+    };
+    PodiumPage.prototype.back = function () {
+        this.navCtrl.pop();
     };
     PodiumPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -180,7 +109,7 @@ var PodiumPage = /** @class */ (function () {
             template: __webpack_require__(/*! ./podium.page.html */ "./src/app/podium/podium.page.html"),
             styles: [__webpack_require__(/*! ./podium.page.scss */ "./src/app/podium/podium.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"]])
     ], PodiumPage);
     return PodiumPage;
 }());

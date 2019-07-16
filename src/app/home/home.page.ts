@@ -434,6 +434,7 @@ export class HomePage implements OnInit {
   }
 
   async openUploadMenu() {
+    console.log('on ouvre la modale upload')
     if (this.isConnected) {
       const modal = await this.modalController.create({
         component: UploadPage,

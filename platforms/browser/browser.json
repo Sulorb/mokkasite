@@ -54,6 +54,9 @@
     }
   },
   "installed_plugins": {
+    "com-sarriaroman-photoviewer": {
+      "PACKAGE_NAME": "io.ionic.shitscan"
+    },
     "cordova-plugin-android-permissions": {
       "PACKAGE_NAME": "io.ionic.shitscan"
     },
@@ -126,6 +129,14 @@
   },
   "dependent_plugins": {},
   "modules": [
+    {
+      "file": "plugins/com-sarriaroman-photoviewer/www/PhotoViewer.js",
+      "id": "com-sarriaroman-photoviewer.PhotoViewer",
+      "pluginId": "com-sarriaroman-photoviewer",
+      "clobbers": [
+        "PhotoViewer"
+      ]
+    },
     {
       "file": "plugins/cordova-plugin-android-permissions/www/permissions-dummy.js",
       "id": "cordova-plugin-android-permissions.Permissions",
@@ -710,6 +721,7 @@
     }
   ],
   "plugin_metadata": {
+    "com-sarriaroman-photoviewer": "1.2.2",
     "cordova-plugin-android-permissions": "1.0.0",
     "cordova-plugin-badge": "0.8.8",
     "cordova-plugin-camera": "4.0.3",

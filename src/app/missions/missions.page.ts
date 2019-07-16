@@ -10,16 +10,16 @@ export class MissionsPage implements OnInit {
 
   missions = [
     {
-      lieu: 'ouergi'
+      lieu: 'Quai de Seine'
     },
     {
-      lieu: 'oergui'
+      lieu: 'Forêt pas vierge de déchets'
     },
     {
-      lieu: 'ougeri'
+      lieu: 'Bord de plage'
     },
     {
-      lieu: 'ougrei'
+      lieu: 'Champs'
     },
   ]
 

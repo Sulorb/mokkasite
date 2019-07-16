@@ -1,6 +1,14 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
+        "file": "plugins/com-sarriaroman-photoviewer/www/PhotoViewer.js",
+        "id": "com-sarriaroman-photoviewer.PhotoViewer",
+        "pluginId": "com-sarriaroman-photoviewer",
+        "clobbers": [
+            "PhotoViewer"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-android-permissions/www/permissions-dummy.js",
         "id": "cordova-plugin-android-permissions.Permissions",
         "pluginId": "cordova-plugin-android-permissions",
@@ -581,19 +589,12 @@ module.exports = [
         "id": "phonegap-plugin-barcodescanner.BarcodeScannerProxy",
         "pluginId": "phonegap-plugin-barcodescanner",
         "runs": true
-    },
-    {
-        "file": "plugins/com-sarriaroman-photoviewer/www/PhotoViewer.js",
-        "id": "com-sarriaroman-photoviewer.PhotoViewer",
-        "pluginId": "com-sarriaroman-photoviewer",
-        "clobbers": [
-            "PhotoViewer"
-        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
+    "com-sarriaroman-photoviewer": "1.2.2",
     "cordova-plugin-android-permissions": "1.0.0",
     "cordova-plugin-badge": "0.8.8",
     "cordova-plugin-camera": "4.0.3",
@@ -616,8 +617,7 @@ module.exports.metadata =
     "cordova-plugin-x-socialsharing": "5.4.4",
     "cordova-sqlite-storage": "3.2.0",
     "cordova.plugins.diagnostic": "4.0.12",
-    "phonegap-plugin-barcodescanner": "8.0.1",
-    "com-sarriaroman-photoviewer": "1.2.2"
+    "phonegap-plugin-barcodescanner": "8.0.1"
 }
 // BOTTOM OF METADATA
 });

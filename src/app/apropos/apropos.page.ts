@@ -17,4 +17,8 @@ export class AproposPage implements OnInit {
     this.modalCtrl.dismiss();
   }
 
+  inscription(){
+    this.navCtrl.navigateRoot('inscription')
+  }
+
 }

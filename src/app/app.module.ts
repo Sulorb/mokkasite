@@ -22,7 +22,6 @@ import { Media, MediaObject } from '@ionic-native/media/ngx';
 
 import { IonicStorageModule } from '@ionic/storage';
 
-import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -66,7 +65,6 @@ import { TutoPageModule } from './tuto/tuto.module';
     Geolocation,
     Diagnostic,
     ScreenOrientation,
-    SocialSharing,
     MediaCapture,
     Media,
     AndroidPermissions,
